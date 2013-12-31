@@ -104,6 +104,26 @@
 
       $active.removeClass('in')
     }
+    /*
+     *  @desc 创建Tab标签
+     *  @param {object} options 新建标签的配置项信息
+     *  @example
+     *    ……
+     */
+  , create: function(options){
+      var $this = this.element;
+      var iCount=$this.find(">li").length+1;
+      var sCaption="tab"+iCount;
+      $this.append('<li><a href="#tab"'+iCount+' data-toggle="tab">'+options+'</a></li>');
+      $this.next().append('<div class="tab-pane" id="tab"'+iCount+'_content></div>');
+      $this.find('a:last').tab('show');
+    }
+  , del: function(){
+      var $this = this.element;
+      var sAttr=$this.attr("href");
+      $(sAttr).remove();
+      $this.remove();
+    }
   }
 
 
@@ -139,6 +159,6 @@
   $(document).on('click.tab.data-api', '[data-toggle="tab"], [data-toggle="pill"]', function (e) {
     e.preventDefault()
     $(this).tab('show')
-  })
+  });
 
 }(window.jQuery);
