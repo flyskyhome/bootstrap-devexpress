@@ -20,13 +20,13 @@
 					<div class="tabbable">
 						<!-- Only required for left/right tabs -->
 						<ul class="nav nav-tabs" id="myTab">
-							<li class="active">
+							<li>
 								<a href="#tab1" data-toggle="tab"><i class="icon-home"></i>按钮</a>
 							</li>
 							<li>
 								<a href="#tab2" data-toggle="tab">输入框</a>
 							</li>
-							<li>
+							<li class="active">
 								<a href="#tab3" data-toggle="tab">弹出框</a>
 							</li>
 							<li>
@@ -34,7 +34,7 @@
 							</li>
 						</ul>
 						<div class="tab-content">
-							<div class="tab-pane active" id="tab1">
+							<div class="tab-pane" id="tab1">
 								<div class="row-fluid">
 									<button type="submit" class="btn btn-small w100 m10">登录</button>
 									<button type="submit" class="btn btn-small w100 m10"><i class="icon-user"></i>登录</button>
@@ -61,43 +61,38 @@
 								  <input class="span6" id="prependedInput" type="text" placeholder="Username" class="w100">
 								</div>
 							</div>
-							<div class="tab-pane" id="tab3">
+							<div class="tab-pane active" id="tab3">			
 								<div class="m10">
 									<!-- Button to trigger modal -->
-									<a href="#myModal" role="button" class="btn btn-small" data-toggle="modal">查看演示案例</a>
-									 
+									<a href="#myModal" role="button" class="btn btn-small">直接嵌入内容</a>								
+									<a href="#myModal" role="button" class="btn btn-small">嵌入ifrmae</a>								
+
 									<!-- Modal -->
-									<div id="myModal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+									<div id="myModal" class="modal hide" tabindex="-1" role="dialog" aria-hidden="true">
 									  <div class="modal-header">
 									    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-fullscreen"></i></button>
 									    编辑
 									  </div>
-									  <div class="modal-body">
-									  	<form class="form-horizontal">
-											<fieldset id="Fieldset1">
-						                        <legend id="Legend1">基本信息设置</legend>
-													<div class="row-fluid">
-														<div class="span6 control-group">
-														    <label class="control-label" for="inputEmail">组合名称</label>
-														    <div class="controls">
-														      <input type="text" id="inputEmail" placeholder="Email">
-														    </div>
-													  	</div>
-														<div class="span6 control-group">
-														    <label class="control-label" for="inputEn">英文名称</label>
-														    <div class="controls">
-														      <input type="text" id="inputEn" placeholder="Email">
-														    </div>													
-													  	</div>
-											        </div>						                        
-						                    </fieldset>
-					                	</form>
+									  <div class="modal-body">									  	
 									  </div>
 									  <div class="modal-footer">
 									    <button class="btn btn-small">保存</button>
 									    <button class="btn btn-small" data-dismiss="modal" aria-hidden="true">关闭</button>
 									  </div>
 									</div>
+									<div id="myModal" class="modal hide fade">
+									  <div class="modal-header">
+									    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+									    <h3>对话框标题</h3>
+									  </div>
+									  <div class="modal-body">
+									    <p>One fine body…</p>
+									  </div>
+									  <div class="modal-footer">
+									    <a href="#" class="btn">关闭</a>
+									    <a href="#" class="btn btn-primary">Save changes</a>
+									  </div>
+									</div>						
 								</div>
 							</div>
 							<div class="tab-pane" id="tab4">
@@ -115,23 +110,55 @@
 		<script src='js_lib/jquery-1.8.3.js'></script>
 		<script src='../js/bootstrap.js'></script>
 		<script>
-			$('#myTab a').click(function (e) {
-			  e.preventDefault();
-			  console.log($(this).text());
-			  $(this).tab('show');
-			});
+			$(function(){
+				$('#myTab a').click(function (e) {
+				  e.preventDefault();
+				  console.log($(this).text());
+				  $(this).tab('show');
+				});
 
-			$('#myTab a').live("dbclick",function(e){
-				$(this).tab("del");
+				$('#myTab a').live("dbclick",function(e){
+					$(this).tab("del");
+				})
+
+				$("#tab1 button").last().prev().click(function(e){
+					$('#myTab').tab({name:'create',info:'新建Tab'});
+				});
+
+				$("#tab1 button").last().click(function(e){
+					$('#myTab a:last').tab('del');
+				});	
+
+				$("#tab3 a").first().click(
+					function(e){
+						$('#myModal').modal({
+						  keyboard: true,
+						  backdrop:true,
+						  show:true,
+						  //remote:"http://www.bootcss.com/",
+						  //frame:"http://www.bootcss.com/",
+						  content:"O(∩_∩)O哈哈哈~",
+						  height:"450px"
+						})
+					}
+				);
+
+				$("#tab3 a").first().next().click(
+					function(e){
+						$('#myModal').modal({
+						  keyboard: true,
+						  backdrop:true,
+						  show:true,
+						  //remote:"http://www.bootcss.com/",
+						  frame:"http://www.ifeng.com/",
+						  height:"450px",
+						  width:"50%"
+						})
+					}
+				);
+
 			})
 
-			$("#tab1 button").last().prev().click(function(e){
-				$('#myTab').tab({name:'create',info:'新建Tab'});
-			});
-
-			$("#tab1 button").last().click(function(e){
-				$('#myTab a:last').tab('del');
-			});
 		</script>
 	</body>
 </html>
