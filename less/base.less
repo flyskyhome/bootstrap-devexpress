@@ -1,5 +1,4 @@
 @charset "utf-8";
-@songtiFontFamily:    '宋体';
 // 文字排版部分
 
 /*
@@ -7,12 +6,12 @@
  * @param {number} fontsize :字体大小,单位px
  * @param {object} unit :单位 ,px,%,pd,em……
  */
-.font-size(@fontsize:@baseFontSize,@unit,@unit:px) when not(@unit='%'){
-  font-size:unit(@fontsize,@unit);
+.font-size(@fontsize:@baseFontSize,@unit,@unit:px) when not(@unit='%'){  
+  .f@{fontsize} {font-size:unit(@fontsize,@unit);}
 }
 
 .font-size(@fontsize:@baseFontSize,@unit:px) when (@unit='%'){
-  font-size:percentage(@fontsize/100);
+  .f_@{fontsize} {font-size:percentage(@fontsize/100);}  
 }
 /*
  *  @desc 字体大小样式递归生成函数
@@ -21,7 +20,7 @@
  *  @param {number} step  :步长
  */
 .fX(@start,@end,@step,@unit:px) when (isnumber(@start)) and (isnumber(@end)) and (@start<=@end){
-  .f@{start} {.font-size(@start,@unit);}
+  .font-size(@start,@unit);
   .fX(@start+@step,@end,@step,@unit);
 }
 
@@ -42,15 +41,15 @@
  * @param {object} unit :单位 ,px,%,pd,em……
  */
 .line-height(@lineheight:@baseLineHeight,@unit:px) when(@unit='%'){
-  line-height: percentage(@lineheight/100);
+  .lh_@{lineheight} { line-height:percentage(@lineheight/100);}
 }
 
-.line-height(@lineheight:@baseLineHeight,@unit:px) when not (@unit='%'){
-  line-height: unit(@lineheight,@unit);
+.line-height(@lineheight:@baseLineHeight,@unit:px) when not (@unit='%'){  
+  .lh_@{lineheight} {line-height: unit(@lineheight,@unit);}
 }
 
 .lhX(@start,@end,@step,@unit:px) when (isnumber(@start)) and (isnumber(@end)) and (@start<=@end){
-  .lh@{start} {.line-height(@start,@unit);}
+  .line-height(@start,@unit);
   .lhX(@start+@step,@end,@step,@unit);
 }
 
@@ -83,12 +82,12 @@
  * @desc 宽度定义函数
  * @default 10px
  */
-.width(@width:10,@unit:px) when not (@unit='%'){
-  width:unit(@width,@unit);
+.width(@width:10,@unit:px) when not (@unit='%'){  
+  .w@{width} {width:unit(@width,@unit);}  
 }
 
 .width(@width:10,@unit:px) when (@unit='%'){
-  width:percentage(@width/100);
+  .w_@{width} {width:percentage(@width/100);}
 }
 /*
  *  @desc 宽度样式递归生成函数
@@ -96,7 +95,7 @@
  *  @param {number} step  :步长
  */
 .wX(@start,@end,@step,@unit:px) when (isnumber(@start)) and (isnumber(@end)) and (@start<=@end){
-  .w@{start} {.width(@start,@unit);}
+  .width(@start,@unit);
   .wX(@start+@step,@end,@step,@unit);
 }
 
@@ -106,18 +105,18 @@
 .wX(200,800,100);
 
 // 定义百分比宽度
-.wX(98,99,1,'%');
+.wX(98,100,1,'%');
 
 /*
  * @desc 高度定义函数
  * @default 10px
  */
-.height(@width:10,@unit:px) when not (@unit='%'){
-  height:unit(@width,@unit);
+.height(@height:10,@unit:px) when not (@unit='%'){  
+  .h@{height} {height:unit(@height,@unit);}
 }
 
-.height(@width:10,@unit:px) when (@unit='%'){
-  height:percentage(@width/100);
+.height(@height:10,@unit:px) when (@unit='%'){  
+  .h_@{height} {height:percentage(@height/100);}
 }
 /*
  *  @desc 高度样式递归生成函数
@@ -125,7 +124,7 @@
  *  @param {number} step  :步长
  */
 .hX(@start,@end,@step,@unit:px) when (isnumber(@start)) and (isnumber(@end)) and (@start<=@end){
-  .h@{start} {.height(@start,@unit);}
+  .height(@start,@unit);
   .hX(@start+@step,@end,@step,@unit);
 }
 
@@ -161,23 +160,23 @@
  *  @desc 外边距百分比分支处理
  */
 .mPer(@width,@pre) when(@pre=''){
-  margin:percentage(@width/100);  
+  .m_@{width} {margin:percentage(@width/100);};
 }
 
 .mPer(@width,@pre:'') when (@pre=t){
-  .m@{pre}@{width} {margin-top:percentage(@width/100);}
+  .m@{pre}_@{width} {margin-top:percentage(@width/100);}
 }
 
 .mPer(@width,@pre:'') when (@pre=b){
-  .m@{pre}@{width} {margin-bottom:percentage(@width/100);}
+  .m@{pre}_@{width} {margin-bottom:percentage(@width/100);}
 }
 
 .mPer(@width,@pre:'') when (@pre=l){
-  .m@{pre}@{width} {margin-left:percentage(@width/100);}
+  .m@{pre}_@{width} {margin-left:percentage(@width/100);}
 }
 
 .mPer(@width,@pre:'') when (@pre=r){
-  .m@{pre}@{width} {margin-right:percentage(@width/100);}
+  .m@{pre}_@{width} {margin-right:percentage(@width/100);}
 }
 
 /*
@@ -254,24 +253,24 @@
 /*
  *  @desc 内边距百分比分支处理
  */
-.pPer(@width,@pre) when(@pre=''){
-  padding:percentage(@width/100); 
+.pPer(@width,@pre) when(@pre=''){  
+ .p_@{width} {padding:percentage(@width/100);}
 }
 
 .pPer(@width,@pre:'') when (@pre=t){
-  .p@{pre}@{width} {padding-top:percentage(@width/100);}
+  .p@{pre}_@{width} {padding-top:percentage(@width/100);}
 }
 
 .pPer(@width,@pre:'') when (@pre=b){
-  .p@{pre}@{width} {padding-bottom:percentage(@width/100);}
+  .p@{pre}_@{width} {padding-bottom:percentage(@width/100);}
 }
 
 .pPer(@width,@pre:'') when (@pre=l){
-  .p@{pre}@{width} {padding-left:percentage(@width/100);}
+  .p@{pre}_@{width} {padding-left:percentage(@width/100);}
 }
 
 .pPer(@width,@pre:'') when (@pre=r){
-  .p@{pre}@{width} {padding-right:percentage(@width/100);}
+  .p@{pre}_@{width} {padding-right:percentage(@width/100);}
 }
 
 /*
@@ -302,7 +301,7 @@
   .pX(@start+@step,@end,@step,@pre,@unit);
 }
 
-.pX(10,15,5);
+.pX(0,15,5);
 .pX(30,30,5);
 
 .pX(5,20,5,t);
