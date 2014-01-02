@@ -21,16 +21,19 @@
 !function ($) {
 
   "use strict"; // jshint ;_;
+  
 
-
- /* MODAL CLASS DEFINITION
-  * ====================== */
-
-  var Modal = function (element, options) {
-    this.options = options
+  //var Modal = function (element, options) {
+  var Modal = function (element) {
+    //this.options = options
     this.$element = $(element)
       .delegate('[data-dismiss="modal"]', 'click.dismiss.modal', $.proxy(this.hide, this))
-    this.options.remote && this.$element.find('.modal-body').load(this.options.remote)
+    /*
+    this.options.remote && (
+      this.$element.find('.modal-body').html("") &&
+      this.$element.find('.modal-body').load(this.options.remote)
+    );
+    */
   }
 
   Modal.prototype = {
@@ -41,9 +44,10 @@
         return this[!this.isShown ? 'show' : 'hide']()
       }
 
-    , show: function () {
+    , show: function (options) {
+        this.options=options;
         var that = this
-          , e = $.Event('show')
+          , e = $.Event('show');
 
         this.$element.trigger(e)
 
@@ -55,6 +59,58 @@
 
         this.backdrop(function () {
           var transition = $.support.transition && that.$element.hasClass('fade')
+          var opt=that.options
+            , ele=that.$element
+            , elebody=ele.find('.modal-body')
+            // 后缀
+            , suf
+            // 真实数字
+            , num
+            //  判断是否存在高和宽的设置标识
+            , hwCss;
+
+          if(opt.height){            
+            hwCss={height:opt.height};
+          }
+
+          if(opt.width){
+            hwCss['width']=opt.width;
+
+            if(opt.width.substr(opt.width.length-1,1)=='%'){
+              suf="%";
+              num=opt.width.substr(0,opt.width.length-1);
+            }
+            else{
+              suf="px";
+              num=opt.width.substr(0,opt.width.length-2);
+            }
+            
+            hwCss['margin-left']=(0-num/2)+suf;
+          }
+
+          ele.removeAttr("style"); 
+          if(hwCss){
+            ele.css(hwCss);
+            if(hwCss['height']){
+              elebody.css({height:hwCss['height']})              
+            }
+          }
+
+          if(opt.remote){
+            elebody.html("");
+            elebody.load(that.options.remote);
+          }
+
+          if(opt.frame){
+            elebody.html("");
+            elebody.css("padding","0");
+            elebody.append("<iframe frameborder='0' scrolling='no' src='"+opt.frame+"' class='w_100 h_100'></iframe>");
+          }
+          
+          if(opt.content){
+            elebody.html("");
+            elebody.append(opt.content);
+          }
 
           if (!that.$element.parent().length) {
             that.$element.appendTo(document.body) //don't move modals dom position
@@ -202,9 +258,10 @@
       var $this = $(this)
         , data = $this.data('modal')
         , options = $.extend({}, $.fn.modal.defaults, $this.data(), typeof option == 'object' && option)
-      if (!data) $this.data('modal', (data = new Modal(this, options)))
+//      if (!data) $this.data('modal', (data = new Modal(this, options)))
+      if (!data) $this.data('modal', (data = new Modal(this)))
       if (typeof option == 'string') data[option]()
-      else if (options.show) data.show()
+      else if (options.show) data.show(options)
     })
   }
 
