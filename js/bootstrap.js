@@ -1857,7 +1857,7 @@
       $this.next().append('<div class="tab-pane" id="tab"'+iCount+'_content></div>');
       $this.find('a:last').tab('show');
     }
-  , del: function(){
+  , remove: function(){
       var $this = this.element;
       var sAttr=$this.attr("href");
       $(sAttr).remove();
