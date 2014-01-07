@@ -30,7 +30,10 @@
 								<a href="#tab3" data-toggle="tab">弹出框</a>
 							</li>
 							<li>
-								<a href="#tab4" data-toggle="tab">资源站</a>
+								<a href="#tab4" data-toggle="tab">分割框架</a>
+							</li>
+							<li>
+								<a href="#tab5" data-toggle="tab">资源站</a>
 							</li>
 						</ul>
 						<div class="tab-content">
@@ -57,7 +60,7 @@
 								  <span class="add-on"><button class="btn">…</button></span>
 								  <span class="add-on"><button class="btn disabled">…</button></span>
 								  <span class="add-on"><button class="btn"><i class="icon-fullscreen"></i></button></span>
-								  <span class="add-on"><button class="btn disabled"><i class="icon-chevron-down"></i></button></span>
+								  <span class="add-on"><button class="tn disabled"><i class="icon-chevron-down"></i></button></span>
 								  <input class="span6" id="prependedInput" type="text" placeholder="Username" class="w100">
 								</div>
 							</div>
@@ -95,7 +98,42 @@
 									</div>						
 								</div>
 							</div>
-							<div class="tab-pane" id="tab4">
+							<div class="tab-pane" id="tab4">									
+								<div id="MySplitter" class="mt5 ml5">
+								    <div id="LeftPane">
+								        <p>This is the left side of the vertical splitter. Typically you might use this side for a navigational display of some data that is related to the right side.</p>
+								        <p>Using CSS styles you can control the look of the splitter, such as its color, width, and appearance when selected. Or, you can specify most options when you call the plugin to create the splitter.</p>
+								    
+								        <p><a href="javascript:void($('#MySplitter').trigger('toggleDock'))">trigger toggleDock</a></p>
+								        <p><a href="javascript:void($('#MySplitter').trigger('dock'))">trigger dock</a></p>
+								        <p><a href="javascript:void($('#MySplitter').trigger('undock'))">trigger undock</a></p>
+								        <p><a href="javascript:void($('#MySplitter').trigger('destroy'))">trigger destroy</a></p>
+								        
+								    </div>
+								    <div id="RightPane" style="border-width:0">
+								    	<div id="R1">
+								        <p>This is the right side of the vertical splitter. Usually this side will be wider than the left side, but that's up to you. The left pane of this demo was set to be 150 pixels wide in the stylesheet, which is why the right pane is initially larger. If you don't specify a width for either panes when the splitter is created, the two panes will be equal width.</p>
+								        
+								                <p>This is the right side of the vertical splitter. Usually this side will be wider than the left side, but that's up to you. The left pane of this demo was set to be 150 pixels wide in the stylesheet, which is why the right pane is initially larger. If you don't specify a width for either panes when the splitter is created, the two panes will be equal width.</p>
+								                
+								                        <p>This is the right side of the vertical splitter. Usually this side will be wider than the left side, but that's up to you. The left pane of this demo was set to be 150 pixels wide in the stylesheet, which is why the right pane is initially larger. If you don't specify a width for either panes when the splitter is created, the two panes will be equal width.</p>
+
+								        <p>The splitter plugin supports the use of the keyboard to move the splitbar via the browser's accessKey feature. To move the splitbar in IE or Firefox, press <kbd>Alt-Shift-L</kbd>, then press the arrow keys. To unfocus the splitbar, press <kbd>Tab</kbd>. In Opera, press <kbd>Shift-Esc</kbd> and then the letter <kbd>L</kbd>; remove focus with <kbd>Esc</kbd>.</p>
+								        </div>
+								        <div id="R2" style="border-width:0">
+									        <div id="R3">
+										        <p><a href="javascript:void($('#RightPane').trigger('toggleDock'))">trigger toggleDock</a></p>
+										        <p><a href="javascript:void($('#RightPane').trigger('dock'))">trigger dock</a></p>
+									    	</div>
+									    	<div id="R4">
+										        <p><a href="javascript:void($('#RightPane').trigger('undock'))">trigger undock</a></p>
+										        <p><a href="javascript:void($('#RightPane').trigger('destroy'))">trigger destroy</a></p>
+									    	</div>
+								    	</div>
+								    </div> 
+								</div>
+							</div>
+							<div class="tab-pane" id="tab5">
 								<ul class="nav nav-tabs nav-stacked">
 								  <li><a target="_blank" href="http://exacttarget.github.io/fuelux/">fuelux</a></li>
 								  <li><a target="_blank" href="http://jasny.github.io/bootstrap/index.html">Jasny</a></li>
@@ -108,7 +146,9 @@
 			</div>
 		</div>
 		<script src='js_lib/jquery-1.8.3.js'></script>
+		<!--script src='js_lib/jquery.cookie.js'></script-->
 		<script src='../js/bootstrap.js'></script>
+		<script src='../js/bootstrap-splitter.js'></script>
 		<script>
 			$(function(){
 				$('#myTab a').click(function (e) {
@@ -117,16 +157,12 @@
 				  $(this).tab('show');
 				});
 
-				$('#myTab a').live("dbclick",function(e){
-					$(this).tab("del");
-				})
-
 				$("#tab1 button").last().prev().click(function(e){
 					$('#myTab').tab({name:'create',info:'新建Tab'});
 				});
 
 				$("#tab1 button").last().click(function(e){
-					$('#myTab a:last').tab('del');
+					$('#myTab a:last').tab('remove');
 				});	
 
 				$("#tab3 a").first().click(
@@ -156,6 +192,68 @@
 						})
 					}
 				);
+
+				$('a[data-toggle="tab"]').on('shown', function (e) {
+				  //e.target // activated tab
+				  //e.relatedTarget // previous tab
+				  if(e.target.href.indexOf("tab4")>0){
+				  	
+				    $("#MySplitter").height($("#MySplitter").parent().height()).splitter('create',{
+				        type: "h",
+				        dock: "top",
+						outline: true,
+						//minLeft: 100, sizeLeft: 150,// maxLeft: 250,
+						//anchorToWindow: true,
+						//resizeToWidth:true,			        
+				        //minLeft:100
+				        dragEnd:function(){alert("dd");}
+				    });					
+				    
+				    $("#RightPane").css({"overflow":"hidden"}).splitter('create',{
+				        type: "v",
+						//outline: true,
+				        //dock: "right",
+						//minRight: 100//, sizeRight: 150//, maxRight: 250,				        
+				        //anchorToWindow: true
+				        //sizeLeft:100
+				        dragEnd:function(){alert("ee");}
+				    });
+					
+				    $("#R2").css({"overflow":"hidden"}).splitter('create',{
+				        type: "h",
+						//outline: true,
+				        //dock: "right",
+						//minRight: 100//, sizeRight: 150//, maxRight: 250,				        
+				        //anchorToWindow: true
+				        //sizeLeft:100      
+				        dragEnd:function(){alert("ff");}
+				    });					
+				  }
+				})
+
+
+			    /*
+			    $("#RightPane").splitter('show',{
+			        type: "v",
+			        dock: "top",
+			        sizeLeft:100			        
+			    }).css("overflow","hidden").css("border","none");
+				*/
+			    /*
+			    $("#MySplitter").splitter('show',{
+			        type: "v",
+			        outline: true,
+			        sizeLeft: 150,
+			        minLeft: 100,
+			        minRight: 100,
+			        resizeToWidth: true,
+			        dock: "right",
+			        dockSpeed: 200,
+			        //cookie: "docksplitter",
+			        //dockKey: 'Z',   // Alt-Shift-Z in FF/IE
+			        accessKey: 'I'  // Alt-Shift-I in FF/IE
+			    });
+				*/
 
 			})
 
