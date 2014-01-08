@@ -115,12 +115,10 @@
 						width:B.width()
 					}
 				};
-				console.log("mouseup");
-				evt.data.eventObj && typeof evt.data.eventObj == "function" && evt.data.eventObj(outputObj);				
+				evt.data.eventObj.onresize && typeof evt.data.eventObj.onresize == "function" && evt.data.eventObj.onresize(outputObj);				
 			}
 
-			function resplit(pos,eventObj) {
-				console.log("in resplit");
+			function resplit(pos) {
 				bar._DA = bar[0][opts.pxSplit]; // bar size may change during dock
 				// Constrain new splitbar position to fit pane size and docking limits
 				if ((opts.dockPane == A && pos < Math.max(A._min, bar._DA)) || (opts.dockPane == B && pos > Math.min(pos, A._max, splitter._DA - bar._DA - B._min))) {
@@ -334,7 +332,7 @@
 				"-moz-user-select": "none",
 				"z-index": "100"
 			}).bind("mousedown" + opts.eventNamespace, {
-				eventObj: opts.onresize
+				eventObj: opts.event
 			}, startSplitMouse).bind("mouseover" + opts.eventNamespace, function() {
 				$(this).addClass(opts.barHoverClass);
 			}).bind("mouseout" + opts.eventNamespace, function() {
@@ -411,9 +409,7 @@
 						B.removeClass(opts.noshow);
 					}
 
-				console.log("dblclick")					
-
-				}).bind("dock" + opts.eventNamespace, function(evt) {
+				}).bind("dock" + opts.eventNamespace, function() {
 					//var pw = A[0][opts.pxSplit];
 					var pw = A[0][opts.pxSplit] - getPanelBorderSize(opts.type, A[0]);
 
@@ -428,7 +424,7 @@
 						resplit(x[opts.origin]);
 					});
 
-				}).bind("undock" + opts.eventNamespace, function(evt) {
+				}).bind("undock" + opts.eventNamespace, function() {
 					var pw = A[0][opts.pxcSplit] > 0 && splitter._DA - bar._DA > A[0][opts.pxSplit];
 
 					if (pw) return;
