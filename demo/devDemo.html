@@ -201,7 +201,7 @@
 				    $("#MySplitter").height($("#MySplitter").parent().height()).splitter('create',{
 				        type: "h",
 				        dock: "top",
-						outline: true,
+						//outline: true,
 						//minLeft: 100, sizeLeft: 150,// maxLeft: 250,
 						anchorToWindow: true,
 						//resizeToWidth:true,			        
@@ -211,10 +211,10 @@
 				        	console.log('a.height:'+obj.A.height);
 				        }				        
 				    });					
-				    /*
+				    
 				    $("#RightPane").css({"overflow":"hidden"}).splitter('create',{
 				        type: "v",
-						outline: true,
+						//outline: true,
 				        dock: "right"//,
 						//minRight: 100//, sizeRight: 150//, maxRight: 250,				        
 				        //anchorToWindow: true
@@ -223,14 +223,13 @@
 					
 				    $("#R2").css({"overflow":"hidden"}).splitter('create',{
 				        type: "h",
-						outline: true,
+						//outline: true,
 				        dock: "top",
 						//minRight: 100//, sizeRight: 150//, maxRight: 250,				        
 				        //anchorToWindow: true
 				        //sizeLeft:100      
 				        onresize:function(){alert("ff");}
-				    });		
-				    */			
+				    });					    
 				  }
 				})
 
