@@ -62,8 +62,10 @@
 
 			function startSplitMouse(evt) {
 				if (evt.which != 1) return; // left button only
+				bar._startpos = A[0][opts.pxSplit];
+
 				bar.removeClass(opts.barHoverClass);
-				if (opts.outline) {
+				if (1||opts.outline) {
 					zombie = zombie || bar.clone(false).insertAfter(A);
 					bar.removeClass(opts.barDockedClass);
 				}
@@ -81,7 +83,7 @@
 
 				A.removeClass(opts.noshow); //css("display","");
 				B.removeClass(opts.noshow); //css("display","");
-				if (opts.outline) {
+				if (1||opts.outline) {
 					// Let docking splitbar be dragged to the dock position, even if min width applies
 					if ((opts.dockPane == A && pos < Math.max(A._min, bar._DA)) || (opts.dockPane == B && pos > Math.min(pos, A._max, splitter._DA - bar._DA - B._min))) {
 						bar.addClass(opts.barDockedClass).css(opts.origin, range);
@@ -97,7 +99,7 @@
 				setBarState(opts.barNormalClass);
 				bar.addClass(opts.barHoverClass);
 				var pos = A._posSplit + evt[opts.eventPos];
-				if (opts.outline) {
+				if (1||opts.outline) {
 					zombie && zombie.remove();
 					zombie = null;
 					resplit(pos);
@@ -105,22 +107,21 @@
 				panes.css("-webkit-user-select", "text").find("iframe").removeClass(opts.iframeClass);
 				$(document).unbind("mousemove" + opts.eventNamespace + " mouseup" + opts.eventNamespace);
 
-				var outputObj={
-					A:{
-						height:A.height(),
-						width:A.width()
+				var outputObj = {
+					A: {
+						height: A.height(),
+						width: A.width()
 					},
-					B:{
-						height:B.height(),
-						width:B.width()
+					B: {
+						height: B.height(),
+						width: B.width()
 					}
 				};
-				console.log("mouseup");
-				evt.data.eventObj && typeof evt.data.eventObj == "function" && evt.data.eventObj(outputObj);				
+				// 判断开始位置是否和结束位置一致，事件对象是否为函数类型，然后执行
+				bar._startpos != A[0][opts.pxSplit] && evt.data.eventObj && typeof evt.data.eventObj == "function" && evt.data.eventObj(outputObj);
 			}
 
-			function resplit(pos,eventObj) {
-				console.log("in resplit");
+			function resplit(pos, eventObj) {
 				bar._DA = bar[0][opts.pxSplit]; // bar size may change during dock
 				// Constrain new splitbar position to fit pane size and docking limits
 				if ((opts.dockPane == A && pos < Math.max(A._min, bar._DA)) || (opts.dockPane == B && pos > Math.min(pos, A._max, splitter._DA - bar._DA - B._min))) {
@@ -163,6 +164,17 @@
 
 				//				A.css(opts.origin, 0).css(opts.split, pos-2).css(opts.fixed, splitter._DF-2);
 				//				B.css(opts.origin, pos + bar._DA).css(opts.split, splitter._DA - bar._DA - pos-2).css(opts.fixed, splitter._DF-2);
+				var outputObj = {
+					A: {
+						height: A.height(),
+						width: A.width()
+					},
+					B: {
+						height: B.height(),
+						width: B.width()
+					}
+				};
+				eventObj && typeof eventObj == "function" && eventObj(outputObj);
 				// IE fires resize for us; all others pay cash
 				if (!resize_auto_fired()) panes.trigger("resize");
 			}
@@ -175,7 +187,7 @@
 				return sum;
 			}
 
-			function resize(size) {
+			function resize(size, sign) {
 				// Determine new width/height of splitter container
 				splitter._DF = splitter[0][opts.pxFixed] - splitter._PBF;
 				splitter._DA = splitter[0][opts.pxSplit] - splitter._PBA;
@@ -189,7 +201,7 @@
 				splitter._oldH = splitter.height();
 
 				// Re-divvy the adjustable dimension; maintain size of the preferred pane
-				resplit(!isNaN(size) ? size : (!(opts.sizeRight || opts.sizeBottom) ? A[0][opts.pxSplit] : splitter._DA - B[0][opts.pxSplit] - bar._DA));
+				resplit(!isNaN(size) ? size : (!(opts.sizeRight || opts.sizeBottom) ? A[0][opts.pxSplit] : splitter._DA - B[0][opts.pxSplit] - bar._DA), opts.onresize);
 				setBarState(opts.barNormalClass);
 			}
 
@@ -388,7 +400,7 @@
 					var top = splitter.offset().top;
 					var eh = $(opts.resizeTo).height();
 					splitter.css("height", Math.max(eh - top - splitter._hadjust, splitter._hmin) + "px");
-					if (!resize_auto_fired()) splitter.triggerHandler("resize");
+					if (!resize_auto_fired()) resize(); //splitter.triggerHandler("resize");
 				}).triggerHandler("resize" + opts.eventNamespace);
 			} else if (opts.resizeToWidth && !resize_auto_fired()) {
 				$(window).bind("resize" + opts.eventNamespace, function() {
@@ -411,8 +423,6 @@
 						B.removeClass(opts.noshow);
 					}
 
-				console.log("dblclick")					
-
 				}).bind("dock" + opts.eventNamespace, function(evt) {
 					//var pw = A[0][opts.pxSplit];
 					var pw = A[0][opts.pxSplit] - getPanelBorderSize(opts.type, A[0]);
@@ -420,12 +430,11 @@
 					if (!pw) return;
 					//保存原有位置,以便undock时恢复
 					bar._oldpos = A[0][opts.pxSplit];
-
 					var x = {};
 					x[opts.origin] = opts.dockPane == A ? 0 : splitter[0][opts.pxSplit] - splitter._PBA - bar[0][opts.pxSplit];
 					bar.animate(x, opts.dockSpeed || 1, opts.dockEasing, function() {
 						bar.addClass(opts.barDockedClass);
-						resplit(x[opts.origin]);
+						resplit(x[opts.origin], opts.onresize);
 					});
 
 				}).bind("undock" + opts.eventNamespace, function(evt) {
@@ -435,7 +444,7 @@
 					var x = {};
 					x[opts.origin] = bar._oldpos + "px";
 					bar.removeClass(opts.barDockedClass).animate(x, opts.undockSpeed || opts.dockSpeed || 1, opts.undockEasing || opts.dockEasing, function() {
-						resplit(bar._oldpos);
+						resplit(bar._oldpos, opts.onresize);
 						bar._oldpos = null;
 					});
 				});
@@ -505,7 +514,7 @@
 		if (iCount > 0) {
 			//处理第一个
 			$target = $($targetList[0])
-			option = $target.data('splitter') ? 'create' : $.extend($target.data(), $this.data())			
+			option = $target.data('splitter') ? 'create' : $.extend($target.data(), $this.data())
 			$target.splitter('create', option);
 			//处理多重分割
 			for (var i = 1; i < iCount; i++) {

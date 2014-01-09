@@ -100,7 +100,7 @@
 							</div>
 							<div class="tab-pane" id="tab4">
 								<a class="btn btn-small" data-toggle="splitter" data-target="[splitter-parent]">点击触发创建 Splitter</a>
-								<div id="MySplitter" class="mt5 ml5" splitter-parent style="height:400px">
+								<div id="MySplitter" class="mt5 ml5" splitter-parent style="height:400px" data-type="h" data-dock="top">
 								    <div id="LeftPane">
 								        <p>This is the left side of the vertical splitter. Typically you might use this side for a navigational display of some data that is related to the right side.</p>
 								        <p>Using CSS styles you can control the look of the splitter, such as its color, width, and appearance when selected. Or, you can specify most options when you call the plugin to create the splitter.</p>
@@ -111,7 +111,7 @@
 								        <p><a href="javascript:void($('#MySplitter').trigger('destroy'))">trigger destroy</a></p>
 								        
 								    </div>
-								    <div id="RightPane" style="border-width:0" splitter-parent>
+								    <div id="RightPane" style="border-width:0" splitter-parent data-type="v" data-dock="right">
 								    	<div id="R1">
 								        <p>This is the right side of the vertical splitter. Usually this side will be wider than the left side, but that's up to you. The left pane of this demo was set to be 150 pixels wide in the stylesheet, which is why the right pane is initially larger. If you don't specify a width for either panes when the splitter is created, the two panes will be equal width.</p>
 								        
@@ -121,7 +121,7 @@
 
 								        <p>The splitter plugin supports the use of the keyboard to move the splitbar via the browser's accessKey feature. To move the splitbar in IE or Firefox, press <kbd>Alt-Shift-L</kbd>, then press the arrow keys. To unfocus the splitbar, press <kbd>Tab</kbd>. In Opera, press <kbd>Shift-Esc</kbd> and then the letter <kbd>L</kbd>; remove focus with <kbd>Esc</kbd>.</p>
 								        </div>
-								        <div id="R2" style="border-width:0" splitter-parent>
+								        <div id="R2" style="border-width:0" splitter-parent data-type="h" data-dock="top">
 									        <div id="R3">
 										        <p><a href="javascript:void($('#RightPane').trigger('toggleDock'))">trigger toggleDock</a></p>
 										        <p><a href="javascript:void($('#RightPane').trigger('dock'))">trigger dock</a></p>
@@ -197,39 +197,40 @@
 				  //e.target // activated tab
 				  //e.relatedTarget // previous tab
 				  if(e.target.href.indexOf("tab4")>0){
-				  	//return;
+
 				    $("#MySplitter").height($("#MySplitter").parent().height()).splitter('create',{
 				        type: "h",
 				        dock: "top",
-						//outline: true,
+						outline: true,
 						//minLeft: 100, sizeLeft: 150,// maxLeft: 250,
-						//anchorToWindow: true,
-						resizeToWidth:true,			        
+						anchorToWindow: true,
+						//resizeToWidth:true,			        
 				        //minLeft:100
 				        onresize:function(obj){
+				        	alert("bb");
 				        	console.log('a.height:'+obj.A.height);
 				        }				        
 				    });					
-				    
+				    /*
 				    $("#RightPane").css({"overflow":"hidden"}).splitter('create',{
 				        type: "v",
-						//outline: true,
+						outline: true,
 				        dock: "right"//,
 						//minRight: 100//, sizeRight: 150//, maxRight: 250,				        
 				        //anchorToWindow: true
 				        //sizeLeft:100
-				        //dragEnd:function(){alert("ee");}
 				    });
 					
 				    $("#R2").css({"overflow":"hidden"}).splitter('create',{
 				        type: "h",
-						//outline: true,
-				        //dock: "right",
+						outline: true,
+				        dock: "top",
 						//minRight: 100//, sizeRight: 150//, maxRight: 250,				        
 				        //anchorToWindow: true
 				        //sizeLeft:100      
-				        dragEnd:function(){alert("ff");}
-				    });					
+				        onresize:function(){alert("ff");}
+				    });		
+				    */			
 				  }
 				})
 
