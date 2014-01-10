@@ -1,7 +1,15 @@
+
+@loginHeight :@baseLineHeight/2;    //10px
+@loginLineHeight:@baseLineHeight*3 + 6; //66px
+
+body {
+  line-height: @baseLineHeight - 6;//14px
+}
+
 .login_t(){
     background-color: @devGrayDarker;
     float: left;
-    height: @baseLineHeight*3+6;
+    height: @loginLineHeight; //66px
 }
 
 .div_login_t_l
@@ -11,16 +19,16 @@
     background-image: url(../../../Resources/Image/t_l.gif);
     background-position: left top;
     background-repeat: no-repeat;
-    width: @baseLineHeight/2;
+    width: @loginHeight ; //10px
 }
 
 .div_login_t_c
 {
     .login_t;
 
-    width: @baseLineHeight*11+4;
+    width: @baseLineHeight*11+4;  //224px
     text-align: left;
-    line-height: @baseLineHeight*3+6;
+    line-height: @loginLineHeight;
 }
 
 .div_login_t_r
@@ -30,7 +38,7 @@
     background-image: url(../../../Resources/Image/t_r.gif);
     background-position: right top;
     background-repeat: no-repeat;
-    width: @baseLineHeight*3+6;
+    width: @loginLineHeight;
 }
 
 .div_login_b_l
@@ -39,15 +47,15 @@
     background-position: left top;
     background-repeat: no-repeat;
     float: left;
-    height: @baseLineHeight/2;
-    width: @baseLineHeight/2;
+    height: @loginHeight ;
+    width: @loginHeight ;
 }
 
 .div_login_b_c
 {
     float: left;
     width: 280px;
-    height: @baseLineHeight/2;
+    height: @loginHeight ;
     font-size: 8px;
     border-style: none none solid;
     border-color: #cdcdcd;
@@ -60,8 +68,8 @@
     background-position: right top;
     background-repeat: no-repeat;
     float: left;
-    width: @baseLineHeight/2;
-    height: @baseLineHeight/2;
+    width: @loginHeight ;
+    height: @loginHeight ;
 }
 
 .div_login_tab
@@ -69,8 +77,8 @@
     border-style: solid solid none;
     border-color: #cdcdcd;
     border-width: 1px;
-    padding-left: @baseLineHeight/2;
-    padding-right: @baseLineHeight/2;
+    padding-left: @loginHeight ;
+    padding-right: @loginHeight ;
 }
 
 .logoBar{background: url('../../../Resources/Images/top_bg.jpg' ) repeat-x center center;}
