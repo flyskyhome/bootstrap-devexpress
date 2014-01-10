@@ -1851,17 +1851,23 @@
     }
   , create: function(options){
       var $this = this.element;
-      var iCount=$this.find(">li").length+1;
-      var sCaption="tab"+iCount;
-      $this.append('<li><a href="#tab"'+iCount+' data-toggle="tab">'+options+'</a></li>');
-      $this.next().append('<div class="tab-pane" id="tab"'+iCount+'_content></div>');
+      
+      var iSign=($this.find("> li > a[data-toggle='tab']").last().attr("href").replace("#tab","") - 0) + 1;
+
+      var sCaption="tab"+iSign;
+
+      $this.append('<li><a href="#tab'+iSign+'" data-toggle="tab">'+options+'</a></li>');
+      $this.next().append('<div class="tab-pane" id="tab'+iSign+'"></div>');
       $this.find('a:last').tab('show');
     }
   , remove: function(){
       var $this = this.element;
+      // 获取tab body 标识
       var sAttr=$this.attr("href");
+      // 删除tab body
       $(sAttr).remove();
-      $this.remove();
+      // 删除tab
+      $this.parent().remove();
     }
   }
 
