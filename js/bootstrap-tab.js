@@ -26,15 +26,30 @@
  /* TAB CLASS DEFINITION
   * ==================== */
 
+  /**
+   * @name Tab
+   * @constructor
+   * @param {string} element jQuery dom 选择器
+   * @type jQuery
+   */ 
+  
   var Tab = function (element) {
     this.element = $(element)
   }
 
-  Tab.prototype = {
-
-    constructor: Tab
-
-  , show: function () {
+  Tab.prototype = 
+  /** @lends Tab.prototype */{
+    /**
+     * Tab 实例
+     * @ins
+     */   
+    constructor: Tab,     
+    /**
+     * Tab 显示函数
+     * @example
+     *   $(sSign).tab("show");
+     */
+    show: function () {
       var $this = this.element
         , $ul = $this.closest('ul:not(.dropdown-menu)')
         , selector = $this.attr('data-target')
@@ -68,9 +83,9 @@
         , relatedTarget: previous
         })
       })
-    }
+    },
 
-  , activate: function ( element, container, callback) {
+    activate: function ( element, container, callback) {
       var $active = container.find('> .active')
         , transition = callback
             && $.support.transition
@@ -103,14 +118,14 @@
         next()
 
       $active.removeClass('in')
-    }
-    /*
+    },
+    /**
      *  @desc 创建Tab标签
      *  @param {object} options 新建标签的配置项信息
      *  @example
-     *    ……
+     *    $(sSign).tab('create',options)
      */
-  , create: function(options){
+    create: function(options){
       var $this = this.element;
       
       var iSign=($this.find("> li > a[data-toggle='tab']").last().attr("href").replace("#tab","") - 0) + 1;
@@ -120,8 +135,13 @@
       $this.append('<li><a href="#tab'+iSign+'" data-toggle="tab">'+options+'</a></li>');
       $this.next().append('<div class="tab-pane" id="tab'+iSign+'"></div>');
       $this.find('a:last').tab('show');
-    }
-  , remove: function(){
+    },
+    /**
+     * 删除一个标签页
+     * @example
+     *   $(sSign).tab("remove");
+     */
+    remove: function(){
       var $this = this.element;
       // 获取tab body 标识
       var sAttr=$this.attr("href");
