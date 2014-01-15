@@ -22,22 +22,23 @@
 
   "use strict"; // jshint ;_;
   
-
-  //var Modal = function (element, options) {
+  /**
+   * @name Modal
+   * @constructor
+   * @param {string} element jQuery选择器
+   * @type jQuery
+   */
   var Modal = function (element) {
-    //this.options = options
     this.$element = $(element)
       .delegate('[data-dismiss="modal"]', 'click.dismiss.modal', $.proxy(this.hide, this))
-    /*
-    this.options.remote && (
-      this.$element.find('.modal-body').html("") &&
-      this.$element.find('.modal-body').load(this.options.remote)
-    );
-    */
   }
 
-  Modal.prototype = {
-
+  Modal.prototype = 
+  /** @lends Modal.prototype */{
+      /**
+       * Modal 的一个实例
+       * @instance
+       */
       constructor: Modal
 
     , toggle: function () {
@@ -66,11 +67,15 @@
             , suf
             // 真实数字
             , num
-            //  判断是否存在高和宽的设置标识
-            , hwCss;
+            //  整体样式
+            , hwCss={}
+            // body的height样式
+            , bhCss;
 
           if(opt.height){            
-            hwCss={height:opt.height};
+            //hwCss={"margin-top":(0-ele.height())/2)+"px"};
+            bhCss={height:opt.height};
+            //hwCss['margin-top']=(0-ele.height()/2)+"px";
           }
 
           if(opt.width){
@@ -91,8 +96,12 @@
           ele.removeAttr("style"); 
           if(hwCss){
             ele.css(hwCss);
-            if(hwCss['height']){
-              elebody.css({height:hwCss['height']})              
+
+//            opt.width?ele.css({width:hwCss['width'],"margin-left":hwCss['margin-left']}):ele.css({width:hwCss['width']});
+            if(bhCss){
+              //ele.css({"margin-top":hwCss['margin-top']});
+//              elebody.css({height:hwCss['height']});          
+              elebody.css(bhCss);          
             }
           }
 
@@ -103,34 +112,36 @@
 
           if(opt.frame){
             elebody.html("");
-            elebody.css("padding","0");
+            //elebody.css("padding","0");
             elebody.append("<iframe frameborder='0' scrolling='no' src='"+opt.frame+"' class='w_100 h_100'></iframe>");
           }
           
           if(opt.content){
             elebody.html("");
+            //elebody.css("padding","0");
             elebody.append(opt.content);
           }
 
-          if (!that.$element.parent().length) {
-            that.$element.appendTo(document.body) //don't move modals dom position
+          if (!ele.parent().length) {
+            ele.appendTo(document.body) //don't move modals dom position
           }
 
-          that.$element.show()
+          ele.css({"margin-top":(0-ele.height())/2+"px"});
+          ele.show()
 
           if (transition) {
-            that.$element[0].offsetWidth // force reflow
+            ele[0].offsetWidth // force reflow
           }
 
-          that.$element
+          ele
             .addClass('in')
             .attr('aria-hidden', false)
 
           that.enforceFocus()
 
           transition ?
-            that.$element.one($.support.transition.end, function () { that.$element.focus().trigger('shown') }) :
-            that.$element.focus().trigger('shown')
+            ele.one($.support.transition.end, function () {ele.focus().trigger('shown') }) :
+            ele.focus().trigger('shown')
 
         })
       }
