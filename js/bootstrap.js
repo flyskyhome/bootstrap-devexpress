@@ -867,6 +867,7 @@
           var opt=that.options
             , ele=that.$element
             , elebody=ele.find('.modal-body')
+            , elehead=ele.find('.modal-header')
             // 后缀
             , suf
             // 真实数字
@@ -876,54 +877,53 @@
             // body的height样式
             , bhCss;
 
-          if(opt.height){            
-            //hwCss={"margin-top":(0-ele.height())/2)+"px"};
-            bhCss={height:opt.height};
-            //hwCss['margin-top']=(0-ele.height()/2)+"px";
-          }
-
-          if(opt.width){
-            hwCss['width']=opt.width;
-
-            if(opt.width.substr(opt.width.length-1,1)=='%'){
-              suf="%";
-              num=opt.width.substr(0,opt.width.length-1);
+          if(opt){
+            if(opt.height){            
+              bhCss={height:opt.height};
             }
-            else{
-              suf="px";
-              num=opt.width.substr(0,opt.width.length-2);
+
+            if(opt.width){
+              hwCss['width']=opt.width;
+
+              if(opt.width.substr(opt.width.length-1,1)=='%'){
+                suf="%";
+                num=opt.width.substr(0,opt.width.length-1);
+              }
+              else{
+                suf="px";
+                num=opt.width.substr(0,opt.width.length-2);
+              }
+              
+              hwCss['margin-left']=(0-num/2)+suf;
+            }
+
+            ele.removeAttr("style"); 
+            if(hwCss){
+              ele.css(hwCss);
+
+              if(bhCss){
+                elebody.css(bhCss);          
+              }
+            }
+            // 设置标题
+            if(opt.title){
+              elehead.text(opt.title);
+            }
+
+            // 如果有以下三种情况之一，则清除body内原有信息
+            opt.remote||opt.frame||opt.content?elebody.html(""):"";
+
+            if(opt.remote){
+              elebody.load(that.options.remote);
+            }
+
+            if(opt.frame){
+              elebody.append("<iframe frameborder='0' scrolling='no' src='"+opt.frame+"' class='w_100 h_100'></iframe>");
             }
             
-            hwCss['margin-left']=(0-num/2)+suf;
-          }
-
-          ele.removeAttr("style"); 
-          if(hwCss){
-            ele.css(hwCss);
-
-//            opt.width?ele.css({width:hwCss['width'],"margin-left":hwCss['margin-left']}):ele.css({width:hwCss['width']});
-            if(bhCss){
-              //ele.css({"margin-top":hwCss['margin-top']});
-//              elebody.css({height:hwCss['height']});          
-              elebody.css(bhCss);          
+            if(opt.content){
+              elebody.append(opt.content);
             }
-          }
-
-          if(opt.remote){
-            elebody.html("");
-            elebody.load(that.options.remote);
-          }
-
-          if(opt.frame){
-            elebody.html("");
-            //elebody.css("padding","0");
-            elebody.append("<iframe frameborder='0' scrolling='no' src='"+opt.frame+"' class='w_100 h_100'></iframe>");
-          }
-          
-          if(opt.content){
-            elebody.html("");
-            //elebody.css("padding","0");
-            elebody.append(opt.content);
           }
 
           if (!ele.parent().length) {
@@ -987,7 +987,7 @@
 
     , escape: function () {
         var that = this
-        if (this.isShown && this.options.keyboard) {
+        if (this.isShown && this.options && this.options.keyboard) {
           this.$element.on('keyup.dismiss.modal', function ( e ) {
             e.which == 27 && that.hide()
           })
@@ -1027,7 +1027,7 @@
         var that = this
           , animate = this.$element.hasClass('fade') ? 'fade' : ''
 
-        if (this.isShown && this.options.backdrop) {
+        if (this.isShown && this.options && this.options.backdrop) {
           var doAnimate = $.support.transition && animate
 
           this.$backdrop = $('<div class="modal-backdrop ' + animate + '" />')

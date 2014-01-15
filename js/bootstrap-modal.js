@@ -39,13 +39,32 @@
        * Modal 的一个实例
        * @instance
        */
-      constructor: Modal
-
-    , toggle: function () {
+      constructor: Modal, 
+      /**
+       * 手工显示/隐藏一个模块框
+       * @example
+       *   $(sSign).modal("toggle")
+       */
+      toggle: function () {
         return this[!this.isShown ? 'show' : 'hide']()
-      }
-
-    , show: function (options) {
+      },
+      /**
+       * 手工显示模态框
+       * @param {object} options 显示方式配置信息
+       * @param {string} options.title 标题
+       * @param {bool} options.backdrop 是否添加背景元素。=static时，点击模态对话框的外部区域不会将其关闭
+       * @param {bool} options.keyboard 按Esc 键时是否关闭模态框
+       * @param {bool} options.show 初始化时即显示模态对话框
+       * @param {string} options.remote 如果提供了远程url地址，就会通过 jQuery的load方法加载内容并注入到.modal-body中
+       * @param {string} options.content 模态框内显示的文本内容
+       * @param {string} options.frame 嵌入模态框内的页面地址
+       * @param {string} options.height 模态框内容显示高度 
+       * @param {string} options.width 模态框显示宽度
+       * @example
+       *  初次显示可用：$(sSign).modal(options)
+       *  以后显示可用：$(sSign).modal("show")
+       */
+      show: function (options) {
         this.options=options;
         var that = this
           , e = $.Event('show');
@@ -63,6 +82,7 @@
           var opt=that.options
             , ele=that.$element
             , elebody=ele.find('.modal-body')
+            , elehead=ele.find('.modal-header')
             // 后缀
             , suf
             // 真实数字
@@ -72,56 +92,54 @@
             // body的height样式
             , bhCss;
 
-          if(opt.height){            
-            //hwCss={"margin-top":(0-ele.height())/2)+"px"};
-            bhCss={height:opt.height};
-            //hwCss['margin-top']=(0-ele.height()/2)+"px";
-          }
-
-          if(opt.width){
-            hwCss['width']=opt.width;
-
-            if(opt.width.substr(opt.width.length-1,1)=='%'){
-              suf="%";
-              num=opt.width.substr(0,opt.width.length-1);
+          if(opt){
+            if(opt.height){            
+              bhCss={height:opt.height};
             }
-            else{
-              suf="px";
-              num=opt.width.substr(0,opt.width.length-2);
+
+            if(opt.width){
+              hwCss['width']=opt.width;
+
+              if(opt.width.substr(opt.width.length-1,1)=='%'){
+                suf="%";
+                num=opt.width.substr(0,opt.width.length-1);
+              }
+              else{
+                suf="px";
+                num=opt.width.substr(0,opt.width.length-2);
+              }
+              
+              hwCss['margin-left']=(0-num/2)+suf;
+            }
+
+            ele.removeAttr("style"); 
+            if(hwCss){
+              ele.css(hwCss);
+
+              if(bhCss){
+                elebody.css(bhCss);          
+              }
+            }
+            // 设置标题
+            if(opt.title){
+              elehead.text(opt.title);
+            }
+
+            // 如果有以下三种情况之一，则清除body内原有信息
+            opt.remote||opt.frame||opt.content?elebody.html(""):"";
+            if(opt.remote){
+              elebody.load(that.options.remote);
+            }
+
+            if(opt.frame){
+              elebody.append("<iframe frameborder='0' scrolling='no' src='"+opt.frame+"' class='w_100 h_100'></iframe>");
             }
             
-            hwCss['margin-left']=(0-num/2)+suf;
-          }
-
-          ele.removeAttr("style"); 
-          if(hwCss){
-            ele.css(hwCss);
-
-//            opt.width?ele.css({width:hwCss['width'],"margin-left":hwCss['margin-left']}):ele.css({width:hwCss['width']});
-            if(bhCss){
-              //ele.css({"margin-top":hwCss['margin-top']});
-//              elebody.css({height:hwCss['height']});          
-              elebody.css(bhCss);          
+            if(opt.content){
+              elebody.append(opt.content);
             }
           }
-
-          if(opt.remote){
-            elebody.html("");
-            elebody.load(that.options.remote);
-          }
-
-          if(opt.frame){
-            elebody.html("");
-            //elebody.css("padding","0");
-            elebody.append("<iframe frameborder='0' scrolling='no' src='"+opt.frame+"' class='w_100 h_100'></iframe>");
-          }
           
-          if(opt.content){
-            elebody.html("");
-            //elebody.css("padding","0");
-            elebody.append(opt.content);
-          }
-
           if (!ele.parent().length) {
             ele.appendTo(document.body) //don't move modals dom position
           }
@@ -144,9 +162,14 @@
             ele.focus().trigger('shown')
 
         })
-      }
-
-    , hide: function (e) {
+      },
+      /**
+       * 隐藏模态框
+       * @param  {object} e 事件对象
+       * @example
+       *  $(sSign).modal("hide");
+       */
+      hide: function (e) {
         e && e.preventDefault()
 
         var that = this
@@ -170,29 +193,34 @@
         $.support.transition && this.$element.hasClass('fade') ?
           this.hideWithTransition() :
           this.hideModal()
-      }
-
-    , enforceFocus: function () {
+      }, 
+      /**
+       * [enforceFocus description]
+       * @ignore
+       */
+      enforceFocus: function () {
         var that = this
         $(document).on('focusin.modal', function (e) {
           if (that.$element[0] !== e.target && !that.$element.has(e.target).length) {
             that.$element.focus()
           }
         })
-      }
-
-    , escape: function () {
+      }, 
+      /**
+       * 响应Esc按键事件
+       * @ignore
+       */
+      escape: function () {
         var that = this
-        if (this.isShown && this.options.keyboard) {
+        if (this.isShown && this.options && this.options.keyboard) {
           this.$element.on('keyup.dismiss.modal', function ( e ) {
             e.which == 27 && that.hide()
           })
         } else if (!this.isShown) {
           this.$element.off('keyup.dismiss.modal')
         }
-      }
-
-    , hideWithTransition: function () {
+      }, 
+      hideWithTransition: function () {
         var that = this
           , timeout = setTimeout(function () {
               that.$element.off($.support.transition.end)
@@ -203,27 +231,24 @@
           clearTimeout(timeout)
           that.hideModal()
         })
-      }
-
-    , hideModal: function () {
+      }, 
+      hideModal: function () {
         var that = this
         this.$element.hide()
         this.backdrop(function () {
           that.removeBackdrop()
           that.$element.trigger('hidden')
         })
-      }
-
-    , removeBackdrop: function () {
+      }, 
+      removeBackdrop: function () {
         this.$backdrop && this.$backdrop.remove()
         this.$backdrop = null
-      }
-
-    , backdrop: function (callback) {
+      }, 
+      backdrop: function (callback) {
         var that = this
           , animate = this.$element.hasClass('fade') ? 'fade' : ''
 
-        if (this.isShown && this.options.backdrop) {
+        if (this.isShown && this.options && this.options.backdrop) {
           var doAnimate = $.support.transition && animate
 
           this.$backdrop = $('<div class="modal-backdrop ' + animate + '" />')
