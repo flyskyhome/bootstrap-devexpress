@@ -23,6 +23,42 @@
   "use strict"; // jshint ;_;
   
   /**
+   * @name Modal.show
+   * @desc 当show方法被调用时，此事件将被立即触发
+   * @event
+   * @param {jQuery.Event} ev 事件对象
+   * @example
+   *   $(sSign).on('show', function (ev){});
+   */
+
+  /**
+   * @name Modal.shown
+   * @desc 当模态对话框呈现完毕时（会等待过渡效果执行结束）触发
+   * @event
+   * @param {jQuery.Event} ev 事件对象
+   * @example
+   *   $(sSign).on('shown', function (ev){});
+      */
+
+  /**
+   * @name Modal.hide
+   * @desc 当hide方法被调用时，此事件被立即触发。
+   * @event
+   * @param {jQuery.Event} ev 事件对象
+   * @example
+   *   $(sSign).on('hide', function (ev){});
+   */
+
+  /**
+   * @name Modal.hidden
+   * @desc 当模态对话框被隐藏（而且过渡效果执行完毕）之后，此事件将被触发
+   * @event
+   * @param {jQuery.Event} ev 事件对象
+   * @example
+   *   $(sSign).on('hidden', function (ev){});
+   */
+
+  /**
    * @name Modal
    * @constructor
    * @param {string} element jQuery选择器

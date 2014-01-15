@@ -124,7 +124,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bootstrap-modal.js.html">bootstrap-modal.js</a>, <a href="bootstrap-modal.js.html#line25">line 25</a>
+        <a href="bootstrap-modal.js.html">bootstrap-modal.js</a>, <a href="bootstrap-modal.js.html#line61">line 61</a>
     </li></ul></dd>
     
     
@@ -204,7 +204,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bootstrap-modal.js.html">bootstrap-modal.js</a>, <a href="bootstrap-modal.js.html#line42">line 42</a>
+        <a href="bootstrap-modal.js.html">bootstrap-modal.js</a>, <a href="bootstrap-modal.js.html#line78">line 78</a>
     </li></ul></dd>
     
     
@@ -317,7 +317,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bootstrap-modal.js.html">bootstrap-modal.js</a>, <a href="bootstrap-modal.js.html#line172">line 172</a>
+        <a href="bootstrap-modal.js.html">bootstrap-modal.js</a>, <a href="bootstrap-modal.js.html#line210">line 210</a>
     </li></ul></dd>
     
     
@@ -671,7 +671,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bootstrap-modal.js.html">bootstrap-modal.js</a>, <a href="bootstrap-modal.js.html#line67">line 67</a>
+        <a href="bootstrap-modal.js.html">bootstrap-modal.js</a>, <a href="bootstrap-modal.js.html#line103">line 103</a>
     </li></ul></dd>
     
     
@@ -746,7 +746,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="bootstrap-modal.js.html">bootstrap-modal.js</a>, <a href="bootstrap-modal.js.html#line48">line 48</a>
+        <a href="bootstrap-modal.js.html">bootstrap-modal.js</a>, <a href="bootstrap-modal.js.html#line84">line 84</a>
     </li></ul></dd>
     
     
@@ -782,6 +782,498 @@
     
     
     
+        <h3 class="subsection-title">Events</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="event:hidden">hidden</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        当模态对话框被隐藏（而且过渡效果执行完毕）之后，此事件将被触发
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>ev</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">jQuery.Event</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">事件对象</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="bootstrap-modal.js.html">bootstrap-modal.js</a>, <a href="bootstrap-modal.js.html#line52">line 52</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+        <h5>Example</h5>
+        
+    <pre class="prettyprint"><code>$(sSign).on('hidden', function (ev){});</code></pre>
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="event:hide">hide</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        当hide方法被调用时，此事件被立即触发。
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>ev</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">jQuery.Event</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">事件对象</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="bootstrap-modal.js.html">bootstrap-modal.js</a>, <a href="bootstrap-modal.js.html#line43">line 43</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+        <h5>Example</h5>
+        
+    <pre class="prettyprint"><code>$(sSign).on('hide', function (ev){});</code></pre>
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="event:show">show</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        当show方法被调用时，此事件将被立即触发
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>ev</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">jQuery.Event</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">事件对象</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="bootstrap-modal.js.html">bootstrap-modal.js</a>, <a href="bootstrap-modal.js.html#line25">line 25</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+        <h5>Example</h5>
+        
+    <pre class="prettyprint"><code>$(sSign).on('show', function (ev){});</code></pre>
+
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="event:shown">shown</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        当模态对话框呈现完毕时（会等待过渡效果执行结束）触发
+    </div>
+    
+
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>ev</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">jQuery.Event</span>
+
+
+            
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">事件对象</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="bootstrap-modal.js.html">bootstrap-modal.js</a>, <a href="bootstrap-modal.js.html#line34">line 34</a>
+    </li></ul></dd>
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+        <h5>Example</h5>
+        
+    <pre class="prettyprint"><code>$(sSign).on('shown', function (ev){});</code></pre>
+
+    
+</dd>
+
+        </dl>
+    
 </article>
 
 </section>  
@@ -792,13 +1284,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Index</a></h2><h3>Classes</h3><ul><li><a href="Modal.html">Modal</a></li><li><a href="Splitter.html">Splitter</a></li><li><a href="Tab.html">Tab</a></li></ul><h3>Events</h3><ul><li><a href="Splitter.html#event:onresize">onresize</a></li></ul>
+    <h2><a href="index.html">Index</a></h2><h3>Classes</h3><ul><li><a href="Modal.html">Modal</a></li><li><a href="Splitter.html">Splitter</a></li><li><a href="Tab.html">Tab</a></li></ul><h3>Events</h3><ul><li><a href="Modal.html#event:hidden">hidden</a></li><li><a href="Modal.html#event:hide">hide</a></li><li><a href="Modal.html#event:show">show</a></li><li><a href="Modal.html#event:shown">shown</a></li><li><a href="Splitter.html#event:onresize">onresize</a></li></ul>
 </nav>
 
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha3</a> on Wed Jan 15 2014 14:51:04 GMT+0800 (中国标准时间)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-alpha3</a> on Wed Jan 15 2014 15:58:05 GMT+0800 (中国标准时间)
 </footer>
 
 <script> prettyPrint(); </script>
