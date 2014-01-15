@@ -1,65 +1,102 @@
-/*
- * jQuery.splitter.js - two-pane splitter window plugin
- *
- * version 1.63 (2012/12/06) 
- * 
- * Dual licensed under the MIT and GPL licenses: 
- *   http://www.opensource.org/licenses/mit-license.php 
- *   http://www.gnu.org/licenses/gpl.html 
+/**
+ * @name bootstrap-splitter
+ * @fileOverview 框架分割组件(基于bootstrap框架),是bootstrap-devexpress项目的一部分,基于jQuery.splitter.js({@link http://methvin.com/splitter/}) 开发改造
+ * @author flyskyhome(飞天小筑)<5likevideo@gmail.com>
+ * @version 0.01 alpha
+ * @see {@link https://github.com/flyskyhome/bootstrap-devexpress|GitHub}
  */
 
-/**
- * The splitter() plugin implements a two-pane resizable splitter window.
- * The selected elements in the jQuery object are converted to a splitter;
- * each selected element should have two child elements, used for the panes
- * of the splitter. The plugin adds a third child element for the splitbar.
- * 
- * For more details see: http://methvin.com/jquery/splitter/
- *
- *
- * @example $('#MySplitter').splitter();
- * @desc Create a vertical splitter with default settings 
- *
- * @example $('#MySplitter').splitter({type: 'h', accessKey: 'M'});
- * @desc Create a horizontal splitter resizable via Alt+Shift+M
- *
- * @name splitter
- * @type jQuery
- * @param Object options Options for the splitter (not required)
- * @cat Plugins/Splitter
- * @return jQuery
- * @author Dave Methvin (dave.methvin@gmail.com)
- */
 !(function($) {
 
 	"use strict"; // jshint ;_;
-	/* SPLITTER CLASS DEFINITION
-	 * ==================== */
+	/**
+	 * @name Splitter.onresize
+	 * @desc 分割区域发生改变时触发
+	 * @event
+	 * @param {object} ev 回调参数
+	 * @param {objcet} ev.A 区域A对象
+	 * @param {number} ev.A.height 区域A的高度
+	 * @param {number} ev.A.widht 区域A的宽度
+	 * @param {object} ev.B 区域B对象
+	 * @param {number} ev.B.height 区域B的高度
+	 * @param {number} ev.B.width 区域B的宽度
+	 */
+
+	/**
+	 * @name Splitter
+	 * @constructor
+	 * @param {string} element jQuery dom 选择器
+	 * @type jQuery
+	 */	
+	
 	var Splitter = function(element) {
 			this.element = $(element)
 		}
-
+	// splitter 计数器
 	var splitterCounter = 0;
-
-	Splitter.prototype = {
+	
+	Splitter.prototype = 
+	/** @lends Splitter.prototype */{
+		/**
+		 * Splitter的一个实例
+		 * @instance
+		 */		
 		constructor: Splitter,
+		/**
+		 * Splitter 创建函数
+		 * @param {object} options 组件配置
+		 * @param {string} options.type 分割方式 v:垂直分割,h:水平分割
+		 * @param {string} options.dock 驻停位置 top:顶部,bottom:底部,left:左侧,right:右侧
+		 * @param {number} options.minLeft 左侧最小尺寸
+		 * @param {number} options.minRight 右侧最小尺寸
+		 * @param {number} options.minTop 顶部最小尺寸
+		 * @param {number} options.minBottom 底部最小尺寸
+		 * @param {number} options.maxLeft 左侧最大尺寸
+		 * @param {number} options.maxRight 右侧最大尺寸
+		 * @param {number} options.maxTop 顶部最大尺寸
+		 * @param {number} options.maxBottom 底部最大尺寸
+		 * @param {number} options.sizeLeft 左侧初始尺寸
+		 * @param {number} options.sizeRight 右侧初始尺寸
+		 * @param {number} options.sizeTop 顶部初始尺寸
+		 * @param {number} options.sizeBottom 底部初始尺寸
+		 * @param {bool} options.anchorToWindow 是否自动锚定到窗口大小 true,false 
+		 * @param {bool} options.resizeToWidth 自动调整宽度 true,false
+		 * @param {function} options.onresize 参考Events onresize说明
+		 * @example
+		 * 	创建一个缺省配置的垂直分割框架 
+		 * 	$('#MySplitter').splitter();
+		 * 	创建一个水平分割框架
+		 * 	$('#MySplitter').splitter({type: 'h'});
+		 */	
 		create: function(options) {
 			this.options = options || {};
 
 			if ($(this).is(".splitter")) return; // already a splitter
 			if ($(this.element).attr("data-splitter-initialized")) return
 			var zombie; // left-behind splitbar for outline resizes
-
+			/**
+			 * @desc 用于判断是否触发resize方法
+			 * @return {bool} 判断浏览器版本是否小于ie9
+			 * @inner
+			 */
 			function resize_auto_fired() {
 				// Returns true when the browser natively fires the resize 
 				// event attached to the panes elements
 				return ($.browser.msie && (parseInt($.browser.version) < 9));
 			}
-
+			/**
+			 * @desc 设置bar状态
+			 * @param {string} state 状态样式Class
+			 * @inner
+			 */
 			function setBarState(state) {
 				bar.removeClass(opts.barStateClasses).addClass(state);
-			}
-
+			}			
+			/**
+			 * 按下鼠标开始拖动时触发(mousedown)
+			 * @param {Event} evt 事件对象
+			 * @inner
+			 */
 			function startSplitMouse(evt) {
 				if (evt.which != 1) return; // left button only
 				bar._startpos = A[0][opts.pxSplit];
@@ -75,7 +112,11 @@
 				A._posSplit = A[0][opts.pxSplit] - evt[opts.eventPos];
 				$(document).bind("mousemove" + opts.eventNamespace, doSplitMouse).bind("mouseup" + opts.eventNamespace, evt.data, endSplitMouse);
 			}
-
+			/**
+			 * 鼠标拖动时触发
+			 * @param  {Event} evt 事件对象
+			 * @inner
+			 */
 			function doSplitMouse(evt) {
 				var pos = A._posSplit + evt[opts.eventPos],
 					range = Math.max(0, Math.min(pos, splitter._DA - bar._DA)),
@@ -94,7 +135,10 @@
 				} else resplit(pos);
 				setBarState(pos == limit ? opts.barActiveClass : opts.barLimitClass);
 			}
-
+			/**
+			 * 鼠标按键抬起时触发(mouseup)
+			 * @param  {Event} evt 事件对象
+			 */
 			function endSplitMouse(evt) {
 				setBarState(opts.barNormalClass);
 				bar.addClass(opts.barHoverClass);
@@ -120,7 +164,12 @@
 				// 判断开始位置是否和结束位置一致，事件对象是否为函数类型，然后执行
 				bar._startpos != A[0][opts.pxSplit] && evt.data.eventObj && typeof evt.data.eventObj == "function" && evt.data.eventObj(outputObj);
 			}
-
+			/**
+			 * 重新进行尺寸分割
+			 * @param  {number} pos      分割点位置
+			 * @param  {object} eventObj 待触发回调的事件函数对象
+			 * @inner
+			 */
 			function resplit(pos, eventObj) {
 				bar._DA = bar[0][opts.pxSplit]; // bar size may change during dock
 				// Constrain new splitbar position to fit pane size and docking limits
@@ -186,8 +235,12 @@
 				sum += Math.max(parseInt(jq.css(arguments[i]), 10) || 0, 0);
 				return sum;
 			}
-
-			function resize(size, sign) {
+			/**
+			 * 重算分割尺寸
+			 * @param  {number} size  分割点所处位置
+			 * @inner
+			 */
+			function resize(size) {
 				// Determine new width/height of splitter container
 				splitter._DF = splitter[0][opts.pxFixed] - splitter._PBF;
 				splitter._DA = splitter[0][opts.pxSplit] - splitter._PBA;
@@ -205,11 +258,13 @@
 				setBarState(opts.barNormalClass);
 			}
 
-			/*
-			 *	@desc 获取panel边框尺寸
-			 *	@param	{string} type h:横向分割 ,v:纵向分割
+			/**
+			 * 获取panel边框尺寸
+			 * @param  {string} type  h:横向分割 ,v:纵向分割
+			 * @param  {Dom} panel 区域对象
+			 * @return {number}       边框尺寸
+			 * @inner
 			 */
-
 			function getPanelBorderSize(type, panel) {
 				var A = $(panel);
 				var A_BL = A.css("border-left-width").replace("px", ""),
