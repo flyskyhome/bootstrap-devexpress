@@ -907,7 +907,8 @@
             }
             // 设置标题
             if(opt.title){
-              elehead.text(opt.title);
+              var cn=elehead[0].childNodes[0];
+              cn.nodeType==3?cn.data=opt.title:elehead.prepend(opt.title);
             }
 
             // 如果有以下三种情况之一，则清除body内原有信息

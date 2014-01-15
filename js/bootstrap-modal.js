@@ -82,7 +82,7 @@
           var opt=that.options
             , ele=that.$element
             , elebody=ele.find('.modal-body')
-            , elehead=ele.find('.modal-header')
+            , elehead=ele.find('.modal-header>button')
             // 后缀
             , suf
             // 真实数字
@@ -122,7 +122,9 @@
             }
             // 设置标题
             if(opt.title){
-              elehead.text(opt.title);
+              var cn=elehead[0].childNodes[0];
+              // 如果是文本节点则直接替换，否则追加
+              cn.nodeType==3?cn.data=opt.title:elehead.prepend(opt.title);
             }
 
             // 如果有以下三种情况之一，则清除body内原有信息
