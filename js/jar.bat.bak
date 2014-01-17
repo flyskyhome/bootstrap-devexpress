@@ -1,4 +1,0 @@
-java -jar F:\myWork\javascript\开发工具\compiler-latest\compiler.jar --js=bootstrap-transition.js --js=bootstrap-affix.js --js=bootstrap-alert.js --js=bootstrap-button.js --js=bootstrap-carousel.js --js=bootstrap-collapse.js --js=bootstrap-dropdown.js --js=bootstrap-modal.js --js=bootstrap-popover.js  --js=bootstrap-scrollspy.js --js=bootstrap-tab.js --js=bootstrap-tooltip.js --js=bootstrap-typeahead.js --js_output_file=bootstrap.js
-
-
-java -jar F:\myWork\javascript\开发工具\compiler-latest\compiler.jar --js=bootstrap-tab.js --js_output_file=bootstrap.js

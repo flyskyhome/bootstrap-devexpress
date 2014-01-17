@@ -1,1 +1,0 @@
-java -jar F:\myWork\javascript\开发工具\compiler-latest\compiler.jar --js=bootstrap.js --js_output_file=bootstrap.min.js
