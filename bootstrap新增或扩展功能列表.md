@@ -3,7 +3,7 @@
 新增用"+"标识,扩展用"*"标识
 
 ###功能列表
-#### Tab (js插件:标签页)
+#### 一、Tab (js插件:标签页)
 1.创建一个Tab页 (create) (+)
 ```javascript
 $(sSign).tab('create',options)
@@ -12,14 +12,14 @@ $(sSign).tab('create',options)
 ```javasctipt
 $(sSign).tab("remove");
 ```
-#### Modal(js插件:模态窗口)
+#### 二、Modal(js插件:模态窗口)
 1.扩展options参数 (*)
 
 	content string	模态框内显示的文本内容
 	frame	string	嵌入模态框内的页面地址
 	height	string	模态框内容显示高度
 	width	string	模态框显示宽度
-#### NavBar(js插件:导航条) (+)
+#### 三、NavBar(js插件:导航条) (+)
 ##### 方法
 1.创建导航条
 ```javascript
@@ -48,7 +48,7 @@ $(sSign).navbar("active");
 $(sSign).on('created', function (ev){});
 $(sSign).delegate('>div','created', function (ev){console.log(ev.log)});
 ```
-#### Splitter(js插件:区域分割) (+)
+#### 四、Splitter(js插件:区域分割) (+)
 ###### 方法(Methods)
 1.创建 (create)
 ```javascript
