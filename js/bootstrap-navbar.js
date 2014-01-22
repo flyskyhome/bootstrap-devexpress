@@ -52,7 +52,18 @@
      *   key:""        //唯一标识
      * }
      */
-
+    
+    /**
+     * @name NavBar.created
+     * @desc 当navbar dom对象创建完毕时调用
+     * @event
+     * @param {jQuery.Event} ev 事件对象
+     * @param {Object} ev.info 包含带创建数据列表的对象,remote 获取数据时也可以附加除itemList之外的其它信息
+     * @example
+     *   $(sSign).on('created', function (ev){});
+     *   $(sSign).delegate('>div','created', function (ev){console.log(ev.log)});
+     */
+  
     /**
      * 手工显示模态框
      * @param {object} options 显示方式配置信息
@@ -82,7 +93,8 @@
     create: function(options) {
       this.options = options;
       var that = this,
-        items = options ? options.items : [];
+        items = options ? options.items : [], 
+        e = $.Event('created');
 
       /**
        * 创建形成Dom对象的字符串
@@ -108,6 +120,7 @@
 
         that.$element.append(domStr = domStr + listStr + "</ul>");
         that.options.remote && that.options.remote.callback?that.options.remote.callback(data):"";
+        that.$element.trigger({type:"created",info:data});
       }
 
       if (options && options.remote) {
