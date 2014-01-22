@@ -285,6 +285,7 @@ textarea[class*="span"],
 .row-fluid .uneditable-input[class*="span"] {
   display: inline-block;
   min-height:23px;
+  *min-height:18px;
 //  border-right: none;
 }
 
@@ -293,6 +294,7 @@ textarea[class*="span"],
 .row-fluid .input-append [class*="span"]{
   display: inline-block;
   min-height:23px;
+  *min-height:18px;
   border-right: none;  
 }
 
@@ -301,6 +303,7 @@ textarea[class*="span"],
 .row-fluid .input-prepend [class*="span"]{
   display: inline-block;
   min-height:23px;
+  *min-height: 18px;
   border-left: none;
 //  border-right: 1px solid @inputBorder;
 }
@@ -436,6 +439,7 @@ select:focus:invalid {
 .input-append,
 .input-prepend {
   display: inline-block;
+  .ie7-inline-block();
   //margin-bottom: @baseLineHeight / 2;
   vertical-align: middle;
   font-size: 0; // white space collapse hack
@@ -478,6 +482,8 @@ select:focus:invalid {
     background-color: transparent;
     border: 1px solid @inputBorder;
     //border-left:none;
+    *position: relative;
+    *top:1px;
   }
   .add-on,
   .btn,
@@ -503,6 +509,15 @@ select:focus:invalid {
   }
 }
 
+.row-fluid .input-append > input{
+    *margin-right: -1px;
+    *width:206px;
+}
+
+.row-fluid .input-prepend > input{
+  *width:206px; 
+}
+
 .input-append {
   input,
   select,
@@ -515,7 +530,7 @@ select:focus:invalid {
   .add-on,
   .btn,
   .btn-group {
-    //margin-left: -1px;
+    *margin-left: -1px;
     border-left: none;
     border-right: none;
   }
@@ -539,7 +554,7 @@ select:focus:invalid {
   .add-on,
   .btn,
   .btn-group {
-    //margin-left: -1px;
+    *margin-right: -1px;
     border-left: none;
     border-right: none;
   }
