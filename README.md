@@ -11,4 +11,7 @@ bootstrap-devexpress
 <h3>技术基础</h3>
  	1、BootStrap 2.3.2
 	2、jQuery 1.8.3
-
+<h3>目前测试的浏览器</h3>
+	1、chrome 31.0.1650.57
+	2、ie10
+	3、ie10 下的 ie7\ie8\ie9\ 兼容模式
