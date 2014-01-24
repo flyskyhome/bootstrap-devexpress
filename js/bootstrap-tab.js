@@ -17,6 +17,10 @@
  * limitations under the License.
  * ======================================================== */
 
+/**
+ * js插件:标签页
+ * @module Tab
+ */
 
 !function ($) {
 
@@ -27,27 +31,29 @@
   * ==================== */
 
   /**
-   * @name Tab
+   * @class Tab
    * @constructor
-   * @param {string} element jQuery dom 选择器
-   * @type jQuery
+   * @param {String} element jQuery dom 选择器
    */ 
   
   var Tab = function (element) {
     this.element = $(element)
   }
 
-  Tab.prototype = 
-  /** @lends Tab.prototype */{
+  Tab.prototype = {
     /**
      * Tab 实例
-     * @ins
+     * @property constructor
+     * @type {Object}
      */   
     constructor: Tab,     
     /**
      * Tab 显示函数
+     * @method show
      * @example
+     * ```javascript
      *   $(sSign).tab("show");
+     * ```
      */
     show: function () {
       var $this = this.element
@@ -84,7 +90,13 @@
         })
       })
     },
-
+    /**
+     * 激活标签页
+     * @method activate
+     * @param  {jQuery-Object}  element  jQuery dom元素
+     * @param  {jQuery-Object} container tab容器
+     * @param  {Function} callback  事件回调函数
+     */
     activate: function ( element, container, callback) {
       var $active = container.find('> .active')
         , transition = callback
@@ -120,10 +132,16 @@
       $active.removeClass('in')
     },
     /**
-     *  @desc 创建Tab标签
+     *  创建Tab一个标签
+     *  @method create
      *  @param {object} options 新建标签的配置项信息
+     *  @param {String} options.name 待调用方法名称
+     *  @param {String} options.info 相关信息
      *  @example
-     *    $(sSign).tab('create',options)
+     *  ```javascript
+     *    $(sSign).tab('show')
+     *    $(sSign).tab({name:"create",info:"tab标签名称"})
+     *  ```
      */
     create: function(options){
       var $this = this.element;
@@ -138,8 +156,11 @@
     },
     /**
      * 删除一个标签页
+     * @method remove
      * @example
+     * ```javascript
      *   $(sSign).tab("remove");
+     * ```
      */
     remove: function(){
       var $this = this.element;
@@ -164,6 +185,7 @@
         , data = $this.data('tab')
       if (!data) $this.data('tab', (data = new Tab(this)))
       if (typeof option == 'string') data[option]()
+      if(typeof option=="object") data[option.name](option.info); 
     })
   }
 
@@ -181,7 +203,11 @@
 
  /* TAB DATA-API
   * ============ */
-
+  /**
+   * data-api 接口
+   * @event click.tab.data-api
+   * @param {Object} e 事件对象
+   */
   $(document).on('click.tab.data-api', '[data-toggle="tab"], [data-toggle="pill"]', function (e) {
     e.preventDefault()
     $(this).tab('show')

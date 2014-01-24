@@ -17,32 +17,35 @@
  * limitations under the License.
  * ========================================================= */
 
-
+/**
+ * ja插件:导航栏
+ * @module NavBar
+ */
 !function($) {
 
   "use strict"; // jshint ;_;
   /**
-   * @name NavBar
+   * @class NavBar
    * @constructor
-   * @param {string} element jQuery选择器
-   * @type jQuery
+   * @param {String} element jQuery选择器
    */
   var NavBar = function(element) {
       this.$element = $(element);
     }
 
-  NavBar.prototype = /** @lends NavBar.prototype */
+  NavBar.prototype =
   {
     /**
      * NavBar 的一个实例
-     * @instance
+     * @property {Object} constructor
      */
     constructor: NavBar,
     /**
-     * @name NavBar#items.item
-     * @desc 列表项
-     * @type {Object}
-     * @inner
+     * 列表项
+     * @type {Object} NavBarItem
+     * @private
+     * @optional
+     * @for NavBar
      * @example
      * {
      *   text:"index", //文本
@@ -54,27 +57,31 @@
      */
     
     /**
-     * @name NavBar.created
-     * @desc 当navbar dom对象创建完毕时调用
-     * @event
+     * 当navbar dom对象创建完毕时调用
+     * @event created
      * @param {jQuery.Event} ev 事件对象
      * @param {Object} ev.info 包含带创建数据列表的对象,remote 获取数据时也可以附加除itemList之外的其它信息
      * @example
+     * ```javascript
      *   $(sSign).on('created', function (ev){});
      *   $(sSign).delegate('>div','created', function (ev){console.log(ev.log)});
+     * ```
      */
   
     /**
      * 手工显示模态框
-     * @param {object} options 显示方式配置信息
-     * @param {bool} options.create 是否创建,是缺省参数,当传入参数非string类型时
-     * @param {string} options.direction 排列方向,v:竖排,h:横排 ,default:v
+     * @method create
+     * @param {Object} options 显示方式配置信息
+     * @param {Boolean} options.create 是否创建,是缺省参数,当传入参数非string类型时
+     * @param {String} options.direction 排列方向,v:竖排,h:横排 ,default:v
      * @param {Array} options.items 列表项，可以和remote同时使用，同时时,该项内容放在remote信息之上
-     * @param {string} options.remote 获取远程列表数据
-     * @param {string} options.remote.url 远程数据获取url
+     * @param {String} options.remote 获取远程列表数据
+     * @param {String} options.remote.url 远程数据获取url
      * @param {Object} options.remote.param 数据获取参数信息
      * @param {Function} options.remote.callback 回调函数,远程数据获取成功后执行,通过返回数据对象中的itemList项生成列表
      * @example
+     * ```javascript
+     *  //推荐
      *  $(sSign).navbar(
      *  {
      *     items:[{
@@ -87,8 +94,10 @@
      *         param:{type:"GetModuleInfo"},
      *         callback:_initMenuState
      *     }
-     *   )  :推荐
-     *  $(sSign).navbar("create") :空列表
+     *   );
+     *  //空列表
+     *  $(sSign).navbar("create");
+     * ```
      */
     create: function(options) {
       this.options = options;
@@ -98,9 +107,10 @@
 
       /**
        * 创建形成Dom对象的字符串
+       * @method createDomStr
        * @param {Object} data remote获取数据返回数据对象
        * @param {Array} data.itemList 需要生成的项目信息列表
-       * @return {string}   domStr
+       * @private
        */
 
       function createDomStr(data) {
@@ -145,11 +155,14 @@
     },
     /**
      * 设置选中项 
-     * @description 此时this.$element 应该是 li 元素
+     * @method active
      * @example
+     * ```javascript
      *  $(sSign).navbar("active");
+     * ```
      */
     active: function() {
+      //此时this.$element 应该是 li 元素
       this.$element.parent().find(">li").removeClass("active");
       this.$element.addClass("active");
     }
@@ -197,6 +210,11 @@
 
   /* NavBar DATA-API
    * ============== */
+   /**
+    * data-api 接口
+    * @event click.navbar.data-api
+    * @param {Object} e 事件对象
+    */
 
   $(document).on('click.navbar.data-api', '[data-toggle="navbar"]', function(e) {
     var $this = $(this),

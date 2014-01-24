@@ -17,88 +17,103 @@
  * limitations under the License.
  * ========================================================= */
 
+ /**
+  * js插件:模态窗口
+  * @module Modal
+  */
+
 
 !function ($) {
 
   "use strict"; // jshint ;_;
   
   /**
-   * @name Modal.show
-   * @desc 当show方法被调用时，此事件将被立即触发
-   * @event
+   * 当show方法被调用时，此事件将被立即触发
+   * @event show
    * @param {jQuery.Event} ev 事件对象
    * @example
+   * ```javasctipt
    *   $(sSign).on('show', function (ev){});
+   * ```
    */
 
   /**
-   * @name Modal.shown
-   * @desc 当模态对话框呈现完毕时（会等待过渡效果执行结束）触发
-   * @event
+   * 当模态对话框呈现完毕时（会等待过渡效果执行结束）触发
+   * @event shown
    * @param {jQuery.Event} ev 事件对象
    * @example
+   * ```javascript
    *   $(sSign).on('shown', function (ev){});
-      */
+   * ```
+   */
 
   /**
-   * @name Modal.hide
-   * @desc 当hide方法被调用时，此事件被立即触发。
-   * @event
+   * 当hide方法被调用时，此事件被立即触发。
+   * @event hide
    * @param {jQuery.Event} ev 事件对象
    * @example
+   * ```javascript
    *   $(sSign).on('hide', function (ev){});
+   * ```
    */
 
   /**
-   * @name Modal.hidden
-   * @desc 当模态对话框被隐藏（而且过渡效果执行完毕）之后，此事件将被触发
-   * @event
+   * 当模态对话框被隐藏（而且过渡效果执行完毕）之后，此事件将被触发
+   * @event hidden
    * @param {jQuery.Event} ev 事件对象
    * @example
+   * ```javascript
    *   $(sSign).on('hidden', function (ev){});
+   * ```
    */
 
   /**
-   * @name Modal
+   * @class Modal
    * @constructor
-   * @param {string} element jQuery选择器
-   * @type jQuery
+   * @param {String} element jQuery选择器
    */
   var Modal = function (element) {
     this.$element = $(element)
       .delegate('[data-dismiss="modal"]', 'click.dismiss.modal', $.proxy(this.hide, this))
   }
 
-  Modal.prototype = 
-  /** @lends Modal.prototype */{
+  Modal.prototype ={
       /**
        * Modal 的一个实例
-       * @instance
+       * @property {Object} constructor
        */
       constructor: Modal, 
       /**
        * 手工显示/隐藏一个模块框
+       * @method toggle
        * @example
+       * ```javascript
        *   $(sSign).modal("toggle")
+       * ```
        */
       toggle: function () {
         return this[!this.isShown ? 'show' : 'hide']()
       },
       /**
        * 手工显示模态框
-       * @param {object} options 显示方式配置信息
-       * @param {string} options.title 标题
-       * @param {bool} options.backdrop 是否添加背景元素。=static时，点击模态对话框的外部区域不会将其关闭
-       * @param {bool} options.keyboard 按Esc 键时是否关闭模态框
-       * @param {bool} options.show 初始化时即显示模态对话框
-       * @param {string} options.remote 如果提供了远程url地址，就会通过 jQuery的load方法加载内容并注入到.modal-body中
-       * @param {string} options.content 模态框内显示的文本内容
-       * @param {string} options.frame 嵌入模态框内的页面地址
-       * @param {string} options.height 模态框内容显示高度 
-       * @param {string} options.width 模态框显示宽度
+       * @method show
+       * @param {Object} options 显示方式配置信息
+       * @param {String} options.title 标题
+       * @param {Boolean} options.backdrop 是否添加背景元素。=static时，点击模态对话框的外部区域不会将其关闭
+       * @param {Boolean} options.keyboard 按Esc 键时是否关闭模态框
+       * @param {Boolean} options.show 初始化时即显示模态对话框
+       * @param {String} options.remote 如果提供了远程url地址，就会通过 jQuery的load方法加载内容并注入到.modal-body中
+       * @param {String} options.content 模态框内显示的文本内容
+       * @param {String} options.frame 嵌入模态框内的页面地址
+       * @param {String} options.height 模态框内容显示高度 
+       * @param {String} options.width 模态框显示宽度
        * @example
-       *  初次显示可用：$(sSign).modal(options)
-       *  以后显示可用：$(sSign).modal("show")
+       * ```javascript
+       *  //初次显示可用
+       *  $(sSign).modal(options);
+       *  //以后显示可用
+       *  $(sSign).modal("show");
+       * ```
        */
       show: function (options) {
         this.options=options;
@@ -203,9 +218,12 @@
       },
       /**
        * 隐藏模态框
-       * @param  {object} e 事件对象
+       * @method  hide
+       * @param  {Object} e 事件对象
        * @example
+       * ```javascript
        *  $(sSign).modal("hide");
+       * ```
        */
       hide: function (e) {
         e && e.preventDefault()
@@ -233,8 +251,9 @@
           this.hideModal()
       }, 
       /**
-       * [enforceFocus description]
-       * @ignore
+       * 定位到某一个dom对象上
+       * @method enforceFocus
+       * @private
        */
       enforceFocus: function () {
         var that = this
@@ -245,8 +264,9 @@
         })
       }, 
       /**
-       * 响应Esc按键事件
-       * @ignore
+       * 根据参数设置,绑定Esc按键事件
+       * @method escape
+       * @private
        */
       escape: function () {
         var that = this
@@ -258,6 +278,11 @@
           this.$element.off('keyup.dismiss.modal')
         }
       }, 
+      /**
+       * 隐藏时显示过度动画
+       * @method  hideWithTransition
+       * @private
+       */
       hideWithTransition: function () {
         var that = this
           , timeout = setTimeout(function () {
@@ -270,6 +295,11 @@
           that.hideModal()
         })
       }, 
+      /**
+       * 隐藏模态窗口
+       * @method hideModal
+       * @private
+       */
       hideModal: function () {
         var that = this
         this.$element.hide()
@@ -278,10 +308,21 @@
           that.$element.trigger('hidden')
         })
       }, 
+      /**
+       * 移除模态框的背景
+       * @method removeBackdrop
+       * @private
+       */
       removeBackdrop: function () {
         this.$backdrop && this.$backdrop.remove()
         this.$backdrop = null
       }, 
+      /**
+       * 生成模态框背景
+       * @method backdrop
+       * @param  {Function} callback 生成完成之后的回调函数
+       * @private
+       */
       backdrop: function (callback) {
         var that = this
           , animate = this.$element.hasClass('fade') ? 'fade' : ''
@@ -359,6 +400,11 @@
 
  /* MODAL DATA-API
   * ============== */
+  /**
+   * data-api 实现
+   * @event click.modal.data-api
+   * @param {Object} e 事件对象Event
+   */
 
   $(document).on('click.modal.data-api', '[data-toggle="modal"]', function (e) {
     var $this = $(this)
