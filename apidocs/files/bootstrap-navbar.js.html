@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>bootstrap-navbar.js - BootStrap-DevExpress API</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="../assets/css/logo.png" title="BootStrap-DevExpress API"></h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 0.001(alpha)</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/Modal.html">Modal</a></li>
+            
+                <li><a href="../classes/NavBar.html">NavBar</a></li>
+            
+                <li><a href="../classes/Splitter.html">Splitter</a></li>
+            
+                <li><a href="../classes/Tab.html">Tab</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/Modal.html">Modal</a></li>
+            
+                <li><a href="../modules/NavBar.html">NavBar</a></li>
+            
+                <li><a href="../modules/Splitter.html">Splitter</a></li>
+            
+                <li><a href="../modules/Tab.html">Tab</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: bootstrap-navbar.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+/* =========================================================
+ * bootstrap-navbar.js v0.0.1
+ * http://getbootstrap.com/2.3.2/javascript.html#NavBars
+ * =========================================================
+ * Copyright 2014 Flyskyhome, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * ========================================================= */
+
+/**
+ * ja插件:导航栏
+ * @module NavBar
+ */
+!function($) {
+
+  &quot;use strict&quot;; // jshint ;_;
+  /**
+   * @class NavBar
+   * @constructor
+   * @param {String} element jQuery选择器
+   */
+  var NavBar = function(element) {
+      this.$element = $(element);
+    }
+
+  NavBar.prototype =
+  {
+    /**
+     * NavBar 的一个实例
+     * @property {Object} constructor
+     */
+    constructor: NavBar,
+    /**
+     * 列表项
+     * @type {Object} NavBarItem
+     * @private
+     * @optional
+     * @for NavBar
+     * @example
+     * {
+     *   text:&quot;index&quot;, //文本
+     *   active:true,  //是否激活
+     *   imgurl:&quot;&quot;,    //图片路径
+     *   url:&quot;&quot;,       //链接路径
+     *   key:&quot;&quot;        //唯一标识
+     * }
+     */
+    
+    /**
+     * 当navbar dom对象创建完毕时调用
+     * @event created
+     * @param {jQuery.Event} ev 事件对象
+     * @param {Object} ev.info 包含带创建数据列表的对象,remote 获取数据时也可以附加除itemList之外的其它信息
+     * @example
+     * &#x60;&#x60;&#x60;javascript
+     *   $(sSign).on(&#x27;created&#x27;, function (ev){});
+     *   $(sSign).delegate(&#x27;&gt;div&#x27;,&#x27;created&#x27;, function (ev){console.log(ev.log)});
+     * &#x60;&#x60;&#x60;
+     */
+  
+    /**
+     * 手工显示模态框
+     * @method create
+     * @param {Object} options 显示方式配置信息
+     * @param {Boolean} options.create 是否创建,是缺省参数,当传入参数非string类型时
+     * @param {String} options.direction 排列方向,v:竖排,h:横排 ,default:v
+     * @param {Array} options.items 列表项，可以和remote同时使用，同时时,该项内容放在remote信息之上
+     * @param {String} options.remote 获取远程列表数据
+     * @param {String} options.remote.url 远程数据获取url
+     * @param {Object} options.remote.param 数据获取参数信息
+     * @param {Function} options.remote.callback 回调函数,远程数据获取成功后执行,通过返回数据对象中的itemList项生成列表
+     * @example
+     * &#x60;&#x60;&#x60;javascript
+     *  //推荐
+     *  $(sSign).navbar(
+     *  {
+     *     items:[{
+     *         text:&quot;我的桌面&quot;,
+     *         imgurl:&quot;../Resources/Images/menu/menu_desk.png&quot;,
+     *         key:&quot;desktop&quot;
+     *     }],
+     *     remote:{
+     *         url:&quot;../FGQTest/ajax/contentProvide.aspx&quot;,
+     *         param:{type:&quot;GetModuleInfo&quot;},
+     *         callback:_initMenuState
+     *     }
+     *   );
+     *  //空列表
+     *  $(sSign).navbar(&quot;create&quot;);
+     * &#x60;&#x60;&#x60;
+     */
+    create: function(options) {
+      this.options = options;
+      var that = this,
+        items = options ? options.items : [], 
+        e = $.Event(&#x27;created&#x27;);
+
+      /**
+       * 创建形成Dom对象的字符串
+       * @method createDomStr
+       * @param {Object} data remote获取数据返回数据对象
+       * @param {Array} data.itemList 需要生成的项目信息列表
+       * @private
+       */
+
+      function createDomStr(data) {
+        var items=data.itemList,
+            iCount = items.length,        
+            sufclass = options.direction == &quot;h&quot; ? &quot;&quot; : &quot;nav-stacked&quot;,
+            domStr = &quot;&lt;ul class=&#x27;nav nav-pills &quot; + sufclass + &quot;&#x27;&gt;&quot;,
+            // 列表串
+            listStr = &quot;&quot;,
+            // 临时项
+            item, activeSign = &quot; class=&#x27;active&#x27;&quot;;
+
+        for (var i = 0; i &lt; iCount; i++) {
+          item = items[i];
+          listStr = listStr + &quot;&lt;li&quot; + (item.key ? &quot; id=&#x27;&quot; + item.key + &quot;&#x27;&quot; : &quot;&quot;) + (item.active ? activeSign : &quot;&quot;) + &quot;&gt;&lt;a href=&#x27;&quot; + (item.url ? item.url : &quot;#&quot;) + &quot;&#x27;&gt;&quot; + (item.imgurl ? &quot;&lt;img src=&#x27;&quot; + item.imgurl + &quot;&#x27;&gt;&quot; : &quot;&quot;) + item.text + &quot;&lt;/a&gt;&lt;/li&gt;&quot;;
+        }
+
+        that.$element.append(domStr = domStr + listStr + &quot;&lt;/ul&gt;&quot;);
+        that.options.remote &amp;&amp; that.options.remote.callback?that.options.remote.callback(data):&quot;&quot;;
+        that.$element.trigger({type:&quot;created&quot;,info:data});
+      }
+
+      if (options &amp;&amp; options.remote) {
+        $.ajax({
+          dataType: &quot;json&quot;,
+          url: options.remote.url,
+          data: options.remote.param,
+          success: function(data, status) {
+            if (options.items) {
+              data.itemList = options.items.concat(data.itemList);
+            }
+            createDomStr(data);            
+          },
+          error: function(xmlReq, status, error) {
+            that.$element.append(&quot;传入参数:&quot; + this + &quot;&lt;br/&gt;错误信息:&quot; + error);
+          },
+          complete: function(xhr, ts) {}
+        });
+      } else {
+        createDomStr({itemList:items});
+      }
+    },
+    /**
+     * 设置选中项 
+     * @method active
+     * @example
+     * &#x60;&#x60;&#x60;javascript
+     *  $(sSign).navbar(&quot;active&quot;);
+     * &#x60;&#x60;&#x60;
+     */
+    active: function() {
+      //此时this.$element 应该是 li 元素
+      this.$element.parent().find(&quot;&gt;li&quot;).removeClass(&quot;active&quot;);
+      this.$element.addClass(&quot;active&quot;);
+    }
+  }
+
+
+  /* NavBar PLUGIN DEFINITION
+   * ======================= */
+
+  var old = $.fn.navbar
+
+  $.fn.navbar = function(option) {
+      return this.each(function() {
+        var $this = $(this),
+          data = $this.data(&#x27;navbar&#x27;),
+          options = $.extend({}, $.fn.navbar.defaults, $this.data(), typeof option == &#x27;object&#x27; &amp;&amp; option)
+          //      if (!data) $this.data(&#x27;NavBar&#x27;, (data = new NavBar(this, options)))
+        if (!data) $this.data(&#x27;navbar&#x27;, (data = new NavBar(this)))
+        if (typeof option == &#x27;string&#x27;) data[option]()
+        else if (options.create) data.create(options)
+      })
+    }
+  /**
+   * 缺省参数
+   * @type {Object}
+   */
+  $.fn.navbar.defaults = {
+    // 是否创建
+    create: true,
+    // 排列方式 v:竖排,h:横排
+    direction: &quot;v&quot;
+  }
+
+  $.fn.navbar.Constructor = NavBar
+
+
+  /* NavBar NO CONFLICT
+   * ================= */
+
+  $.fn.navbar.noConflict = function() {
+    $.fn.navbar = old
+    return this
+  }
+
+
+  /* NavBar DATA-API
+   * ============== */
+   /**
+    * data-api 接口
+    * @event click.navbar.data-api
+    * @param {Object} e 事件对象
+    */
+
+  $(document).on(&#x27;click.navbar.data-api&#x27;, &#x27;[data-toggle=&quot;navbar&quot;]&#x27;, function(e) {
+    var $this = $(this),
+      href = $this.attr(&#x27;href&#x27;),
+      $target = $($this.attr(&#x27;data-target&#x27;) || (href &amp;&amp; href.replace(/.*(?=#[^\s]+$)/, &#x27;&#x27;))) //strip for ie7
+      //还需要修改
+      ,
+      option = $target.data(&#x27;navbar&#x27;) ? &#x27;toggle&#x27; : $.extend({}, $target.data(), $this.data())
+
+      e.preventDefault()
+
+      $target.navbar(option).one(&#x27;hide&#x27;, function() {
+        $this.focus()
+      })
+  })
+
+}(window.jQuery);
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

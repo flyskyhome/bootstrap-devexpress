@@ -1,0 +1,1107 @@
+{
+    "project": {
+        "name": "BootStrap-DevExpress API",
+        "description": "BootStrap-DevExpress js 插件API 信息",
+        "version": "0.001(alpha)",
+        "url": ""
+    },
+    "files": {
+        "bootstrap-modal.js": {
+            "name": "bootstrap-modal.js",
+            "modules": {
+                "Modal": 1
+            },
+            "classes": {
+                "Modal": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "bootstrap-navbar.js": {
+            "name": "bootstrap-navbar.js",
+            "modules": {
+                "NavBar": 1
+            },
+            "classes": {
+                "NavBar": 1
+            },
+            "fors": {
+                "NavBar": 1
+            },
+            "namespaces": {}
+        },
+        "bootstrap-splitter.js": {
+            "name": "bootstrap-splitter.js",
+            "modules": {
+                "Splitter": 1
+            },
+            "classes": {
+                "Splitter": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "bootstrap-tab.js": {
+            "name": "bootstrap-tab.js",
+            "modules": {
+                "Tab": 1
+            },
+            "classes": {
+                "Tab": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "Modal": {
+            "name": "Modal",
+            "submodules": {},
+            "classes": {
+                "Modal": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "bootstrap-modal.js",
+            "line": 70,
+            "description": "js插件:模态窗口"
+        },
+        "NavBar": {
+            "name": "NavBar",
+            "submodules": {},
+            "classes": {
+                "NavBar": 1
+            },
+            "fors": {
+                "NavBar": 1
+            },
+            "namespaces": {},
+            "tag": "module",
+            "file": "bootstrap-navbar.js",
+            "line": 27,
+            "description": "ja插件:导航栏"
+        },
+        "Splitter": {
+            "name": "Splitter",
+            "submodules": {},
+            "classes": {
+                "Splitter": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "bootstrap-splitter.js",
+            "line": 21,
+            "description": "js插件:区域分割"
+        },
+        "Tab": {
+            "name": "Tab",
+            "submodules": {},
+            "classes": {
+                "Tab": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "bootstrap-tab.js",
+            "line": 33,
+            "description": "js插件:标签页"
+        }
+    },
+    "classes": {
+        "Modal": {
+            "name": "Modal",
+            "shortname": "Modal",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Modal",
+            "namespace": "",
+            "file": "bootstrap-modal.js",
+            "line": 70,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "element",
+                    "description": "jQuery选择器",
+                    "type": "String"
+                }
+            ]
+        },
+        "NavBar": {
+            "name": "NavBar",
+            "shortname": "NavBar",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "NavBar",
+            "namespace": "",
+            "file": "bootstrap-navbar.js",
+            "line": 27,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "element",
+                    "description": "jQuery选择器",
+                    "type": "String"
+                }
+            ]
+        },
+        "Splitter": {
+            "name": "Splitter",
+            "shortname": "Splitter",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Splitter",
+            "namespace": "",
+            "file": "bootstrap-splitter.js",
+            "line": 21,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "element",
+                    "description": "jQuery dom 选择器",
+                    "type": "String"
+                }
+            ]
+        },
+        "Tab": {
+            "name": "Tab",
+            "shortname": "Tab",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Tab",
+            "namespace": "",
+            "file": "bootstrap-tab.js",
+            "line": 33,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "element",
+                    "description": "jQuery dom 选择器",
+                    "type": "String"
+                }
+            ]
+        }
+    },
+    "classitems": [
+        {
+            "file": "bootstrap-modal.js",
+            "line": 30,
+            "description": "当show方法被调用时，此事件将被立即触发",
+            "itemtype": "event",
+            "name": "show",
+            "params": [
+                {
+                    "name": "ev",
+                    "description": "事件对象",
+                    "type": "jQuery.Event"
+                }
+            ],
+            "example": [
+                "\n```javasctipt\n  $(sSign).on('show', function (ev){});\n```"
+            ],
+            "class": "Modal",
+            "module": "Modal"
+        },
+        {
+            "file": "bootstrap-modal.js",
+            "line": 40,
+            "description": "当模态对话框呈现完毕时（会等待过渡效果执行结束）触发",
+            "itemtype": "event",
+            "name": "shown",
+            "params": [
+                {
+                    "name": "ev",
+                    "description": "事件对象",
+                    "type": "jQuery.Event"
+                }
+            ],
+            "example": [
+                "\n```javascript\n  $(sSign).on('shown', function (ev){});\n```"
+            ],
+            "class": "Modal",
+            "module": "Modal"
+        },
+        {
+            "file": "bootstrap-modal.js",
+            "line": 50,
+            "description": "当hide方法被调用时，此事件被立即触发。",
+            "itemtype": "event",
+            "name": "hide",
+            "params": [
+                {
+                    "name": "ev",
+                    "description": "事件对象",
+                    "type": "jQuery.Event"
+                }
+            ],
+            "example": [
+                "\n```javascript\n  $(sSign).on('hide', function (ev){});\n```"
+            ],
+            "class": "Modal",
+            "module": "Modal"
+        },
+        {
+            "file": "bootstrap-modal.js",
+            "line": 60,
+            "description": "当模态对话框被隐藏（而且过渡效果执行完毕）之后，此事件将被触发",
+            "itemtype": "event",
+            "name": "hidden",
+            "params": [
+                {
+                    "name": "ev",
+                    "description": "事件对象",
+                    "type": "jQuery.Event"
+                }
+            ],
+            "example": [
+                "\n```javascript\n  $(sSign).on('hidden', function (ev){});\n```"
+            ],
+            "class": "Modal",
+            "module": "Modal"
+        },
+        {
+            "file": "bootstrap-modal.js",
+            "line": 81,
+            "description": "Modal 的一个实例",
+            "itemtype": "property",
+            "name": "constructor",
+            "type": "Object",
+            "class": "Modal",
+            "module": "Modal"
+        },
+        {
+            "file": "bootstrap-modal.js",
+            "line": 86,
+            "description": "手工显示/隐藏一个模块框",
+            "itemtype": "method",
+            "name": "toggle",
+            "example": [
+                "\n```javascript\n  $(sSign).modal(\"toggle\")\n```"
+            ],
+            "class": "Modal",
+            "module": "Modal"
+        },
+        {
+            "file": "bootstrap-modal.js",
+            "line": 97,
+            "description": "手工显示模态框",
+            "itemtype": "method",
+            "name": "show",
+            "params": [
+                {
+                    "name": "options",
+                    "description": "显示方式配置信息",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "title",
+                            "description": "标题",
+                            "type": "String"
+                        },
+                        {
+                            "name": "backdrop",
+                            "description": "是否添加背景元素。=static时，点击模态对话框的外部区域不会将其关闭",
+                            "type": "Boolean"
+                        },
+                        {
+                            "name": "keyboard",
+                            "description": "按Esc 键时是否关闭模态框",
+                            "type": "Boolean"
+                        },
+                        {
+                            "name": "show",
+                            "description": "初始化时即显示模态对话框",
+                            "type": "Boolean"
+                        },
+                        {
+                            "name": "remote",
+                            "description": "如果提供了远程url地址，就会通过 jQuery的load方法加载内容并注入到.modal-body中",
+                            "type": "String"
+                        },
+                        {
+                            "name": "content",
+                            "description": "模态框内显示的文本内容",
+                            "type": "String"
+                        },
+                        {
+                            "name": "frame",
+                            "description": "嵌入模态框内的页面地址",
+                            "type": "String"
+                        },
+                        {
+                            "name": "height",
+                            "description": "模态框内容显示高度",
+                            "type": "String"
+                        },
+                        {
+                            "name": "width",
+                            "description": "模态框显示宽度",
+                            "type": "String"
+                        }
+                    ]
+                }
+            ],
+            "example": [
+                "\n```javascript\n //初次显示可用\n $(sSign).modal(options);\n //以后显示可用\n $(sSign).modal(\"show\");\n```"
+            ],
+            "class": "Modal",
+            "module": "Modal"
+        },
+        {
+            "file": "bootstrap-modal.js",
+            "line": 219,
+            "description": "隐藏模态框",
+            "itemtype": "method",
+            "name": "hide",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "事件对象",
+                    "type": "Object"
+                }
+            ],
+            "example": [
+                "\n```javascript\n $(sSign).modal(\"hide\");\n```"
+            ],
+            "class": "Modal",
+            "module": "Modal"
+        },
+        {
+            "file": "bootstrap-modal.js",
+            "line": 253,
+            "description": "定位到某一个dom对象上",
+            "itemtype": "method",
+            "name": "enforceFocus",
+            "access": "private",
+            "tagname": "",
+            "class": "Modal",
+            "module": "Modal"
+        },
+        {
+            "file": "bootstrap-modal.js",
+            "line": 266,
+            "description": "根据参数设置,绑定Esc按键事件",
+            "itemtype": "method",
+            "name": "escape",
+            "access": "private",
+            "tagname": "",
+            "class": "Modal",
+            "module": "Modal"
+        },
+        {
+            "file": "bootstrap-modal.js",
+            "line": 281,
+            "description": "隐藏时显示过度动画",
+            "itemtype": "method",
+            "name": "hideWithTransition",
+            "access": "private",
+            "tagname": "",
+            "class": "Modal",
+            "module": "Modal"
+        },
+        {
+            "file": "bootstrap-modal.js",
+            "line": 298,
+            "description": "隐藏模态窗口",
+            "itemtype": "method",
+            "name": "hideModal",
+            "access": "private",
+            "tagname": "",
+            "class": "Modal",
+            "module": "Modal"
+        },
+        {
+            "file": "bootstrap-modal.js",
+            "line": 311,
+            "description": "移除模态框的背景",
+            "itemtype": "method",
+            "name": "removeBackdrop",
+            "access": "private",
+            "tagname": "",
+            "class": "Modal",
+            "module": "Modal"
+        },
+        {
+            "file": "bootstrap-modal.js",
+            "line": 320,
+            "description": "生成模态框背景",
+            "itemtype": "method",
+            "name": "backdrop",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "生成完成之后的回调函数",
+                    "type": "Function"
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "Modal",
+            "module": "Modal"
+        },
+        {
+            "file": "bootstrap-modal.js",
+            "line": 403,
+            "description": "data-api 实现",
+            "itemtype": "event",
+            "name": "click.modal.data-api",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "事件对象Event",
+                    "type": "Object"
+                }
+            ],
+            "class": "Modal",
+            "module": "Modal"
+        },
+        {
+            "file": "bootstrap-navbar.js",
+            "line": 38,
+            "description": "NavBar 的一个实例",
+            "itemtype": "property",
+            "name": "constructor",
+            "type": "Object",
+            "class": "NavBar",
+            "module": "NavBar"
+        },
+        {
+            "file": "bootstrap-navbar.js",
+            "line": 43,
+            "description": "列表项",
+            "type": "{Object} NavBarItem",
+            "access": "private",
+            "tagname": "",
+            "optional": 1,
+            "example": [
+                "\n{\n  text:\"index\", //文本\n  active:true,  //是否激活\n  imgurl:\"\",    //图片路径\n  url:\"\",       //链接路径\n  key:\"\"        //唯一标识\n}"
+            ],
+            "class": "NavBar",
+            "module": "NavBar"
+        },
+        {
+            "file": "bootstrap-navbar.js",
+            "line": 59,
+            "description": "当navbar dom对象创建完毕时调用",
+            "itemtype": "event",
+            "name": "created",
+            "params": [
+                {
+                    "name": "ev",
+                    "description": "事件对象",
+                    "type": "jQuery.Event",
+                    "props": [
+                        {
+                            "name": "info",
+                            "description": "包含带创建数据列表的对象,remote 获取数据时也可以附加除itemList之外的其它信息",
+                            "type": "Object"
+                        }
+                    ]
+                }
+            ],
+            "example": [
+                "\n```javascript\n  $(sSign).on('created', function (ev){});\n  $(sSign).delegate('>div','created', function (ev){console.log(ev.log)});\n```"
+            ],
+            "class": "NavBar",
+            "module": "NavBar"
+        },
+        {
+            "file": "bootstrap-navbar.js",
+            "line": 71,
+            "description": "手工显示模态框",
+            "itemtype": "method",
+            "name": "create",
+            "params": [
+                {
+                    "name": "options",
+                    "description": "显示方式配置信息",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "create",
+                            "description": "是否创建,是缺省参数,当传入参数非string类型时",
+                            "type": "Boolean"
+                        },
+                        {
+                            "name": "direction",
+                            "description": "排列方向,v:竖排,h:横排 ,default:v",
+                            "type": "String"
+                        },
+                        {
+                            "name": "items",
+                            "description": "列表项，可以和remote同时使用，同时时,该项内容放在remote信息之上",
+                            "type": "Array"
+                        },
+                        {
+                            "name": "remote",
+                            "description": "获取远程列表数据",
+                            "type": "String",
+                            "props": [
+                                {
+                                    "name": "url",
+                                    "description": "远程数据获取url",
+                                    "type": "String"
+                                },
+                                {
+                                    "name": "param",
+                                    "description": "数据获取参数信息",
+                                    "type": "Object"
+                                },
+                                {
+                                    "name": "callback",
+                                    "description": "回调函数,远程数据获取成功后执行,通过返回数据对象中的itemList项生成列表",
+                                    "type": "Function"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "example": [
+                "\n```javascript\n //推荐\n $(sSign).navbar(\n {\n    items:[{\n        text:\"我的桌面\",\n        imgurl:\"../Resources/Images/menu/menu_desk.png\",\n        key:\"desktop\"\n    }],\n    remote:{\n        url:\"../FGQTest/ajax/contentProvide.aspx\",\n        param:{type:\"GetModuleInfo\"},\n        callback:_initMenuState\n    }\n  );\n //空列表\n $(sSign).navbar(\"create\");\n```"
+            ],
+            "class": "NavBar",
+            "module": "NavBar"
+        },
+        {
+            "file": "bootstrap-navbar.js",
+            "line": 108,
+            "description": "创建形成Dom对象的字符串",
+            "itemtype": "method",
+            "name": "createDomStr",
+            "params": [
+                {
+                    "name": "data",
+                    "description": "remote获取数据返回数据对象",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "itemList",
+                            "description": "需要生成的项目信息列表",
+                            "type": "Array"
+                        }
+                    ]
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "NavBar",
+            "module": "NavBar"
+        },
+        {
+            "file": "bootstrap-navbar.js",
+            "line": 156,
+            "description": "设置选中项",
+            "itemtype": "method",
+            "name": "active",
+            "example": [
+                "\n```javascript\n $(sSign).navbar(\"active\");\n```"
+            ],
+            "class": "NavBar",
+            "module": "NavBar"
+        },
+        {
+            "file": "bootstrap-navbar.js",
+            "line": 188,
+            "description": "缺省参数",
+            "type": "{Object}",
+            "class": "NavBar",
+            "module": "NavBar"
+        },
+        {
+            "file": "bootstrap-navbar.js",
+            "line": 213,
+            "description": "data-api 接口",
+            "itemtype": "event",
+            "name": "click.navbar.data-api",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "事件对象",
+                    "type": "Object"
+                }
+            ],
+            "class": "NavBar",
+            "module": "NavBar"
+        },
+        {
+            "file": "bootstrap-splitter.js",
+            "line": 9,
+            "description": "分割区域发生改变时触发",
+            "itemtype": "event",
+            "name": "onresize",
+            "params": [
+                {
+                    "name": "ev",
+                    "description": "回调参数",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "A",
+                            "description": "区域A对象",
+                            "type": "Object",
+                            "props": [
+                                {
+                                    "name": "height",
+                                    "description": "区域A的高度",
+                                    "type": "Number"
+                                },
+                                {
+                                    "name": "width",
+                                    "description": "区域A的宽度",
+                                    "type": "Number"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "B",
+                            "description": "区域B对象",
+                            "type": "Object",
+                            "props": [
+                                {
+                                    "name": "height",
+                                    "description": "区域B的高度",
+                                    "type": "Number"
+                                },
+                                {
+                                    "name": "width",
+                                    "description": "区域B的宽度",
+                                    "type": "Number"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "class": "Splitter",
+            "module": "Splitter"
+        },
+        {
+            "file": "bootstrap-splitter.js",
+            "line": 31,
+            "description": "splitter 计数器",
+            "itemtype": "property",
+            "name": "splitterCounter",
+            "final": 1,
+            "class": "Splitter",
+            "module": "Splitter"
+        },
+        {
+            "file": "bootstrap-splitter.js",
+            "line": 39,
+            "description": "Splitter的一个实例",
+            "itemtype": "property",
+            "name": "constructor",
+            "type": "{Object}",
+            "class": "Splitter",
+            "module": "Splitter"
+        },
+        {
+            "file": "bootstrap-splitter.js",
+            "line": 45,
+            "description": "Splitter 创建函数",
+            "itemtype": "method",
+            "name": "create",
+            "params": [
+                {
+                    "name": "options",
+                    "description": "组件配置",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "type",
+                            "description": "分割方式 v:垂直分割,h:水平分割",
+                            "type": "String"
+                        },
+                        {
+                            "name": "dock",
+                            "description": "驻停位置 top:顶部,bottom:底部,left:左侧,right:右侧",
+                            "type": "String"
+                        },
+                        {
+                            "name": "minLeft",
+                            "description": "左侧最小尺寸",
+                            "type": "Number"
+                        },
+                        {
+                            "name": "minRight",
+                            "description": "右侧最小尺寸",
+                            "type": "Number"
+                        },
+                        {
+                            "name": "minTop",
+                            "description": "顶部最小尺寸",
+                            "type": "Number"
+                        },
+                        {
+                            "name": "minBottom",
+                            "description": "底部最小尺寸",
+                            "type": "Number"
+                        },
+                        {
+                            "name": "maxLeft",
+                            "description": "左侧最大尺寸",
+                            "type": "Number"
+                        },
+                        {
+                            "name": "maxRight",
+                            "description": "右侧最大尺寸",
+                            "type": "Number"
+                        },
+                        {
+                            "name": "maxTop",
+                            "description": "顶部最大尺寸",
+                            "type": "Number"
+                        },
+                        {
+                            "name": "maxBottom",
+                            "description": "底部最大尺寸",
+                            "type": "Number"
+                        },
+                        {
+                            "name": "sizeLeft",
+                            "description": "左侧初始尺寸",
+                            "type": "Number"
+                        },
+                        {
+                            "name": "sizeRight",
+                            "description": "右侧初始尺寸",
+                            "type": "Number"
+                        },
+                        {
+                            "name": "sizeTop",
+                            "description": "顶部初始尺寸",
+                            "type": "Number"
+                        },
+                        {
+                            "name": "sizeBottom",
+                            "description": "底部初始尺寸",
+                            "type": "Number"
+                        },
+                        {
+                            "name": "anchorToWindow",
+                            "description": "是否自动锚定到窗口大小 true,false",
+                            "type": "Boolean"
+                        },
+                        {
+                            "name": "resizeToWidth",
+                            "description": "自动调整宽度 true,false",
+                            "type": "Boolean"
+                        },
+                        {
+                            "name": "onresize",
+                            "description": "参考Events onresize说明",
+                            "type": "Function"
+                        }
+                    ]
+                }
+            ],
+            "example": [
+                "\n```javascript\n\t//创建一个缺省配置的垂直分割框架 \n\t$(sSign).splitter();\n\t//创建一个水平分割框架\n\t$(sSign).splitter({type: 'h'});\n```"
+            ],
+            "class": "Splitter",
+            "module": "Splitter"
+        },
+        {
+            "file": "bootstrap-splitter.js",
+            "line": 80,
+            "description": "用于判断是否触发resize方法",
+            "itemtype": "method",
+            "name": "resize_auto_fired",
+            "return": {
+                "description": "判断浏览器版本是否小于ie9",
+                "type": "Boolean"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Splitter",
+            "module": "Splitter"
+        },
+        {
+            "file": "bootstrap-splitter.js",
+            "line": 91,
+            "description": "设置bar状态",
+            "itemtype": "method",
+            "name": "setBarState",
+            "params": [
+                {
+                    "name": "state",
+                    "description": "状态样式Class",
+                    "type": "String"
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "Splitter",
+            "module": "Splitter"
+        },
+        {
+            "file": "bootstrap-splitter.js",
+            "line": 100,
+            "description": "按下鼠标开始拖动时触发(mousedown)",
+            "itemtype": "method",
+            "name": "startSplitMouse",
+            "params": [
+                {
+                    "name": "evt",
+                    "description": "事件对象",
+                    "type": "Event"
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "Splitter",
+            "module": "Splitter"
+        },
+        {
+            "file": "bootstrap-splitter.js",
+            "line": 122,
+            "description": "鼠标拖动时触发",
+            "itemtype": "method",
+            "name": "doSplitMouse",
+            "params": [
+                {
+                    "name": "evt",
+                    "description": "事件对象",
+                    "type": "Event"
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "Splitter",
+            "module": "Splitter"
+        },
+        {
+            "file": "bootstrap-splitter.js",
+            "line": 146,
+            "description": "鼠标按键抬起时触发(mouseup)",
+            "itemtype": "method",
+            "name": "endSplitMouse",
+            "params": [
+                {
+                    "name": "evt",
+                    "description": "事件对象",
+                    "type": "Event"
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "Splitter",
+            "module": "Splitter"
+        },
+        {
+            "file": "bootstrap-splitter.js",
+            "line": 177,
+            "description": "重新进行尺寸分割",
+            "itemtype": "method",
+            "name": "resplit",
+            "params": [
+                {
+                    "name": "pos",
+                    "description": "分割点位置",
+                    "type": "Number"
+                },
+                {
+                    "name": "eventObj",
+                    "description": "待触发回调的事件函数对象",
+                    "type": "Object"
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "Splitter",
+            "module": "Splitter"
+        },
+        {
+            "file": "bootstrap-splitter.js",
+            "line": 249,
+            "description": "重算分割尺寸",
+            "itemtype": "method",
+            "name": "resize",
+            "params": [
+                {
+                    "name": "size",
+                    "description": "分割点所处位置",
+                    "type": "Number"
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "Splitter",
+            "module": "Splitter"
+        },
+        {
+            "file": "bootstrap-splitter.js",
+            "line": 273,
+            "description": "获取panel边框尺寸",
+            "itemtype": "method",
+            "name": "getPanelBorderSize",
+            "params": [
+                {
+                    "name": "type",
+                    "description": "h:横向分割 ,v:纵向分割",
+                    "type": "String"
+                },
+                {
+                    "name": "panel",
+                    "description": "区域对象",
+                    "type": "HTMLElement"
+                }
+            ],
+            "return": {
+                "description": "边框尺寸",
+                "type": "Number"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "Splitter",
+            "module": "Splitter"
+        },
+        {
+            "file": "bootstrap-splitter.js",
+            "line": 560,
+            "description": "data-api 接口",
+            "itemtype": "event",
+            "name": "click.splitter.data-api",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "事件对象",
+                    "type": "[type]"
+                }
+            ],
+            "class": "Splitter",
+            "module": "Splitter"
+        },
+        {
+            "file": "bootstrap-tab.js",
+            "line": 44,
+            "description": "Tab 实例",
+            "itemtype": "property",
+            "name": "constructor",
+            "type": "{Object}",
+            "class": "Tab",
+            "module": "Tab"
+        },
+        {
+            "file": "bootstrap-tab.js",
+            "line": 50,
+            "description": "Tab 显示函数",
+            "itemtype": "method",
+            "name": "show",
+            "example": [
+                "\n```javascript\n  $(sSign).tab(\"show\");\n```"
+            ],
+            "class": "Tab",
+            "module": "Tab"
+        },
+        {
+            "file": "bootstrap-tab.js",
+            "line": 93,
+            "description": "激活标签页",
+            "itemtype": "method",
+            "name": "activate",
+            "params": [
+                {
+                    "name": "element",
+                    "description": "jQuery dom元素",
+                    "type": "JQuery-Object"
+                },
+                {
+                    "name": "container",
+                    "description": "tab容器",
+                    "type": "JQuery-Object"
+                },
+                {
+                    "name": "callback",
+                    "description": "事件回调函数",
+                    "type": "Function"
+                }
+            ],
+            "class": "Tab",
+            "module": "Tab"
+        },
+        {
+            "file": "bootstrap-tab.js",
+            "line": 134,
+            "description": "创建Tab一个标签",
+            "itemtype": "method",
+            "name": "create",
+            "params": [
+                {
+                    "name": "options",
+                    "description": "新建标签的配置项信息",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "name",
+                            "description": "待调用方法名称",
+                            "type": "String"
+                        },
+                        {
+                            "name": "info",
+                            "description": "相关信息",
+                            "type": "String"
+                        }
+                    ]
+                }
+            ],
+            "example": [
+                "\n```javascript\n  $(sSign).tab('show')\n  $(sSign).tab({name:\"create\",info:\"tab标签名称\"})\n```"
+            ],
+            "class": "Tab",
+            "module": "Tab"
+        },
+        {
+            "file": "bootstrap-tab.js",
+            "line": 157,
+            "description": "删除一个标签页",
+            "itemtype": "method",
+            "name": "remove",
+            "example": [
+                "\n```javascript\n  $(sSign).tab(\"remove\");\n```"
+            ],
+            "class": "Tab",
+            "module": "Tab"
+        },
+        {
+            "file": "bootstrap-tab.js",
+            "line": 206,
+            "description": "data-api 接口",
+            "itemtype": "event",
+            "name": "click.tab.data-api",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "事件对象",
+                    "type": "Object"
+                }
+            ],
+            "class": "Tab",
+            "module": "Tab"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "Missing item type\n列表项",
+            "line": " bootstrap-navbar.js:43"
+        },
+        {
+            "message": "Missing item type\n缺省参数",
+            "line": " bootstrap-navbar.js:188"
+        }
+    ]
+}
