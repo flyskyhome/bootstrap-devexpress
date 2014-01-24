@@ -1,0 +1,11 @@
+{
+    "name": "BootStrap-DevExpress API",
+    "description": "BootStrap-DevExpress js 插件API 信息",
+    "version": "0.001(alpha)",
+    "url": "",
+    "options": {
+        "outdir": "../apidocs",
+        "paths":"./",
+        "exclude":"backup,tests,打包脚本,bootstrap.js"
+    }
+}
