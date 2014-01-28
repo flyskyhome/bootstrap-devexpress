@@ -5,7 +5,9 @@
 		<meta name='viewport' content='width=device-width,initial-scale=1.0'>
 		<!-- Bootstrap -->
 		<link href='../css/bootstrap.css' rel='stylesheet'>
-		<link href="../css/bootstrap-responsive.css" rel="stylesheet">
+		<link href="../css/bootstrap-responsive.css" rel="stylesheet">	    
+	    <link rel="stylesheet" type="text/css" href="./docs.css">	  
+		
 		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 		<!--[if lt IE 9]>
 			<script src="js_plugin/html5shiv.js">
@@ -19,14 +21,17 @@
 					<!-- 标签部分 -->
 					<div class="tabbable">
 						<!-- Only required for left/right tabs -->
-						<ul class="nav nav-tabs" id="myTab">
+						<ul class="nav nav-tabs" id="myTab">							
+							<li class="active">
+								<a href="#tab8" data-toggle="tab">页面框架</a>
+							</li>
 							<li>
 								<a href="#tab1" data-toggle="tab"><i class="icon-home"></i>按钮</a>
 							</li>
 							<li>
 								<a href="#tab2" data-toggle="tab">输入框</a>
 							</li>
-							<li class="active">
+							<li>
 								<a href="#tab3" data-toggle="tab">弹出框</a>
 							</li>
 							<li>
@@ -39,38 +44,42 @@
 								<a href="#tab6" data-toggle="tab">折叠</a>
 							</li>
 							<li>
-								<a href="#tab7" data-toggle="tab">资源站</a>
+								<a href="#tab7" data-toggle="tab">标签页</a>
+							</li>
+							<li>
+								<a href="#tab9" data-toggle="tab">资源站</a>
 							</li>
 						</ul>
 						<div class="tab-content">
 							<div class="tab-pane" id="tab1">
 								<div class="row-fluid">
-									<button type="submit" class="btn btn-small w100 m10">登录</button>
-									<button type="submit" class="btn btn-small w100 m10"><i class="icon-user"></i>登录</button>
-									<button type="submit" class="btn btn-small w100 m10">新建Tab</button>
-									<button type="submit" class="btn btn-small w100 m10">删除Tab</button>									
+									<a class="btn btn-small w100 m10">登录</a>
+									<a class="btn btn-small w100 m10"><i class="icon-user"></i>登录</a>
+									<a class="btn btn-small w100 m10">新建Tab</a>
+									<a class="btn btn-small w100 m10">删除Tab</a>									
 								</div>
 							</div>
 							<div class="tab-pane m10" id="tab2">
-								<input type="text" id="inputEmail" placeholder="登录用户">		
-								
-								<div class="input-append">
-								  <input class="span6" id="prependedInput" type="text" placeholder="Username" class="w100">
-								  <span class="add-on"><button class="btn">…</button></span>
-								  <span class="add-on"><button class="btn disabled">…</button></span>
-								  <span class="add-on"><button class="btn"><i class="icon-time"></i></button></span>
-								  <span class="add-on"><button class="btn disabled"><i class="icon-chevron-down"></i></button></span>
-								</div>
+								<div class="row-fluid">
+									<input class="span4" type="text" id="inputEmail" placeholder="登录用户">											
+									<div class="input-append">
+									  <input class="span6" id="prependedInput" type="text" placeholder="Username">
+									  <span class="add-on"><button class="btn"><i class="icon-th"></i></button></span>
+									  <span class="add-on"><button class="btn disabled"><i class="icon-th"></i></button></span>
+									  <span class="add-on"><button class="btn"><i class="icon-time"></i></button></span>
+									  <span class="add-on" style="border-right:1px solid #9f9f9f"><button class="btn disabled"><i class="icon-chevron-down"></i></button></span>
+									</div>
 
-								<div class="input-prepend">
-								  <span class="add-on"><button class="btn">…</button></span>
-								  <span class="add-on"><button class="btn disabled">…</button></span>
-								  <span class="add-on"><button class="btn"><i class="icon-fullscreen"></i></button></span>
-								  <span class="add-on"><button class="btn disabled"><i class="icon-chevron-down"></i></button></span>
-								  <input class="span6" id="prependedInput" type="text" placeholder="Username" class="w100">
+									<div class="ml10 input-prepend">
+									  <span class="add-on"><button class="btn"><i class="icon-th"></i></button></span>
+									  <span class="add-on"><button class="btn disabled"><i class="icon-th"></i></button></span>
+									  <span class="add-on"><button class="btn"><i class="icon-fullscreen"></i></button></span>
+									  <span class="add-on"><button class="btn disabled"><i class="icon-chevron-down"></i></button></span>
+									  <input class="span6" id="prependedInput" type="text" placeholder="Username">
+									</div>
 								</div>
 							</div>
-							<div class="tab-pane active" id="tab3">			
+							<div class="tab-pane" id="tab3">			
 								<div class="m10">
 									<!-- Button to trigger modal -->
 									<a href="#myModal" role="button" class="btn btn-small">直接嵌入内容</a>
@@ -91,7 +100,7 @@
 							</div>
 							<div class="tab-pane" id="tab4">
 								<a class="btn btn-small" data-toggle="splitter" data-target="[splitter-parent]">点击触发创建 Splitter</a>
-								<div id="MySplitter" class="mt5 ml5" splitter-parent style="height:400px" data-type="h" data-dock="top">
+								<div id="MySplitter_adad" class="mt5 ml5" splitter-parent style="height:400px" data-type="h" data-dock="top">
 								    <div id="LeftPane">
 								        <p>This is the left side of the vertical splitter. Typically you might use this side for a navigational display of some data that is related to the right side.</p>
 								        <p>Using CSS styles you can control the look of the splitter, such as its color, width, and appearance when selected. Or, you can specify most options when you call the plugin to create the splitter.</p>
@@ -126,11 +135,10 @@
 								</div>
 							</div>
 							<div class="tab-pane" id="tab5">
-								<div id="myNav" data-toggle="navbar"></div>
-								<div id="myNav_dataapi" data-toggle="navbar" href="#nav_data"></div>								
+								<div id="myNav"></div>							
 								<ul class="nav nav-pills nav-stacked">
 								  <li class="active">
-								    <a href="#">首页</a>
+								    <a href="#">首页----<i class="icon-home"></i></a>
 								  </li>
 								  <li><a href="#">系统维护</a></li>
 								  <li><a href="#">不维护</a></li>
@@ -264,7 +272,7 @@
 								    	</div>
 								    </div> 
 								</div>														
-							</div>							
+							</div>			
 							<div class="tab-pane" id="tab7">
 								<ul class="nav nav-tabs nav-stacked">
 								  <li><a target="_blank" href="http://exacttarget.github.io/fuelux/">fuelux</a></li>
@@ -272,7 +280,48 @@
 								  <li><a target="_blank" href="http://www.flathemes.com/index.html">Bootflat</a></li>
 								  <li><a target="_blank" href="http://tutorialzine.com/2013/07/50-must-have-plugins-for-extending-twitter-bootstrap/">50 bootstrap plugins</a></li>
 								</ul>								
+							</div>											
+							<div class="tab-pane active" id="tab8">
+								<div  class="row-fluid">
+									<div class="span2">
+										<ul class="nav nav-tabs nav-stacked">
+											<li>
+												<a href="#single">单独页面<i class="icon-home-right"></i></a>
+											</li>
+											<li>
+												<a href="#toolbar_main">工具栏+主页面</a>
+											</li>
+										</ul>
+									</div>
+									<div class="span5">
+										<div id="single" class="bs-docs-example">
+											<pre>
+  &lt;div class="row-fluid"&gt;
+    &lt;div class="span12"&gt;
+      Sidebar content
+    &lt;/div&gt;
+   &lt;div class="span10"&gt;
+      Body content
+    &lt;/div&gt;
+  &lt;/div&gt;
+											</pre>
+										</div>
+									</div>
+									<div class="span5 bs-docs-example">
+										<div class="row-fluid">
+											<div class="span12 h100" style="background-color:#ccc;">Sidebar content</div>
+										</div>
+									</div>								
+								</div>
 							</div>
+							<div class="tab-pane" id="tab9">
+								<ul class="nav nav-tabs nav-stacked">
+								  <li><a target="_blank" href="http://exacttarget.github.io/fuelux/">fuelux</a></li>
+								  <li><a target="_blank" href="http://jasny.github.io/bootstrap/index.html">Jasny</a></li>
+								  <li><a target="_blank" href="http://www.flathemes.com/index.html">Bootflat</a></li>
+								  <li><a target="_blank" href="http://tutorialzine.com/2013/07/50-must-have-plugins-for-extending-twitter-bootstrap/">50 bootstrap plugins</a></li>
+								</ul>
+							</div>							
 						</div>
 					</div>
 				</div>
@@ -283,18 +332,22 @@
 		<script src='../js/bootstrap.js'></script>
 		<!--script src='../js/bootstrap-splitter.js'></script-->
 		<script src='../js/bootstrap-navbar.js'></script>
+	    <!--[if lte IE 6]>
+	    <script type="text/javascript" src="js/bootstrap-ie.js"></script>
+	    <![endif]-->		
 		<script>
 			$(function(){
+
 				$('#myTab a').click(function (e) {
 				  e.preventDefault();
 				  $(this).tab('show');
 				});
 
-				$("#tab1 button").last().prev().click(function(e){
+				$("#tab1 .btn").last().prev().click(function(e){
 					$('#myTab').tab({name:'create',info:'新建Tab1'});
 				});
 
-				$("#tab1 button").last().click(function(e){
+				$("#tab1 .btn").last().click(function(e){
 					$('#myTab a:last').tab('remove');
 				});	
 
@@ -370,15 +423,16 @@
 				        dock: "top",
 						//outline: true,
 						//minLeft: 100, sizeLeft: 150,// maxLeft: 250,
-						anchorToWindow: true,
+						//anchorToWindow: true,
 						//resizeToWidth:true,			        
 				        //minLeft:100
+				        /*
 				        onresize:function(obj){
 				        	alert("bb");
 				        	console.log('a.height:'+obj.A.height);
-				        }				        
+				        }*/				        
 				    });					
-				    
+				    /*
 				    $("#RightPane").css({"overflow":"hidden"}).splitter('create',{
 				        type: "v",
 						//outline: true,
@@ -396,7 +450,8 @@
 				        //anchorToWindow: true
 				        //sizeLeft:100      
 				        onresize:function(){alert("ff");}
-				    });					    
+				    });				
+				    */	    
 				  }
 				  else if(e.target.href.indexOf("tab6")>0){
 
@@ -417,6 +472,10 @@
 
 				})
 
+				$('#myNav').bind('created', function (ev) {
+					console.log(ev.info)
+				});		
+				
 				$("#myNav").navbar({
 					items:[
 						{
@@ -435,6 +494,23 @@
 					]
 				});
 
+				$('#tab5').append("<div></div>").children().last().navbar({
+					items:[
+						{
+							text:"咔哒了的",
+							img:"url",
+							url:"",
+							key:"code"
+						},
+						{
+							text:"阿德强加我qq",
+							img:"url",
+							url:"",
+							key:"code",
+							active:1
+						}
+					]
+				});
 			})
 
 		</script>
