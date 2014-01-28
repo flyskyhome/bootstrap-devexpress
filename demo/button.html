@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>
+      按钮(button) · Bootstrap
+    </title>
+    <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+    <!-- Bootstrap Css-->
+    <link href='../css/bootstrap.css' rel='stylesheet'>
+    <link href="../css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="./docs.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="navbar">
+          <div class="navbar-inner">
+            <a class="brand" href="#">常用方式</a>
+            <ul class="nav">
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">框架布局<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="./base_frame.html">基础布局</a>
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                    <a href="./splitter_frame.html">分割布局</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">组件<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="./tab.html">标签页</a>
+                  </li>
+                  <li>
+                    <a href="./navbar.html">导航Bar</a>
+                  </li>
+                  <li>
+                    <a href="./collapse.html">折叠</a>
+                  </li>                  
+                  <li class="divider"></li>                  
+                  <li>
+                    <a href="./modal.html">模态窗口</a>
+                  </li>
+                  <li class="divider"></li>                  
+                  <li>
+                    <a href="./button.html">按钮</a>
+                  </li>
+                  <li>
+                    <a href="./input.html">输入框</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row-fluid">
+        <div class="span12">
+          <!-- 标签部分 -->
+          <div class="tabbable tabs-left">
+            <!-- Only required for left/right tabs -->
+            <ul class="nav nav-tabs" id="docTab">
+              <li class="active">
+                <a href="#tab1" data-toggle="tab">按钮</a>
+              </li>
+              <li class="">
+                <a href="#tab2" data-toggle="tab">按钮(带图标)</a>
+              </li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="tab1">
+                <a class="btn btn-mini w100 m10">mini按钮</a><a class="btn btn-small w100 m10">小按钮</a><a class="btn w100 m10">按钮</a><a class="btn btn-large w100 m10">大按钮</a>
+              </div>
+              <div class="tab-pane " id="tab2">
+                <a class="btn btn-mini w100 m10"><i class="icon-user"></i>mini按钮</a><a class="btn btn-small w100 m10"><i class="icon-user"></i>小按钮</a><a class="btn w100 m10">按钮<i class="icon-user"></i></a><a class="btn btn-large w100 m10"><i class="icon-user"></i>大按钮</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row-fluid">
+        <div class="span12">
+          <!-- 标签部分 -->
+          <div class="tabbable">
+            <!-- Only required for left/right tabs -->
+            <ul class="nav nav-tabs " id="infoTab1">
+              <li class="active">
+                <a href="#src1" data-toggle="tab">源代码</a>
+              </li>
+              <li>
+                <a href="#html1" data-toggle="tab">Html</a>
+              </li>
+            </ul>
+            <div class="tab-content ">
+              <div class="tab-pane active p5 bd1" id="src1" style="border-top:0;min-height:200px">
+                <pre>
+&lt;a class=&quot;btn btn-mini w100 m10&quot;&gt;mini按钮&lt;/a&gt;
+&lt;a class=&quot;btn btn-small w100 m10&quot;&gt;小按钮&lt;/a&gt;
+&lt;a class=&quot;btn w100 m10&quot;&gt;按钮&lt;/a&gt;
+&lt;a class=&quot;btn btn-large w100 m10&quot;&gt;大按钮&lt;/a&gt;
+                </pre>
+              </div>
+              <div class="tab-pane p5 bd1" id="html1" style="border-top:0;min-height:200px">
+                <pre>
+&lt;a class=&quot;btn btn-mini w100 m10&quot;&gt;mini按钮&lt;/a&gt;
+&lt;a class=&quot;btn btn-small w100 m10&quot;&gt;小按钮&lt;/a&gt;
+&lt;a class=&quot;btn w100 m10&quot;&gt;按钮&lt;/a&gt;
+&lt;a class=&quot;btn btn-large w100 m10&quot;&gt;大按钮&lt;/a&gt;
+                </pre>
+              </div>
+            </div>
+            <ul class="nav nav-tabs none" id="infoTab2">
+              <li class="active">
+                <a href="#src2" data-toggle="tab">源代码</a>
+              </li>
+              <li>
+                <a href="#html2" data-toggle="tab">Html</a>
+              </li>
+            </ul>
+            <div class="tab-content none">
+              <div class="tab-pane active p5 bd1" id="src2" style="border-top:0;min-height:200px">
+                <pre>
+&lt;a class=&quot;btn btn-mini w100 m10&quot;&gt;&lt;i class=&quot;icon-user&quot;&gt;&lt;/i&gt;mini按钮&lt;/a&gt;
+&lt;a class=&quot;btn btn-small w100 m10&quot;&gt;&lt;i class=&quot;icon-user&quot;&gt;&lt;/i&gt;小按钮&lt;/a&gt;
+&lt;a class=&quot;btn w100 m10&quot;&gt;按钮&lt;i class=&quot;icon-user&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;a class=&quot;btn btn-large w100 m10&quot;&gt;&lt;i class=&quot;icon-user&quot;&gt;&lt;/i&gt;大按钮&lt;/a&gt;
+                </pre>
+              </div>
+              <div class="tab-pane p5 bd1" id="html2" style="border-top:0;min-height:200px">
+                <pre>
+&lt;a class=&quot;btn btn-mini w100 m10&quot;&gt;&lt;i class=&quot;icon-user&quot;&gt;&lt;/i&gt;mini按钮&lt;/a&gt;
+&lt;a class=&quot;btn btn-small w100 m10&quot;&gt;&lt;i class=&quot;icon-user&quot;&gt;&lt;/i&gt;小按钮&lt;/a&gt;
+&lt;a class=&quot;btn w100 m10&quot;&gt;按钮&lt;i class=&quot;icon-user&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;a class=&quot;btn btn-large w100 m10&quot;&gt;&lt;i class=&quot;icon-user&quot;&gt;&lt;/i&gt;大按钮&lt;/a&gt;
+                </pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <script src='js_lib/jquery-1.8.3.js'></script>
+    <script src='../js/bootstrap.js'></script>
+    <script src='../js/bootstrap-navbar.js'></script>
+    <script>
+      $(function() {
+        // 控制Tab切换效果
+        $('#docTab>li>a').click(function(e) {
+          var idStr = $(this).attr("href");
+          var num = idStr.replace("#tab", "");
+          $("[id*='infoTab']").removeClass("none");
+          $("[id*='infoTab']").addClass("none");
+
+          $("[id*='infoTab']").next().removeClass("none");
+          $("[id*='infoTab']").next().addClass("none");
+
+          $("[id='infoTab" + num + "']").removeClass("none");
+          $("[id='infoTab" + num + "']").next().removeClass("none");
+
+        });
+
+        // 给js执行按钮绑定点击事件
+        $(".execjs").length == 0 ? "" : $(".execjs").bind("click", function(e) {          
+          var sJs = $(this).parent().parent().next().text();
+          sJs.replace(" ", "") == "" ? console.log("my is empty!") : eval(sJs);
+        })
+
+      })
+    </script>
+  </body>
+  </html>
