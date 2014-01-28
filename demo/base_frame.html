@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>
+      基础布局 · Bootstrap
+    </title>
+    <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+    <!-- Bootstrap Css-->
+    <link href='../css/bootstrap.css' rel='stylesheet'>
+    <link href="../css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="./docs.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="navbar">
+          <div class="navbar-inner">
+            <a class="brand" href="#">使用方式</a>
+            <ul class="nav">
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">框架布局<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="./base_frame.html">基础布局</a>
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                    <a href="./splitter_frame.html">分割布局</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">组件<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="./tab.html">标签页</a>
+                  </li>
+                  <li>
+                    <a href="./navbar.html">导航Bar</a>
+                  </li>
+                  <li>
+                    <a href="./collapse.html">折叠</a>
+                  </li>                  
+                  <li class="divider"></li>                  
+                  <li>
+                    <a href="./modal.html">模态窗口</a>
+                  </li>
+                  <li class="divider"></li>                  
+                  <li>
+                    <a href="./button.html">按钮</a>
+                  </li>
+                  <li>
+                    <a href="./input.html">输入框</a>
+                  </li>
+                  <li>
+                    <a href="./popwindow.html">弹出框</a>
+                  </li>                  
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row-fluid">
+        <div class="span12">
+          <!-- 标签部分 -->
+          <div class="tabbable tabs-left">
+            <!-- Only required for left/right tabs -->
+            <ul class="nav nav-tabs" id="docTab">
+              <li class="active">
+                <a href="#tab1" data-toggle="tab">单页布局</a>
+              </li>
+              <li class="">
+                <a href="#tab2" data-toggle="tab">上下布局</a>
+              </li>
+              <li class="">
+                <a href="#tab3" data-toggle="tab">左右布局</a>
+              </li>
+              <li class="">
+                <a href="#tab4" data-toggle="tab">嵌套布局</a>
+              </li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="tab1">
+                <div class="row-fluid show-grid">  <div class="span12">span12</div></div>
+              </div>
+              <div class="tab-pane " id="tab2">
+                <div class="row-fluid show-grid">  <div class="span12">span12</div></div><div class="row-fluid show-grid">  <div class="span12">span12</div></div>
+              </div>
+              <div class="tab-pane " id="tab3">
+                <h3>对等布局</h3><div class="row-fluid show-grid">  <div class="span6">span6</div>  <div class="span6">span6</div></div><h3>非对等布局</h3><div class="row-fluid show-grid">  <div class="span2">span2</div>  <div class="span10">span10</div></div>
+              </div>
+              <div class="tab-pane " id="tab4">
+                <div class="row-fluid show-grid">  <div class="span12">    span 12    <div class="row-fluid show-grid">      <div class="span6">         span 6         <div class="row-fluid show-grid">            <div class="span6">span 6</div>            <div class="span6">span 6</div>         </div>      </div>      <div class="span6">span 6</div>    </div>  </div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row-fluid">
+        <div class="span12">
+          <!-- 标签部分 -->
+          <div class="tabbable">
+            <!-- Only required for left/right tabs -->
+            <ul class="nav nav-tabs " id="infoTab1">
+              <li class="active">
+                <a href="#src1" data-toggle="tab">源代码</a>
+              </li>
+              <li>
+                <a href="#html1" data-toggle="tab">Html</a>
+              </li>
+            </ul>
+            <div class="tab-content ">
+              <div class="tab-pane active p5 bd1" id="src1" style="border-top:0;min-height:200px">
+                <pre>
+&lt;div class=&quot;row-fluid show-grid&quot;&gt;
+  &lt;div class=&quot;span12&quot;&gt;span12&lt;/div&gt;
+&lt;/div&gt;
+                </pre>
+              </div>
+              <div class="tab-pane p5 bd1" id="html1" style="border-top:0;min-height:200px">
+                <pre>
+&lt;div class=&quot;row-fluid show-grid&quot;&gt;
+  &lt;div class=&quot;span12&quot;&gt;span12&lt;/div&gt;
+&lt;/div&gt;
+                </pre>
+              </div>
+            </div>
+            <ul class="nav nav-tabs none" id="infoTab2">
+              <li class="active">
+                <a href="#src2" data-toggle="tab">源代码</a>
+              </li>
+              <li>
+                <a href="#html2" data-toggle="tab">Html</a>
+              </li>
+            </ul>
+            <div class="tab-content none">
+              <div class="tab-pane active p5 bd1" id="src2" style="border-top:0;min-height:200px">
+                <pre>
+&lt;div class=&quot;row-fluid show-grid&quot;&gt;
+  &lt;div class=&quot;span12&quot;&gt;span12&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;row-fluid show-grid&quot;&gt;
+  &lt;div class=&quot;span12&quot;&gt;span12&lt;/div&gt;
+&lt;/div&gt;
+                </pre>
+              </div>
+              <div class="tab-pane p5 bd1" id="html2" style="border-top:0;min-height:200px">
+                <pre>
+&lt;div class=&quot;row-fluid show-grid&quot;&gt;
+  &lt;div class=&quot;span12&quot;&gt;span12&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;row-fluid show-grid&quot;&gt;
+  &lt;div class=&quot;span12&quot;&gt;span12&lt;/div&gt;
+&lt;/div&gt;
+                </pre>
+              </div>
+            </div>
+            <ul class="nav nav-tabs none" id="infoTab3">
+              <li class="active">
+                <a href="#src3" data-toggle="tab">源代码</a>
+              </li>
+              <li>
+                <a href="#html3" data-toggle="tab">Html</a>
+              </li>
+            </ul>
+            <div class="tab-content none">
+              <div class="tab-pane active p5 bd1" id="src3" style="border-top:0;min-height:200px">
+                <pre>
+&lt;h3&gt;对等布局&lt;/h3&gt;
+&lt;div class=&quot;row-fluid show-grid&quot;&gt;
+  &lt;div class=&quot;span6&quot;&gt;span6&lt;/div&gt;
+  &lt;div class=&quot;span6&quot;&gt;span6&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;非对等布局&lt;/h3&gt;
+&lt;div class=&quot;row-fluid show-grid&quot;&gt;
+  &lt;div class=&quot;span2&quot;&gt;span2&lt;/div&gt;
+  &lt;div class=&quot;span10&quot;&gt;span10&lt;/div&gt;
+&lt;/div&gt;
+                </pre>
+              </div>
+              <div class="tab-pane p5 bd1" id="html3" style="border-top:0;min-height:200px">
+                <pre>
+&lt;h3&gt;对等布局&lt;/h3&gt;
+&lt;div class=&quot;row-fluid show-grid&quot;&gt;
+  &lt;div class=&quot;span6&quot;&gt;span6&lt;/div&gt;
+  &lt;div class=&quot;span6&quot;&gt;span6&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;非对等布局&lt;/h3&gt;
+&lt;div class=&quot;row-fluid show-grid&quot;&gt;
+  &lt;div class=&quot;span2&quot;&gt;span2&lt;/div&gt;
+  &lt;div class=&quot;span10&quot;&gt;span10&lt;/div&gt;
+&lt;/div&gt;
+                </pre>
+              </div>
+            </div>
+            <ul class="nav nav-tabs none" id="infoTab4">
+              <li class="active">
+                <a href="#src4" data-toggle="tab">源代码</a>
+              </li>
+              <li>
+                <a href="#html4" data-toggle="tab">Html</a>
+              </li>
+            </ul>
+            <div class="tab-content none">
+              <div class="tab-pane active p5 bd1" id="src4" style="border-top:0;min-height:200px">
+                <pre>
+&lt;div class=&quot;row-fluid show-grid&quot;&gt;
+  &lt;div class=&quot;span12&quot;&gt;
+    span 12
+    &lt;div class=&quot;row-fluid show-grid&quot;&gt;
+      &lt;div class=&quot;span6&quot;&gt;
+         span 6
+         &lt;div class=&quot;row-fluid show-grid&quot;&gt;
+            &lt;div class=&quot;span6&quot;&gt;span 6&lt;/div&gt;
+            &lt;div class=&quot;span6&quot;&gt;span 6&lt;/div&gt;
+         &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;span6&quot;&gt;span 6&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+                </pre>
+              </div>
+              <div class="tab-pane p5 bd1" id="html4" style="border-top:0;min-height:200px">
+                <pre>
+&lt;div class=&quot;row-fluid show-grid&quot;&gt;
+  &lt;div class=&quot;span12&quot;&gt;
+    span 12
+    &lt;div class=&quot;row-fluid show-grid&quot;&gt;
+      &lt;div class=&quot;span6&quot;&gt;
+         span 6
+         &lt;div class=&quot;row-fluid show-grid&quot;&gt;
+            &lt;div class=&quot;span6&quot;&gt;span 6&lt;/div&gt;
+            &lt;div class=&quot;span6&quot;&gt;span 6&lt;/div&gt;
+         &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;span6&quot;&gt;span 6&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+                </pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <script src='js_lib/jquery-1.8.3.js'></script>
+    <script src='../js/bootstrap.js'></script>
+    <script src='../js/bootstrap-navbar.js'></script>
+    <script>
+      $(function() {
+        // 控制Tab切换效果
+        $('#docTab>li>a').click(function(e) {
+          var idStr = $(this).attr("href");
+          var num = idStr.replace("#tab", "");
+          $("[id*='infoTab']").removeClass("none");
+          $("[id*='infoTab']").addClass("none");
+
+          $("[id*='infoTab']").next().removeClass("none");
+          $("[id*='infoTab']").next().addClass("none");
+
+          $("[id='infoTab" + num + "']").removeClass("none");
+          $("[id='infoTab" + num + "']").next().removeClass("none");
+
+        });
+
+        // 给js执行按钮绑定点击事件
+        $(".execjs").length == 0 ? "" : $(".execjs").bind("click", function(e) {          
+          var sJs = $(this).parent().parent().prev().text();
+          sJs.replace(" ", "") == "" ? console.log("my is empty!") : eval(sJs);
+        })
+
+      })
+    </script>
+  </body>
+  </html>
