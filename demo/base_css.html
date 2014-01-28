@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>
+      样式元素(unit) · Bootstrap
+    </title>
+    <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+    <!-- Bootstrap Css-->
+    <link href='../css/bootstrap.css' rel='stylesheet'>
+    <link href="../css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="./docs.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="navbar">
+          <div class="navbar-inner">
+            <a class="brand" href="#">常用方式</a>
+            <ul class="nav">
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">框架布局<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="./base_frame.html">基础布局</a>
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                    <a href="./splitter_frame.html">分割布局</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">基础样式<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="./typography.html">排版</a>
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                    <a href="./base_css.html">样式元素</a>
+                  </li>
+                </ul>
+              </li>              
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">组件<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="./tab.html">标签页</a>
+                  </li>
+                  <li>
+                    <a href="./navbar.html">导航Bar</a>
+                  </li>
+                  <li>
+                    <a href="./collapse.html">折叠</a>
+                  </li>                  
+                  <li class="divider"></li>                  
+                  <li>
+                    <a href="./modal.html">模态窗口</a>
+                  </li>
+                  <li class="divider"></li>                  
+                  <li>
+                    <a href="./button.html">按钮</a>
+                  </li>
+                  <li>
+                    <a href="./input.html">输入框</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row-fluid">
+        <div class="span12">
+          <!-- 标签部分 -->
+          <div class="tabbable tabs-left m10">
+            <!-- Only required for left/right tabs -->
+            <ul class="nav nav-tabs" id="docTab">
+              <li class="active">
+                <a href="#tab1" data-toggle="tab">字体</a>
+              </li>
+              <li class="">
+                <a href="#tab2" data-toggle="tab">定位</a>
+              </li>
+              <li class="">
+                <a href="#tab3" data-toggle="tab">宽度</a>
+              </li>
+              <li class="">
+                <a href="#tab4" data-toggle="tab">高度</a>
+              </li>
+              <li class="">
+                <a href="#tab5" data-toggle="tab">外边距</a>
+              </li>
+              <li class="">
+                <a href="#tab6" data-toggle="tab">内边距</a>
+              </li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="tab1">
+                <h4>尺寸</h4><p class="f12">中国12px</p><p class="f13">中国13px</p><p class="f14">中国14px</p><p class="f16">中国16px</p><p class="f20">中国20px</p><h4>重量</h4><p class="fb">中国 粗体</p><p class="fn">中国 正常</p><h4>是否有下划线</h4><p class="unl">中国</p><p class="no_unl">中国</p>
+              </div>
+              <div class="tab-pane " id="tab2">
+                <h4>文字、img对齐</h4><p class="bd1 w200 tl">左对齐 tl</p><p class="bd1 w200 tc">居中对齐 tc</p><p class="bd1 w200 tr">右对齐 tr</p><p class="bd1 w200 h100 vm" style="line-height:100px">垂直居中 vm</p><h4>浮动</h4><p class="bd1 w200 fl">中国 左</p><p class="bd1 w200 fr">中国 右</p><h4 class="cb">清除</h4><h4>定位</h4><p class="pr">相对定位(需要和top之类的联合使用才见效果)</p><p class="pa">绝对定位(需要和top之类的联合使用才见效果)</p><h4>隐藏</h4><p class="none">不占位隐藏</p><p class="hidden">占位隐藏</p>
+              </div>
+              <div class="tab-pane " id="tab3">
+                <h4>10px - 100px (间隔10)</h4><p class="bd1 w50">宽度50</p><p class="bd1 w60">宽度60</p><p class="bd1 w80">宽度80</p><h4>120px</h4><p class="bd1 w120">宽度50</p><h4>200px - 800px (间隔100)</h4><p class="bd1 w200">宽度200</p><p class="bd1 w400">宽度400</p><p class="bd1 w800">宽度800</p><h4>98% - 100% (间隔1)</h4><p class="bd1 w_98">宽度98%</p><p class="bd1 w_99">宽度99%</p>
+              </div>
+              <div class="tab-pane " id="tab4">
+                <h4>100px - 300px (间隔100)</h4><p class="bd1 w50 h100 fl">高度200</p><p class="bd1 w50 h200 fl ml5">高度400</p><p class="bd1 w50 h300 fl ml5">高度800</p><h4>98% - 100% (间隔1)</h4><div class="h300 fl"><p class="bd1 w50 h_98 ml5">高度98%</p></div><div class="h300 fl"><p class="bd1 w50 h_99 ml5">高度99%</p></div>
+              </div>
+              <div class="tab-pane " id="tab5">
+                <h4>整体 10px、15px、30px</h4><p class="bd1 m10">外边距10</p><p class="bd1 m15">外边距15</p><p class="bd1 m30">外边距30</p><h4>顶部 5 - 20(间距5)</h4><p class="bd1 mt5">外边距顶 5</p><p class="bd1 mt15">外边距顶 15</p><h4>顶部 30、50、100</h4><p class="bd1 mt30">外边距顶 30</p><p class="bd1 mt50">外边距顶 50</p><h4>底部(mbX,数值同顶)</h4><h4>左(mlX,数值同顶)</h4><h4>右(mrX,数值同顶)</h4>
+              </div>
+              <div class="tab-pane " id="tab6">
+                <h4>整体 0、5px、10px、15px、30px</h4><p class="bd1 p10">内边距10</p><p class="bd1 p15">内边距15</p><p class="bd1 p30">内边距30</p><h4>顶部 5 - 20(间距5)</h4><p class="bd1 pt5">内边距顶 5</p><p class="bd1 pt15">内边距顶 15</p><h4>顶部 30、50、100</h4><p class="bd1 pt30">内边距顶 30</p><p class="bd1 pt50">内边距顶 50</p><h4>底部(pbX,数值同顶)</h4><h4>左(plX,数值同顶)</h4><h4>右(prX,数值同顶)</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row-fluid">
+        <div class="span12">
+          <!-- 标签部分 -->
+          <div class="tabbable m10 mt30">
+            <!-- Only required for left/right tabs -->
+            <ul class="nav nav-tabs " id="infoTab1">
+              <li class="active">
+                <a href="#src1" data-toggle="tab">源代码</a>
+              </li>
+              <li>
+                <a href="#html1" data-toggle="tab">Html</a>
+              </li>
+            </ul>
+            <div class="tab-content ">
+              <div class="tab-pane active p5 bd1" id="src1" style="border-top:0;min-height:200px">
+                <pre>
+&lt;h4&gt;尺寸&lt;/h4&gt;
+&lt;p class=&quot;f12&quot;&gt;中国12px&lt;/p&gt;
+&lt;p class=&quot;f13&quot;&gt;中国13px&lt;/p&gt;
+&lt;p class=&quot;f14&quot;&gt;中国14px&lt;/p&gt;
+&lt;p class=&quot;f16&quot;&gt;中国16px&lt;/p&gt;
+&lt;p class=&quot;f20&quot;&gt;中国20px&lt;/p&gt;
+&lt;h4&gt;重量&lt;/h4&gt;
+&lt;p class=&quot;fb&quot;&gt;中国 粗体&lt;/p&gt;
+&lt;p class=&quot;fn&quot;&gt;中国 正常&lt;/p&gt;
+&lt;h4&gt;是否有下划线&lt;/h4&gt;
+&lt;p class=&quot;unl&quot;&gt;中国&lt;/p&gt;
+&lt;p class=&quot;no_unl&quot;&gt;中国&lt;/p&gt;
+                </pre>
+              </div>
+              <div class="tab-pane p5 bd1" id="html1" style="border-top:0;min-height:200px">
+                <pre>
+&lt;h4&gt;尺寸&lt;/h4&gt;
+&lt;p class=&quot;f12&quot;&gt;中国12px&lt;/p&gt;
+&lt;p class=&quot;f13&quot;&gt;中国13px&lt;/p&gt;
+&lt;p class=&quot;f14&quot;&gt;中国14px&lt;/p&gt;
+&lt;p class=&quot;f16&quot;&gt;中国16px&lt;/p&gt;
+&lt;p class=&quot;f20&quot;&gt;中国20px&lt;/p&gt;
+&lt;h4&gt;重量&lt;/h4&gt;
+&lt;p class=&quot;fb&quot;&gt;中国 粗体&lt;/p&gt;
+&lt;p class=&quot;fn&quot;&gt;中国 正常&lt;/p&gt;
+&lt;h4&gt;是否有下划线&lt;/h4&gt;
+&lt;p class=&quot;unl&quot;&gt;中国&lt;/p&gt;
+&lt;p class=&quot;no_unl&quot;&gt;中国&lt;/p&gt;
+                </pre>
+              </div>
+            </div>
+            <ul class="nav nav-tabs none" id="infoTab2">
+              <li class="active">
+                <a href="#src2" data-toggle="tab">源代码</a>
+              </li>
+              <li>
+                <a href="#html2" data-toggle="tab">Html</a>
+              </li>
+            </ul>
+            <div class="tab-content none">
+              <div class="tab-pane active p5 bd1" id="src2" style="border-top:0;min-height:200px">
+                <pre>
+&lt;h4&gt;文字、img对齐&lt;/h4&gt;
+&lt;p class=&quot;bd1 w200 tl&quot;&gt;左对齐 tl&lt;/p&gt;
+&lt;p class=&quot;bd1 w200 tc&quot;&gt;居中对齐 tc&lt;/p&gt;
+&lt;p class=&quot;bd1 w200 tr&quot;&gt;右对齐 tr&lt;/p&gt;
+&lt;p class=&quot;bd1 w200 h100 vm&quot; style=&quot;line-height:100px&quot;&gt;垂直居中 vm&lt;/p&gt;
+&lt;h4&gt;浮动&lt;/h4&gt;
+&lt;p class=&quot;bd1 w200 fl&quot;&gt;中国 左&lt;/p&gt;
+&lt;p class=&quot;bd1 w200 fr&quot;&gt;中国 右&lt;/p&gt;
+&lt;h4 class=&quot;cb&quot;&gt;清除&lt;/h4&gt;
+&lt;h4&gt;定位&lt;/h4&gt;
+&lt;p class=&quot;pr&quot;&gt;相对定位(需要和top之类的联合使用才见效果)&lt;/p&gt;
+&lt;p class=&quot;pa&quot;&gt;绝对定位(需要和top之类的联合使用才见效果)&lt;/p&gt;
+&lt;h4&gt;隐藏&lt;/h4&gt;
+&lt;p class=&quot;none&quot;&gt;不占位隐藏&lt;/p&gt;
+&lt;p class=&quot;hidden&quot;&gt;占位隐藏&lt;/p&gt;
+                </pre>
+              </div>
+              <div class="tab-pane p5 bd1" id="html2" style="border-top:0;min-height:200px">
+                <pre>
+&lt;h4&gt;文字、img对齐&lt;/h4&gt;
+&lt;p class=&quot;bd1 w200 tl&quot;&gt;左对齐 tl&lt;/p&gt;
+&lt;p class=&quot;bd1 w200 tc&quot;&gt;居中对齐 tc&lt;/p&gt;
+&lt;p class=&quot;bd1 w200 tr&quot;&gt;右对齐 tr&lt;/p&gt;
+&lt;p class=&quot;bd1 w200 h100 vm&quot; style=&quot;line-height:100px&quot;&gt;垂直居中 vm&lt;/p&gt;
+&lt;h4&gt;浮动&lt;/h4&gt;
+&lt;p class=&quot;bd1 w200 fl&quot;&gt;中国 左&lt;/p&gt;
+&lt;p class=&quot;bd1 w200 fr&quot;&gt;中国 右&lt;/p&gt;
+&lt;h4 class=&quot;cb&quot;&gt;清除&lt;/h4&gt;
+&lt;h4&gt;定位&lt;/h4&gt;
+&lt;p class=&quot;pr&quot;&gt;相对定位(需要和top之类的联合使用才见效果)&lt;/p&gt;
+&lt;p class=&quot;pa&quot;&gt;绝对定位(需要和top之类的联合使用才见效果)&lt;/p&gt;
+&lt;h4&gt;隐藏&lt;/h4&gt;
+&lt;p class=&quot;none&quot;&gt;不占位隐藏&lt;/p&gt;
+&lt;p class=&quot;hidden&quot;&gt;占位隐藏&lt;/p&gt;
+                </pre>
+              </div>
+            </div>
+            <ul class="nav nav-tabs none" id="infoTab3">
+              <li class="active">
+                <a href="#src3" data-toggle="tab">源代码</a>
+              </li>
+              <li>
+                <a href="#html3" data-toggle="tab">Html</a>
+              </li>
+            </ul>
+            <div class="tab-content none">
+              <div class="tab-pane active p5 bd1" id="src3" style="border-top:0;min-height:200px">
+                <pre>
+&lt;h4&gt;10px - 100px (间隔10)&lt;/h4&gt;
+&lt;p class=&quot;bd1 w50&quot;&gt;宽度50&lt;/p&gt;
+&lt;p class=&quot;bd1 w60&quot;&gt;宽度60&lt;/p&gt;
+&lt;p class=&quot;bd1 w80&quot;&gt;宽度80&lt;/p&gt;
+&lt;h4&gt;120px&lt;/h4&gt;
+&lt;p class=&quot;bd1 w120&quot;&gt;宽度50&lt;/p&gt;
+&lt;h4&gt;200px - 800px (间隔100)&lt;/h4&gt;
+&lt;p class=&quot;bd1 w200&quot;&gt;宽度200&lt;/p&gt;
+&lt;p class=&quot;bd1 w400&quot;&gt;宽度400&lt;/p&gt;
+&lt;p class=&quot;bd1 w800&quot;&gt;宽度800&lt;/p&gt;
+&lt;h4&gt;98% - 100% (间隔1)&lt;/h4&gt;
+&lt;p class=&quot;bd1 w_98&quot;&gt;宽度98%&lt;/p&gt;
+&lt;p class=&quot;bd1 w_99&quot;&gt;宽度99%&lt;/p&gt;
+                </pre>
+              </div>
+              <div class="tab-pane p5 bd1" id="html3" style="border-top:0;min-height:200px">
+                <pre>
+&lt;h4&gt;10px - 100px (间隔10)&lt;/h4&gt;
+&lt;p class=&quot;bd1 w50&quot;&gt;宽度50&lt;/p&gt;
+&lt;p class=&quot;bd1 w60&quot;&gt;宽度60&lt;/p&gt;
+&lt;p class=&quot;bd1 w80&quot;&gt;宽度80&lt;/p&gt;
+&lt;h4&gt;120px&lt;/h4&gt;
+&lt;p class=&quot;bd1 w120&quot;&gt;宽度50&lt;/p&gt;
+&lt;h4&gt;200px - 800px (间隔100)&lt;/h4&gt;
+&lt;p class=&quot;bd1 w200&quot;&gt;宽度200&lt;/p&gt;
+&lt;p class=&quot;bd1 w400&quot;&gt;宽度400&lt;/p&gt;
+&lt;p class=&quot;bd1 w800&quot;&gt;宽度800&lt;/p&gt;
+&lt;h4&gt;98% - 100% (间隔1)&lt;/h4&gt;
+&lt;p class=&quot;bd1 w_98&quot;&gt;宽度98%&lt;/p&gt;
+&lt;p class=&quot;bd1 w_99&quot;&gt;宽度99%&lt;/p&gt;
+                </pre>
+              </div>
+            </div>
+            <ul class="nav nav-tabs none" id="infoTab4">
+              <li class="active">
+                <a href="#src4" data-toggle="tab">源代码</a>
+              </li>
+              <li>
+                <a href="#html4" data-toggle="tab">Html</a>
+              </li>
+            </ul>
+            <div class="tab-content none">
+              <div class="tab-pane active p5 bd1" id="src4" style="border-top:0;min-height:200px">
+                <pre>
+&lt;h4&gt;100px - 300px (间隔100)&lt;/h4&gt;
+&lt;p class=&quot;bd1 w50 h100 fl&quot;&gt;高度200&lt;/p&gt;
+&lt;p class=&quot;bd1 w50 h200 fl ml5&quot;&gt;高度400&lt;/p&gt;
+&lt;p class=&quot;bd1 w50 h300 fl ml5&quot;&gt;高度800&lt;/p&gt;
+&lt;h4&gt;98% - 100% (间隔1)&lt;/h4&gt;
+&lt;div class=&quot;h300 fl&quot;&gt;&lt;p class=&quot;bd1 w50 h_98 ml5&quot;&gt;高度98%&lt;/p&gt;&lt;/div&gt;
+&lt;div class=&quot;h300 fl&quot;&gt;&lt;p class=&quot;bd1 w50 h_99 ml5&quot;&gt;高度99%&lt;/p&gt;&lt;/div&gt;
+                </pre>
+              </div>
+              <div class="tab-pane p5 bd1" id="html4" style="border-top:0;min-height:200px">
+                <pre>
+&lt;h4&gt;100px - 300px (间隔100)&lt;/h4&gt;
+&lt;p class=&quot;bd1 w50 h100 fl&quot;&gt;高度200&lt;/p&gt;
+&lt;p class=&quot;bd1 w50 h200 fl ml5&quot;&gt;高度400&lt;/p&gt;
+&lt;p class=&quot;bd1 w50 h300 fl ml5&quot;&gt;高度800&lt;/p&gt;
+&lt;h4&gt;98% - 100% (间隔1)&lt;/h4&gt;
+&lt;div class=&quot;h300 fl&quot;&gt;&lt;p class=&quot;bd1 w50 h_98 ml5&quot;&gt;高度98%&lt;/p&gt;&lt;/div&gt;
+&lt;div class=&quot;h300 fl&quot;&gt;&lt;p class=&quot;bd1 w50 h_99 ml5&quot;&gt;高度99%&lt;/p&gt;&lt;/div&gt;
+                </pre>
+              </div>
+            </div>
+            <ul class="nav nav-tabs none" id="infoTab5">
+              <li class="active">
+                <a href="#src5" data-toggle="tab">源代码</a>
+              </li>
+              <li>
+                <a href="#html5" data-toggle="tab">Html</a>
+              </li>
+            </ul>
+            <div class="tab-content none">
+              <div class="tab-pane active p5 bd1" id="src5" style="border-top:0;min-height:200px">
+                <pre>
+&lt;h4&gt;整体 10px、15px、30px&lt;/h4&gt;
+&lt;p class=&quot;bd1 m10&quot;&gt;外边距10&lt;/p&gt;
+&lt;p class=&quot;bd1 m15&quot;&gt;外边距15&lt;/p&gt;
+&lt;p class=&quot;bd1 m30&quot;&gt;外边距30&lt;/p&gt;
+&lt;h4&gt;顶部 5 - 20(间距5)&lt;/h4&gt;
+&lt;p class=&quot;bd1 mt5&quot;&gt;外边距顶 5&lt;/p&gt;
+&lt;p class=&quot;bd1 mt15&quot;&gt;外边距顶 15&lt;/p&gt;
+&lt;h4&gt;顶部 30、50、100&lt;/h4&gt;
+&lt;p class=&quot;bd1 mt30&quot;&gt;外边距顶 30&lt;/p&gt;
+&lt;p class=&quot;bd1 mt50&quot;&gt;外边距顶 50&lt;/p&gt;
+&lt;h4&gt;底部(mbX,数值同顶)&lt;/h4&gt;
+&lt;h4&gt;左(mlX,数值同顶)&lt;/h4&gt;
+&lt;h4&gt;右(mrX,数值同顶)&lt;/h4&gt;
+                </pre>
+              </div>
+              <div class="tab-pane p5 bd1" id="html5" style="border-top:0;min-height:200px">
+                <pre>
+&lt;h4&gt;整体 10px、15px、30px&lt;/h4&gt;
+&lt;p class=&quot;bd1 m10&quot;&gt;外边距10&lt;/p&gt;
+&lt;p class=&quot;bd1 m15&quot;&gt;外边距15&lt;/p&gt;
+&lt;p class=&quot;bd1 m30&quot;&gt;外边距30&lt;/p&gt;
+&lt;h4&gt;顶部 5 - 20(间距5)&lt;/h4&gt;
+&lt;p class=&quot;bd1 mt5&quot;&gt;外边距顶 5&lt;/p&gt;
+&lt;p class=&quot;bd1 mt15&quot;&gt;外边距顶 15&lt;/p&gt;
+&lt;h4&gt;顶部 30、50、100&lt;/h4&gt;
+&lt;p class=&quot;bd1 mt30&quot;&gt;外边距顶 30&lt;/p&gt;
+&lt;p class=&quot;bd1 mt50&quot;&gt;外边距顶 50&lt;/p&gt;
+&lt;h4&gt;底部(mbX,数值同顶)&lt;/h4&gt;
+&lt;h4&gt;左(mlX,数值同顶)&lt;/h4&gt;
+&lt;h4&gt;右(mrX,数值同顶)&lt;/h4&gt;
+                </pre>
+              </div>
+            </div>
+            <ul class="nav nav-tabs none" id="infoTab6">
+              <li class="active">
+                <a href="#src6" data-toggle="tab">源代码</a>
+              </li>
+              <li>
+                <a href="#html6" data-toggle="tab">Html</a>
+              </li>
+            </ul>
+            <div class="tab-content none">
+              <div class="tab-pane active p5 bd1" id="src6" style="border-top:0;min-height:200px">
+                <pre>
+&lt;h4&gt;整体 0、5px、10px、15px、30px&lt;/h4&gt;
+&lt;p class=&quot;bd1 p10&quot;&gt;内边距10&lt;/p&gt;
+&lt;p class=&quot;bd1 p15&quot;&gt;内边距15&lt;/p&gt;
+&lt;p class=&quot;bd1 p30&quot;&gt;内边距30&lt;/p&gt;
+&lt;h4&gt;顶部 5 - 20(间距5)&lt;/h4&gt;
+&lt;p class=&quot;bd1 pt5&quot;&gt;内边距顶 5&lt;/p&gt;
+&lt;p class=&quot;bd1 pt15&quot;&gt;内边距顶 15&lt;/p&gt;
+&lt;h4&gt;顶部 30、50、100&lt;/h4&gt;
+&lt;p class=&quot;bd1 pt30&quot;&gt;内边距顶 30&lt;/p&gt;
+&lt;p class=&quot;bd1 pt50&quot;&gt;内边距顶 50&lt;/p&gt;
+&lt;h4&gt;底部(pbX,数值同顶)&lt;/h4&gt;
+&lt;h4&gt;左(plX,数值同顶)&lt;/h4&gt;
+&lt;h4&gt;右(prX,数值同顶)&lt;/h4&gt;
+                </pre>
+              </div>
+              <div class="tab-pane p5 bd1" id="html6" style="border-top:0;min-height:200px">
+                <pre>
+&lt;h4&gt;整体 0、5px、10px、15px、30px&lt;/h4&gt;
+&lt;p class=&quot;bd1 p10&quot;&gt;内边距10&lt;/p&gt;
+&lt;p class=&quot;bd1 p15&quot;&gt;内边距15&lt;/p&gt;
+&lt;p class=&quot;bd1 p30&quot;&gt;内边距30&lt;/p&gt;
+&lt;h4&gt;顶部 5 - 20(间距5)&lt;/h4&gt;
+&lt;p class=&quot;bd1 pt5&quot;&gt;内边距顶 5&lt;/p&gt;
+&lt;p class=&quot;bd1 pt15&quot;&gt;内边距顶 15&lt;/p&gt;
+&lt;h4&gt;顶部 30、50、100&lt;/h4&gt;
+&lt;p class=&quot;bd1 pt30&quot;&gt;内边距顶 30&lt;/p&gt;
+&lt;p class=&quot;bd1 pt50&quot;&gt;内边距顶 50&lt;/p&gt;
+&lt;h4&gt;底部(pbX,数值同顶)&lt;/h4&gt;
+&lt;h4&gt;左(plX,数值同顶)&lt;/h4&gt;
+&lt;h4&gt;右(prX,数值同顶)&lt;/h4&gt;
+                </pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <script src='js_lib/jquery-1.8.3.js'></script>
+    <script src='../js/bootstrap.js'></script>
+    <script src='../js/bootstrap-navbar.js'></script>
+    <script>
+      $(function() {
+        // 控制Tab切换效果
+        $('#docTab>li>a').click(function(e) {
+          var idStr = $(this).attr("href");
+          var num = idStr.replace("#tab", "");
+          $("[id*='infoTab']").removeClass("none");
+          $("[id*='infoTab']").addClass("none");
+
+          $("[id*='infoTab']").next().removeClass("none");
+          $("[id*='infoTab']").next().addClass("none");
+
+          $("[id='infoTab" + num + "']").removeClass("none");
+          $("[id='infoTab" + num + "']").next().removeClass("none");
+
+        });
+
+        // 给js执行按钮绑定点击事件
+        $(".execjs").length == 0 ? "" : $(".execjs").bind("click", function(e) {          
+          var sJs = $(this).parent().parent().next().text();
+          sJs.replace(" ", "") == "" ? console.log("my is empty!") : eval(sJs);
+        })
+
+      })
+    </script>
+  </body>
+  </html>
