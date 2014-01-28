@@ -16,7 +16,7 @@
       <div class="row-fluid">
         <div class="navbar">
           <div class="navbar-inner">
-            <a class="brand" href="#">使用方式</a>
+            <a class="brand" href="#">常用方式</a>
             <ul class="nav">
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">框架布局<b class="caret"></b></a>
@@ -53,9 +53,6 @@
                   <li>
                     <a href="./input.html">输入框</a>
                   </li>
-                  <li>
-                    <a href="./popwindow.html">弹出框</a>
-                  </li>                  
                 </ul>
               </li>
             </ul>
@@ -146,17 +143,17 @@
                 </pre>
               </div>
               <div class="tab-pane p5 bd1" id="js1" style="border-top:0;min-height:200px">
+                <div class="row-fluid">
+                  <div class="span12 tr">
+                    <a href="#" class="btn btn-small execjs">执行</a>
+                  </div>
+                </div>
                 <pre>
 $(&quot;#tbSplitter&quot;).splitter(&quot;create&quot;,{
   type: &quot;h&quot;,
   dock: &quot;top&quot;
 });
                 </pre>
-                <div class="row-fluid">
-                  <div class="span12 tr">
-                    <a href="#" class="btn btn-small execjs">执行</a>
-                  </div>
-                </div>
               </div>
             </div>
             <ul class="nav nav-tabs none" id="infoTab2">
@@ -217,17 +214,17 @@ $(&quot;#tbSplitter&quot;).splitter(&quot;create&quot;,{
                 </pre>
               </div>
               <div class="tab-pane p5 bd1" id="js3" style="border-top:0;min-height:200px">
+                <div class="row-fluid">
+                  <div class="span12 tr">
+                    <a href="#" class="btn btn-small execjs">执行</a>
+                  </div>
+                </div>
                 <pre>
 $(&quot;#lrSplitter&quot;).splitter(&quot;create&quot;,{
   type: &quot;v&quot;,
   dock: &quot;left&quot;
 });
                 </pre>
-                <div class="row-fluid">
-                  <div class="span12 tr">
-                    <a href="#" class="btn btn-small execjs">执行</a>
-                  </div>
-                </div>
               </div>
             </div>
             <ul class="nav nav-tabs none" id="infoTab4">
@@ -294,6 +291,11 @@ $(&quot;#lrSplitter&quot;).splitter(&quot;create&quot;,{
                 </pre>
               </div>
               <div class="tab-pane p5 bd1" id="js5" style="border-top:0;min-height:200px">
+                <div class="row-fluid">
+                  <div class="span12 tr">
+                    <a href="#" class="btn btn-small execjs">执行</a>
+                  </div>
+                </div>
                 <pre>
 $(&quot;#qtSplitter&quot;).splitter(&quot;create&quot;,{
   type: &quot;v&quot;,
@@ -304,11 +306,6 @@ $(&quot;#qtright&quot;).css({&quot;overflow&quot;:&quot;hidden&quot;}).splitter(
   dock: &quot;top&quot;
 });
                 </pre>
-                <div class="row-fluid">
-                  <div class="span12 tr">
-                    <a href="#" class="btn btn-small execjs">执行</a>
-                  </div>
-                </div>
               </div>
             </div>
             <ul class="nav nav-tabs none" id="infoTab6">
@@ -371,7 +368,7 @@ $(&quot;#qtright&quot;).css({&quot;overflow&quot;:&quot;hidden&quot;}).splitter(
 
         // 给js执行按钮绑定点击事件
         $(".execjs").length == 0 ? "" : $(".execjs").bind("click", function(e) {          
-          var sJs = $(this).parent().parent().prev().text();
+          var sJs = $(this).parent().parent().next().text();
           sJs.replace(" ", "") == "" ? console.log("my is empty!") : eval(sJs);
         })
 

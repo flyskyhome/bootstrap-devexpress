@@ -16,7 +16,7 @@
       <div class="row-fluid">
         <div class="navbar">
           <div class="navbar-inner">
-            <a class="brand" href="#">使用方式</a>
+            <a class="brand" href="#">常用方式</a>
             <ul class="nav">
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">框架布局<b class="caret"></b></a>
@@ -53,9 +53,6 @@
                   <li>
                     <a href="./input.html">输入框</a>
                   </li>
-                  <li>
-                    <a href="./popwindow.html">弹出框</a>
-                  </li>                  
                 </ul>
               </li>
             </ul>
@@ -270,7 +267,7 @@
 
         // 给js执行按钮绑定点击事件
         $(".execjs").length == 0 ? "" : $(".execjs").bind("click", function(e) {          
-          var sJs = $(this).parent().parent().prev().text();
+          var sJs = $(this).parent().parent().next().text();
           sJs.replace(" ", "") == "" ? console.log("my is empty!") : eval(sJs);
         })
 

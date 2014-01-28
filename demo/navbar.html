@@ -16,7 +16,7 @@
       <div class="row-fluid">
         <div class="navbar">
           <div class="navbar-inner">
-            <a class="brand" href="#">使用方式</a>
+            <a class="brand" href="#">常用方式</a>
             <ul class="nav">
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">框架布局<b class="caret"></b></a>
@@ -53,9 +53,6 @@
                   <li>
                     <a href="./input.html">输入框</a>
                   </li>
-                  <li>
-                    <a href="./popwindow.html">弹出框</a>
-                  </li>                  
                 </ul>
               </li>
             </ul>
@@ -190,6 +187,11 @@
                 </pre>
               </div>
               <div class="tab-pane p5 bd1" id="js3" style="border-top:0;min-height:200px">
+                <div class="row-fluid">
+                  <div class="span12 tr">
+                    <a href="#" class="btn btn-small execjs">执行</a>
+                  </div>
+                </div>
                 <pre>
 $(&quot;#noicon&quot;).bind(&quot;created&quot;, function (ev) {});
 $(&quot;#noicon&quot;).navbar({
@@ -200,11 +202,6 @@ $(&quot;#noicon&quot;).navbar({
 	]
 });
                 </pre>
-                <div class="row-fluid">
-                  <div class="span12 tr">
-                    <a href="#" class="btn btn-small execjs">执行</a>
-                  </div>
-                </div>
               </div>
             </div>
             <ul class="nav nav-tabs none" id="infoTab4">
@@ -242,15 +239,15 @@ $(&quot;#noicon&quot;).navbar({
                 </pre>
               </div>
               <div class="tab-pane p5 bd1" id="js4" style="border-top:0;min-height:200px">
-                <pre>
-//激活第三个栏目：执行的应该是希望被激活那个li
-$(&quot;#tab4 li&quot;).eq(2).navbar(&quot;active&quot;);
-                </pre>
                 <div class="row-fluid">
                   <div class="span12 tr">
                     <a href="#" class="btn btn-small execjs">执行</a>
                   </div>
                 </div>
+                <pre>
+//激活第三个栏目：执行的应该是希望被激活那个li
+$(&quot;#tab4 li&quot;).eq(2).navbar(&quot;active&quot;);
+                </pre>
               </div>
             </div>
           </div>
@@ -280,7 +277,7 @@ $(&quot;#tab4 li&quot;).eq(2).navbar(&quot;active&quot;);
 
         // 给js执行按钮绑定点击事件
         $(".execjs").length == 0 ? "" : $(".execjs").bind("click", function(e) {          
-          var sJs = $(this).parent().parent().prev().text();
+          var sJs = $(this).parent().parent().next().text();
           sJs.replace(" ", "") == "" ? console.log("my is empty!") : eval(sJs);
         })
 
