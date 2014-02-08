@@ -15,7 +15,7 @@ datas = fs.readdirSync(__dirname + '/../templates/data')
 
 // 循环生成页面信息
 datas.forEach(function(name) {
-  console.log("name:" + name);
+  //console.log("name:" + name);
   if (!name.match(/\.js$/)) return
   /**
    * 读取文件信息，并且找到文件中 " '+ "的信息修改成 " \r\n'+ " 
@@ -45,7 +45,8 @@ datas.forEach(function(name) {
     }
     else{
       context.tab_list[key]["html"] = context.tab_list[key]["src"];
-      context.tab_list[key]["html_src"] = context.tab_list[key]["src"].replace(/\r\n/g, "");
+      // 清理源码中的回车换行和空格
+      context.tab_list[key]["html_src"] = context.tab_list[key]["src"].replace(/\r\n|  /g, "");
     }
   }
 
