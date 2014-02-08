@@ -2370,75 +2370,79 @@
 
 
 }(window.jQuery);
+
 /**
- * @name bootstrap-splitter
- * @fileOverview 框架分割组件(基于bootstrap框架),是bootstrap-devexpress项目的一部分,基于jQuery.splitter.js({@link http://methvin.com/splitter/}) 开发改造
- * @author flyskyhome(飞天小筑)<5likevideo@gmail.com>
- * @version 0.01 alpha
- * @see {@link https://github.com/flyskyhome/bootstrap-devexpress|GitHub}
+ * js插件:区域分割
+ * @module Splitter
  */
 
 !(function($) {
 
   "use strict"; // jshint ;_;
   /**
-   * @name Splitter.onresize
-   * @desc 分割区域发生改变时触发
-   * @event
-   * @param {object} ev 回调参数
-   * @param {objcet} ev.A 区域A对象
-   * @param {number} ev.A.height 区域A的高度
-   * @param {number} ev.A.widht 区域A的宽度
-   * @param {object} ev.B 区域B对象
-   * @param {number} ev.B.height 区域B的高度
-   * @param {number} ev.B.width 区域B的宽度
+   * 分割区域发生改变时触发
+   * @event onresize
+   * @param {Object} ev  回调参数
+   * @param {Object} ev.A  区域A对象
+   * @param {Number} ev.A.height 区域A的高度
+   * @param {Number} ev.A.width 区域A的宽度
+   * @param {Object} ev.B 区域B对象
+   * @param {Number} ev.B.height 区域B的高度
+   * @param {Number} ev.B.width 区域B的宽度
    */
 
   /**
-   * @name Splitter
+   * @class Splitter
    * @constructor
-   * @param {string} element jQuery dom 选择器
-   * @type jQuery
+   * @param {String} element jQuery dom 选择器
    */ 
   
   var Splitter = function(element) {
       this.element = $(element)
     }
-  // splitter 计数器
+
+  /**
+   * splitter 计数器
+   * @property splitterCounter
+   * @final
+   */
   var splitterCounter = 0;
   
-  Splitter.prototype = 
-  /** @lends Splitter.prototype */{
+  Splitter.prototype = {
     /**
      * Splitter的一个实例
-     * @instance
+     * @property constructor
+     * @type {Object}
      */   
     constructor: Splitter,
     /**
      * Splitter 创建函数
-     * @param {object} options 组件配置
-     * @param {string} options.type 分割方式 v:垂直分割,h:水平分割
-     * @param {string} options.dock 驻停位置 top:顶部,bottom:底部,left:左侧,right:右侧
-     * @param {number} options.minLeft 左侧最小尺寸
-     * @param {number} options.minRight 右侧最小尺寸
-     * @param {number} options.minTop 顶部最小尺寸
-     * @param {number} options.minBottom 底部最小尺寸
-     * @param {number} options.maxLeft 左侧最大尺寸
-     * @param {number} options.maxRight 右侧最大尺寸
-     * @param {number} options.maxTop 顶部最大尺寸
-     * @param {number} options.maxBottom 底部最大尺寸
-     * @param {number} options.sizeLeft 左侧初始尺寸
-     * @param {number} options.sizeRight 右侧初始尺寸
-     * @param {number} options.sizeTop 顶部初始尺寸
-     * @param {number} options.sizeBottom 底部初始尺寸
-     * @param {bool} options.anchorToWindow 是否自动锚定到窗口大小 true,false 
-     * @param {bool} options.resizeToWidth 自动调整宽度 true,false
-     * @param {function} options.onresize 参考Events onresize说明
+     * @method create
+     * @param {Object} options 组件配置
+     * @param {String} options.type 分割方式 v:垂直分割,h:水平分割
+     * @param {String} options.dock 驻停位置 top:顶部,bottom:底部,left:左侧,right:右侧
+     * @param {Number} options.minLeft 左侧最小尺寸
+     * @param {Number} options.minRight 右侧最小尺寸
+     * @param {Number} options.minTop 顶部最小尺寸
+     * @param {Number} options.minBottom 底部最小尺寸
+     * @param {Number} options.maxLeft 左侧最大尺寸
+     * @param {Number} options.maxRight 右侧最大尺寸
+     * @param {Number} options.maxTop 顶部最大尺寸
+     * @param {Number} options.maxBottom 底部最大尺寸
+     * @param {Number} options.sizeLeft 左侧初始尺寸
+     * @param {Number} options.sizeRight 右侧初始尺寸
+     * @param {Number} options.sizeTop 顶部初始尺寸
+     * @param {Number} options.sizeBottom 底部初始尺寸
+     * @param {Boolean} options.anchorToWindow 是否自动锚定到窗口大小 true,false 
+     * @param {Boolean} options.resizeToWidth 自动调整宽度 true,false
+     * @param {Function} options.onresize 参考Events onresize说明
      * @example
-     *  创建一个缺省配置的垂直分割框架 
-     *  $('#MySplitter').splitter();
-     *  创建一个水平分割框架
-     *  $('#MySplitter').splitter({type: 'h'});
+     * ```javascript
+     *  //创建一个缺省配置的垂直分割框架 
+     *  $(sSign).splitter();
+     *  //创建一个水平分割框架
+     *  $(sSign).splitter({type: 'h'});
+     * ```
      */ 
     create: function(options) {
       this.options = options || {};
@@ -2447,9 +2451,10 @@
       if ($(this.element).attr("data-splitter-initialized")) return
       var zombie; // left-behind splitbar for outline resizes
       /**
-       * @desc 用于判断是否触发resize方法
-       * @return {bool} 判断浏览器版本是否小于ie9
-       * @inner
+       * 用于判断是否触发resize方法
+       * @method resize_auto_fired
+       * @return {Boolean} 判断浏览器版本是否小于ie9
+       * @private
        */
       function resize_auto_fired() {
         // Returns true when the browser natively fires the resize 
@@ -2457,17 +2462,19 @@
         return ($.browser.msie && (parseInt($.browser.version) < 9));
       }
       /**
-       * @desc 设置bar状态
-       * @param {string} state 状态样式Class
-       * @inner
+       * 设置bar状态
+       * @method setBarState
+       * @param {String} state 状态样式Class
+       * @private
        */
       function setBarState(state) {
         bar.removeClass(opts.barStateClasses).addClass(state);
-      }     
+      }
       /**
        * 按下鼠标开始拖动时触发(mousedown)
+       * @method startSplitMouse
        * @param {Event} evt 事件对象
-       * @inner
+       * @private
        */
       function startSplitMouse(evt) {
         if (evt.which != 1) return; // left button only
@@ -2484,10 +2491,12 @@
         A._posSplit = A[0][opts.pxSplit] - evt[opts.eventPos];
         $(document).bind("mousemove" + opts.eventNamespace, doSplitMouse).bind("mouseup" + opts.eventNamespace, evt.data, endSplitMouse);
       }
+
       /**
        * 鼠标拖动时触发
-       * @param  {Event} evt 事件对象
-       * @inner
+       * @method doSplitMouse
+       * @param {Event} evt 事件对象
+       * @private
        */
       function doSplitMouse(evt) {
         var pos = A._posSplit + evt[opts.eventPos],
@@ -2509,7 +2518,9 @@
       }
       /**
        * 鼠标按键抬起时触发(mouseup)
-       * @param  {Event} evt 事件对象
+       * @method endSplitMouse
+       * @param {Event} evt 事件对象
+       * @private
        */
       function endSplitMouse(evt) {
         setBarState(opts.barNormalClass);
@@ -2538,11 +2549,17 @@
       }
       /**
        * 重新进行尺寸分割
-       * @param  {number} pos      分割点位置
-       * @param  {object} eventObj 待触发回调的事件函数对象
-       * @inner
+       * @method resplit
+       * @param {Number} pos      分割点位置
+       * @param {object} eventObj 待触发回调的事件函数对象
+       * @private
        */
       function resplit(pos, eventObj) {
+        //console.log("in resplit splitter._oldW:"+splitter._oldW);
+        //console.log("in resplit splitter._oldH:"+splitter._oldH);
+        //console.log("in resplit splitter.width():"+splitter.width());
+        //console.log("in resplit splitter.height():"+splitter.height());
+
         bar._DA = bar[0][opts.pxSplit]; // bar size may change during dock
         // Constrain new splitbar position to fit pane size and docking limits
         if ((opts.dockPane == A && pos < Math.max(A._min, bar._DA)) || (opts.dockPane == B && pos > Math.min(pos, A._max, splitter._DA - bar._DA - B._min))) {
@@ -2583,6 +2600,25 @@
           pos == splitter._DA - bar._DA ? B.addClass(opts.noshow) : "";
         }
 
+        //如父层尺寸又已经发生了变化，则重新调整分割区域的尺寸
+        if(splitter._DF != splitter[0][opts.pxFixed] - splitter._PBF || splitter._DA != splitter[0][opts.pxSplit] - splitter._PBA){
+          splitter._DF = splitter[0][opts.pxFixed] - splitter._PBF;
+          splitter._DA = splitter[0][opts.pxSplit] - splitter._PBA;
+          if (opts.type == "v") {
+            A.css(opts.origin, 0).css(opts.split, pos < (A_BL + A_BR - 0) ? 0 : pos - A_BL - A_BR).css(opts.fixed, splitter._DF < (A_BT + A_BB - 0) ? 0 : splitter._DF - A_BT - A_BB);
+
+            pos == 0 ? A.addClass(opts.noshow) : ""; //css("display","none"):'';
+            B.css(opts.origin, pos + bar._DA).css(opts.split, splitter._DA - bar._DA - pos - B_BL - B_BR).css(opts.fixed, splitter._DF - B_BT - B_BB);
+
+            pos == splitter._DA - bar._DA ? B.addClass(opts.noshow) : ""; //css("display","none"):'';
+          } else if (opts.type = "h") {
+            A.css(opts.origin, 0).css(opts.split, pos - A_BT - A_BB).css(opts.fixed, splitter._DF - A_BL - A_BR);
+            pos == 0 ? A.addClass(opts.noshow) : "";
+            B.css(opts.origin, pos + bar._DA).css(opts.split, splitter._DA - bar._DA - pos - B_BT - B_BB).css(opts.fixed, splitter._DF - B_BL - B_BR);
+            pos == splitter._DA - bar._DA ? B.addClass(opts.noshow) : "";
+          }          
+        }
+
         //        A.css(opts.origin, 0).css(opts.split, pos-2).css(opts.fixed, splitter._DF-2);
         //        B.css(opts.origin, pos + bar._DA).css(opts.split, splitter._DA - bar._DA - pos-2).css(opts.fixed, splitter._DF-2);
         var outputObj = {
@@ -2596,6 +2632,15 @@
           }
         };
         eventObj && typeof eventObj == "function" && eventObj(outputObj);
+        // 重新分割后保存新的宽高到_old里面去
+        splitter._oldW = splitter.width();
+        splitter._oldH = splitter.height();
+
+        //console.log("out resplit splitter._oldW:"+splitter._oldW);
+        //console.log("out resplit splitter._oldH:"+splitter._oldH);
+        //console.log("out resplit splitter.width():"+splitter.width());
+        //console.log("out resplit splitter.height():"+splitter.height());
+
         // IE fires resize for us; all others pay cash
         if (!resize_auto_fired()) panes.trigger("resize");
       }
@@ -2609,10 +2654,16 @@
       }
       /**
        * 重算分割尺寸
-       * @param  {number} size  分割点所处位置
-       * @inner
+       * @method resize
+       * @param {Number} size  分割点所处位置
+       * @private
        */
       function resize(size) {
+        //console.log("in resize splitter._oldW:"+splitter._oldW);
+        //console.log("in resize splitter._oldH:"+splitter._oldH);
+        //console.log("in resize splitter.width():"+splitter.width());
+        //console.log("in resize splitter.height():"+splitter.height());
+
         // Determine new width/height of splitter container
         splitter._DF = splitter[0][opts.pxFixed] - splitter._PBF;
         splitter._DA = splitter[0][opts.pxSplit] - splitter._PBA;
@@ -2622,8 +2673,12 @@
 
         // if nothing changed, no need to resize 
         if (splitter._oldW == splitter.width() && splitter._oldH == splitter.height()) return; // nothing changed
-        splitter._oldW = splitter.width();
-        splitter._oldH = splitter.height();
+        //splitter._oldW = splitter.width();
+        //splitter._oldH = splitter.height();
+        //console.log("out resize splitter._oldW:"+splitter._oldW);
+        //console.log("out resize splitter._oldH:"+splitter._oldH);
+        //console.log("out resize splitter.width():"+splitter.width());
+        //console.log("out resize splitter.height():"+splitter.height());
 
         // Re-divvy the adjustable dimension; maintain size of the preferred pane
         resplit(!isNaN(size) ? size : (!(opts.sizeRight || opts.sizeBottom) ? A[0][opts.pxSplit] : splitter._DA - B[0][opts.pxSplit] - bar._DA), opts.onresize);
@@ -2632,10 +2687,11 @@
 
       /**
        * 获取panel边框尺寸
-       * @param  {string} type  h:横向分割 ,v:纵向分割
-       * @param  {Dom} panel 区域对象
-       * @return {number}       边框尺寸
-       * @inner
+       * @method getPanelBorderSize
+       * @param  {String} type  h:横向分割 ,v:纵向分割
+       * @param  {HTMLElement} panel 区域对象
+       * @return {Number} 边框尺寸
+       * @private
        */
       function getPanelBorderSize(type, panel) {
         var A = $(panel);
@@ -2802,19 +2858,6 @@
       var initPos = A._init;
       if (!isNaN(B._init)) // recalc initial B size as an offset from the top or left side
       initPos = splitter[0][opts.pxSplit] - splitter._PBA - B._init - bar._DA;
-/*
-      if (opts.cookie) {
-        if (!$.cookie) alert('jQuery.splitter(): jQuery cookie plugin required');
-        if ($.cookie(opts.cookie) != null) initPos = parseInt($.cookie(opts.cookie), 10);
-        $(window).bind("unload" + opts.eventNamespace, function() {
-          var state = String(bar.css(opts.origin)); // current location of splitbar
-          $.cookie(opts.cookie, state, {
-            expires: opts.cookieExpires || 365,
-            path: opts.cookiePath || document.location.pathname
-          });
-        });
-      }
-      */
       if (isNaN(initPos)) // King Solomon's algorithm
       initPos = Math.round((splitter[0][opts.pxSplit] - splitter._PBA - bar._DA) / 2);
 
@@ -2823,11 +2866,33 @@
       if (opts.resizeTo) {
         splitter._hadjust = dimSum(splitter, "borderTopWidth", "borderBottomWidth", "marginBottom");
         splitter._hmin = Math.max(dimSum(splitter, "minHeight"), 20);
-        $(window).bind("resize" + opts.eventNamespace, function() {
+        $(window).unbind("resize" + opts.eventNamespace).bind("resize" + opts.eventNamespace, function() {
+          //console.log("in Winresize opts.eventNamespace:"+opts.eventNamespace);
+          //console.log("in Winresize splitter._oldW:"+splitter._oldW);
+          //console.log("in Winresize splitter._oldH:"+splitter._oldH);
+          //console.log("in Winresize splitter.width():"+splitter.width());
+          //console.log("in Winresize splitter.height():"+splitter.height());
+
           var top = splitter.offset().top;
-          var eh = $(opts.resizeTo).height();
+          // 在 chrome 浏览器中 window.innerHeight 和 .height() 获取的值有可能不一致，而在ie7又无法获取innerHeight
+          var eh = opts.resizeTo.innerHeight || $(opts.resizeTo).height();
+
+          //console.log("out Winresize eh:"+ eh);
+          //console.log("out Winresize top:"+ top);
+          //console.log("out Winresize splitter._hadjust:"+ splitter._hadjust);
+          //console.log("out Winresize size_01:"+ (eh - top - splitter._hadjust));
+          //console.log("out Winresize size_02:"+splitter._hmin);
+
           splitter.css("height", Math.max(eh - top - splitter._hadjust, splitter._hmin) + "px");
-          if (!resize_auto_fired()) resize(); //splitter.triggerHandler("resize");
+          //splitter._oldH= Math.max(eh - top - splitter._hadjust, splitter._hmin);
+        
+          //console.log("out Winresize splitter._oldW:"+splitter._oldW);
+          //console.log("out Winresize splitter._oldH:"+splitter._oldH);
+          //console.log("out Winresize splitter.width():"+splitter.width());
+          //console.log("out Winresize splitter.height():"+splitter.height());
+//          if (!resize_auto_fired()) splitter.triggerHandler("resize" + opts.eventNamespace);
+          if (!resize_auto_fired() && (splitter._oldW!=splitter.width() || splitter._oldH!=splitter.height())) 
+            splitter.triggerHandler("resize" + opts.eventNamespace);
         }).triggerHandler("resize" + opts.eventNamespace);
       } else if (opts.resizeToWidth && !resize_auto_fired()) {
         $(window).bind("resize" + opts.eventNamespace, function() {
@@ -2898,8 +2963,16 @@
         });
         splitter = bar = focuser = panes = A = B = opts = options = null;
       }).bind("resize" + opts.eventNamespace, function(e, size) {
+        //console.log("in SplitterResize splitter._oldW:"+splitter._oldW);
+        //console.log("in SplitterResize splitter._oldH:"+splitter._oldH);
+        //console.log("in SplitterResize splitter.width():"+splitter.width());
+        //console.log("in SplitterResize splitter.height():"+splitter.height());     
         resize(size);
-      }).trigger("resize", [initPos]);
+        //console.log("out SplitterResize splitter._oldW:"+splitter._oldW);
+        //console.log("out SplitterResize splitter._oldH:"+splitter._oldH);
+        //console.log("out SplitterResize splitter.width():"+splitter.width());
+        //console.log("out SplitterResize splitter.height():"+splitter.height());     
+      }).trigger("resize" + opts.eventNamespace, [initPos]);
     }
   }
 
@@ -2929,7 +3002,11 @@
 
   /* SPLITTER DATA-API
    * ============ */
-
+  /**
+   * data-api 接口 
+   * @event click.splitter.data-api
+   * @param {[type]} e 事件对象
+   */
   $(document).on('click.splitter.data-api', '[data-toggle="splitter"]', function(e) {
 
     var $this = $(this),
@@ -2953,7 +3030,6 @@
         }).splitter('create', option);
       }
     }
-
   });
 
 })(window.jQuery);
