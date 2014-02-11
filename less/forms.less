@@ -79,11 +79,13 @@ input[type="tel"],
 input[type="color"],
 .uneditable-input {
   display: inline-block;
-  height: @baseLineHeight - 2;
+  height: @baseLineHeight - 1;
+  *height: @baseLineHeight - 2;
   //padding: 4px 6px;
   //margin-bottom: @baseLineHeight / 2;
   font-size: @baseFontSize;
-  line-height: @baseLineHeight - 2;
+  line-height: @baseLineHeight - 1;
+  *line-height: @baseLineHeight - 2;
   color: @gray;
   .border-radius(@inputBorderRadius);
   vertical-align: middle;
@@ -258,12 +260,19 @@ textarea {
 // -----------
 
 // General classes for quick sizes
-.input-mini       { width: 60px; }
-.input-small      { width: 90px; }
+.input-mini       { width: 90px; }
+.input-small      { width: 120px; }
 .input-medium     { width: 150px; }
 .input-large      { width: 210px; }
 .input-xlarge     { width: 270px; }
 .input-xxlarge    { width: 530px; }
+
+.input-append .input-mini,.input-prepend  .input-mini     { width: 360px; }
+.input-append .input-small,.input-prepend  .input-small     { width: 90px; }
+.input-append .input-medium,.input-prepend  .input-medium     { width: 120px; }
+.input-append .input-large,.input-prepend  .input-large     { width: 180px; }
+.input-append .input-xlarge,.input-prepend  .input-xlarge     { width: 240px; }
+.input-append .input-xxlarge,.input-prepend  .input-xxlarge     { width: 500px; }
 
 // Grid style input sizes
 input[class*="span"],
@@ -511,11 +520,11 @@ select:focus:invalid {
 
 .row-fluid .input-append > input{
     *margin-right: -1px;
-    *width:206px;
+    /*width:206px;*/
 }
 
 .row-fluid .input-prepend > input{
-  *width:206px; 
+  /*width:206px;*/
 }
 
 .input-append {
@@ -540,6 +549,10 @@ select:focus:invalid {
     .border-radius(0 @inputBorderRadius @inputBorderRadius 0);
     border-right: 1px solid @inputBorder;
   }
+}
+// 因为ie7\ie8 不认识伪类:last-child
+.input-append .add-on-fixedlast4ie78{
+  border-right: 1px solid @inputBorder;
 }
 
 .input-prepend {
