@@ -65,7 +65,7 @@ var datainfo = {
 		'	<label class="control-label">组合:</label>'+
 		'	<div class="input-append">'+
 		'		<input class="span6" id="prependedInput" type="text" placeholder="Username">'+
-		'		<span class="add-on" style="border-right:1px solid #9f9f9f"><button class="btn"><i class="icon-chevron-down"></i></button></span>'+
+		'		<span class="add-on add-on-fixedlast4ie78"><button class="btn"><i class="icon-chevron-down"></i></button></span>'+
 		'	</div>'+  		
   		'	<label class="checkbox">'+
     	'		<input type="checkbox"> Remember me'+
