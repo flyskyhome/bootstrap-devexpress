@@ -44,8 +44,9 @@ var datainfo = {
 		'<p class="bd1 w50">宽度50</p>'+
 		'<p class="bd1 w60">宽度60</p>'+
 		'<p class="bd1 w80">宽度80</p>'+
-		'<h4>120px</h4>'+
-		'<p class="bd1 w120">宽度50</p>'+
+		'<h4>120px、150px</h4>'+
+		'<p class="bd1 w120">宽度120</p>'+
+		'<p class="bd1 w150">宽度150</p>'+
 		'<h4>200px - 800px (间隔100)</h4>'+
 		'<p class="bd1 w200">宽度200</p>'+
 		'<p class="bd1 w400">宽度400</p>'+
@@ -57,10 +58,10 @@ var datainfo = {
 		num: 4,
 		name: "高度",
 		src:
-		'<h4>100px - 300px (间隔100)</h4>'+
-		'<p class="bd1 w50 h100 fl">高度200</p>'+
-		'<p class="bd1 w50 h200 fl ml5">高度400</p>'+
-		'<p class="bd1 w50 h300 fl ml5">高度800</p>'+
+		'<h4>100px - 300px (间隔50)</h4>'+
+		'<p class="bd1 w50 h100 fl">高度100</p>'+
+		'<p class="bd1 w50 h200 fl ml5">高度200</p>'+
+		'<p class="bd1 w50 h300 fl ml5">高度300</p>'+
 		'<h4>98% - 100% (间隔1)</h4>'+
 		'<div class="h300 fl"><p class="bd1 w50 h_98 ml5">高度98%</p></div>'+
 		'<div class="h300 fl"><p class="bd1 w50 h_99 ml5">高度99%</p></div>'
