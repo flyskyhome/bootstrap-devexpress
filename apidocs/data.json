@@ -6,8 +6,19 @@
         "url": ""
     },
     "files": {
-        "bootstrap-modal.js": {
-            "name": "bootstrap-modal.js",
+        "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-datepicker.js": {
+            "name": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-datepicker.js",
+            "modules": {
+                "Datepicker": 1
+            },
+            "classes": {
+                "Datepicker": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-modal.js": {
+            "name": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-modal.js",
             "modules": {
                 "Modal": 1
             },
@@ -17,8 +28,8 @@
             "fors": {},
             "namespaces": {}
         },
-        "bootstrap-navbar.js": {
-            "name": "bootstrap-navbar.js",
+        "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-navbar.js": {
+            "name": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-navbar.js",
             "modules": {
                 "NavBar": 1
             },
@@ -30,8 +41,8 @@
             },
             "namespaces": {}
         },
-        "bootstrap-splitter.js": {
-            "name": "bootstrap-splitter.js",
+        "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-splitter.js": {
+            "name": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-splitter.js",
             "modules": {
                 "Splitter": 1
             },
@@ -41,8 +52,8 @@
             "fors": {},
             "namespaces": {}
         },
-        "bootstrap-tab.js": {
-            "name": "bootstrap-tab.js",
+        "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-tab.js": {
+            "name": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-tab.js",
             "modules": {
                 "Tab": 1
             },
@@ -54,6 +65,19 @@
         }
     },
     "modules": {
+        "Datepicker": {
+            "name": "Datepicker",
+            "submodules": {},
+            "classes": {
+                "Datepicker": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-datepicker.js",
+            "line": 13,
+            "description": "js插件:选择日期"
+        },
         "Modal": {
             "name": "Modal",
             "submodules": {},
@@ -63,7 +87,7 @@
             "fors": {},
             "namespaces": {},
             "tag": "module",
-            "file": "bootstrap-modal.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-modal.js",
             "line": 70,
             "description": "js插件:模态窗口"
         },
@@ -78,7 +102,7 @@
             },
             "namespaces": {},
             "tag": "module",
-            "file": "bootstrap-navbar.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-navbar.js",
             "line": 27,
             "description": "ja插件:导航栏"
         },
@@ -91,7 +115,7 @@
             "fors": {},
             "namespaces": {},
             "tag": "module",
-            "file": "bootstrap-splitter.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-splitter.js",
             "line": 21,
             "description": "js插件:区域分割"
         },
@@ -104,12 +128,34 @@
             "fors": {},
             "namespaces": {},
             "tag": "module",
-            "file": "bootstrap-tab.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-tab.js",
             "line": 33,
             "description": "js插件:标签页"
         }
     },
     "classes": {
+        "Datepicker": {
+            "name": "Datepicker",
+            "shortname": "Datepicker",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Datepicker",
+            "namespace": "",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-datepicker.js",
+            "line": 13,
+            "description": "日期选择组件，日期支持从 1901 -  2050 年",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "element",
+                    "description": "jQuery dom 选择器",
+                    "type": "String"
+                }
+            ]
+        },
         "Modal": {
             "name": "Modal",
             "shortname": "Modal",
@@ -120,7 +166,7 @@
             "extension_for": [],
             "module": "Modal",
             "namespace": "",
-            "file": "bootstrap-modal.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-modal.js",
             "line": 70,
             "is_constructor": 1,
             "params": [
@@ -141,7 +187,7 @@
             "extension_for": [],
             "module": "NavBar",
             "namespace": "",
-            "file": "bootstrap-navbar.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-navbar.js",
             "line": 27,
             "is_constructor": 1,
             "params": [
@@ -162,7 +208,7 @@
             "extension_for": [],
             "module": "Splitter",
             "namespace": "",
-            "file": "bootstrap-splitter.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-splitter.js",
             "line": 21,
             "is_constructor": 1,
             "params": [
@@ -183,7 +229,7 @@
             "extension_for": [],
             "module": "Tab",
             "namespace": "",
-            "file": "bootstrap-tab.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-tab.js",
             "line": 33,
             "is_constructor": 1,
             "params": [
@@ -197,7 +243,589 @@
     },
     "classitems": [
         {
-            "file": "bootstrap-modal.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-datepicker.js",
+            "line": 25,
+            "description": "Datepicker 实例",
+            "itemtype": "property",
+            "name": "constructor",
+            "type": "{Object}",
+            "class": "Datepicker",
+            "module": "Datepicker"
+        },
+        {
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-datepicker.js",
+            "line": 31,
+            "description": "创建日历",
+            "itemtype": "method",
+            "name": "create",
+            "params": [
+                {
+                    "name": "options",
+                    "description": "配置信息",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "placement",
+                            "description": "显示位置 bottom:下方,top:上方,left:左侧,right:右侧",
+                            "type": "String"
+                        },
+                        {
+                            "name": "format",
+                            "description": "日期格式,目前还未支持,缺省:\"yyyy-mm-dd\"",
+                            "type": "String"
+                        },
+                        {
+                            "name": "yearStr",
+                            "description": "显示年的文字",
+                            "type": "String"
+                        },
+                        {
+                            "name": "monthStr",
+                            "description": "显示月的文字",
+                            "type": "String"
+                        },
+                        {
+                            "name": "dayStr",
+                            "description": "显示日的文字",
+                            "type": "String"
+                        },
+                        {
+                            "name": "lunar",
+                            "description": "农历显示相关设置",
+                            "type": "Object",
+                            "props": [
+                                {
+                                    "name": "enable",
+                                    "description": "是否显示",
+                                    "type": "Boolean"
+                                },
+                                {
+                                    "name": "showmon",
+                                    "description": "是否显示完整月信息",
+                                    "type": "Boolean"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "Datepicker",
+                "type": "Object"
+            },
+            "chainable": 1,
+            "class": "Datepicker",
+            "module": "Datepicker"
+        },
+        {
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-datepicker.js",
+            "line": 54,
+            "description": "弹出日历显示框",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "Event对象",
+                    "type": "Event"
+                }
+            ],
+            "itemtype": "event",
+            "name": "click",
+            "access": "private",
+            "tagname": "",
+            "class": "Datepicker",
+            "module": "Datepicker"
+        },
+        {
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-datepicker.js",
+            "line": 132,
+            "description": "转换2012-01-01 之类的日期 为日期对象",
+            "itemtype": "method",
+            "name": "parse2DateObj",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "sDate",
+                    "description": "日期字符串",
+                    "type": "String"
+                },
+                {
+                    "name": "sSign",
+                    "description": "日期分割符",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "正确返回日期对象,不正确返回当天",
+                "type": "Object"
+            },
+            "class": "Datepicker",
+            "module": "Datepicker"
+        },
+        {
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-datepicker.js",
+            "line": 165,
+            "description": "获取当月天数",
+            "itemtype": "method",
+            "name": "getNowMonthDays",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "year",
+                    "description": "年份",
+                    "type": "Number"
+                },
+                {
+                    "name": "month",
+                    "description": "月份：和js默认一样 是 0 - 11,-1:表示上一年12月",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "当月天数",
+                "type": "Number"
+            },
+            "class": "Datepicker",
+            "module": "Datepicker"
+        },
+        {
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-datepicker.js",
+            "line": 176,
+            "description": "获取该月一号是周几 ,周一为第一天,如果周日为第一天，则会返回值需加 1",
+            "itemtype": "method",
+            "name": "getStartWeek",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "dateObj",
+                    "description": "日期对象",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "周几",
+                "type": "Number"
+            },
+            "class": "Datepicker",
+            "module": "Datepicker"
+        },
+        {
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-datepicker.js",
+            "line": 189,
+            "description": "获取当天所处一年中的第几周",
+            "itemtype": "method",
+            "name": "getWeekSn",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "year",
+                    "description": "[description]",
+                    "type": "Number"
+                },
+                {
+                    "name": "month",
+                    "description": "[description]",
+                    "type": "Number"
+                },
+                {
+                    "name": "day",
+                    "description": "[description]",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "当天所处一年中的第几周",
+                "type": "Number"
+            },
+            "class": "Datepicker",
+            "module": "Datepicker"
+        },
+        {
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-datepicker.js",
+            "line": 223,
+            "description": "获取是全年中的第几天",
+            "itemtype": "method",
+            "name": "getDaySn",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "year",
+                    "description": "年",
+                    "type": "Number"
+                },
+                {
+                    "name": "month",
+                    "description": "月",
+                    "type": "Number"
+                },
+                {
+                    "name": "day",
+                    "description": "日",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "第几天",
+                "type": "Number"
+            },
+            "class": "Datepicker",
+            "module": "Datepicker"
+        },
+        {
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-datepicker.js",
+            "line": 239,
+            "description": "获取月历的Html信息",
+            "itemtype": "method",
+            "name": "getMonth",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "dateObj",
+                    "description": "日期对象",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "月历的html信息",
+                "type": "String"
+            },
+            "class": "Datepicker",
+            "module": "Datepicker"
+        },
+        {
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-datepicker.js",
+            "line": 343,
+            "description": "获取完整的月历视图信息",
+            "itemtype": "method",
+            "name": "getFullMonth",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "dateObj",
+                    "description": "某天的日期对象",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "完整月历视图的html信息",
+                "type": "String"
+            },
+            "class": "Datepicker",
+            "module": "Datepicker"
+        },
+        {
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-datepicker.js",
+            "line": 366,
+            "description": "获取新的日期信息",
+            "itemtype": "method",
+            "name": "getNewDateInfo]",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "dateObj",
+                    "description": "日期对象",
+                    "type": "Object"
+                },
+                {
+                    "name": "type",
+                    "description": "类型:preYear:上年,preMonth:上月,nextMonth:下月,nextYear:下年",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "包含年月日信息的对象",
+                "type": "Object"
+            },
+            "class": "Datepicker",
+            "module": "Datepicker"
+        },
+        {
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-datepicker.js",
+            "line": 414,
+            "description": "设置信息的月历信息",
+            "itemtype": "method",
+            "name": "setNewCal",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "type",
+                    "description": "更新类型:preYear:上年,preMonth:上月,nextMonth:下月,nextYear:下年",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Datepicker",
+                "type": "Object"
+            },
+            "class": "Datepicker",
+            "module": "Datepicker"
+        },
+        {
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-datepicker.js",
+            "line": 459,
+            "description": "设置选中值到输入框",
+            "itemtype": "method",
+            "name": "setSelectedVal",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "date",
+                    "description": "日期对象",
+                    "type": "Object"
+                },
+                {
+                    "name": "classInfo",
+                    "description": "被操作Dom对象的class信息",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "弹出框popOver对象",
+                "type": "Objcet"
+            },
+            "class": "Datepicker",
+            "module": "Datepicker"
+        },
+        {
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-datepicker.js",
+            "line": 492,
+            "description": "算出农历, 传入日期物件, 传回农历日期物件 ,该物件属性有 .year:农历年份,.month:农历月份,.day:农历日期,.isLeap:是否闰年:.yearCyl .dayCyl .monCyl",
+            "itemtype": "method",
+            "name": "Lunar",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "objDate",
+                    "description": "日期对象",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "农历日期对象",
+                "type": "Objcet"
+            },
+            "class": "Datepicker",
+            "module": "Datepicker"
+        },
+        {
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-datepicker.js",
+            "line": 569,
+            "description": "显示农历信息",
+            "itemtype": "method",
+            "name": "cDay",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "m",
+                    "description": "月",
+                    "type": "Number"
+                },
+                {
+                    "name": "d",
+                    "description": "年",
+                    "type": "Number"
+                },
+                {
+                    "name": "showmon",
+                    "description": "显示月份信息,缺省false",
+                    "type": "Boolean"
+                }
+            ],
+            "return": {
+                "description": "农历信息串",
+                "type": "String"
+            },
+            "class": "Datepicker",
+            "module": "Datepicker"
+        },
+        {
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-datepicker.js",
+            "line": 601,
+            "description": "获取农历信息",
+            "itemtype": "method",
+            "name": "getSolarDay",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "year",
+                    "description": "年",
+                    "type": "Number"
+                },
+                {
+                    "name": "month",
+                    "description": "月",
+                    "type": "Number"
+                },
+                {
+                    "name": "day",
+                    "description": "日",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "农历信息",
+                "type": "String"
+            },
+            "class": "Datepicker",
+            "module": "Datepicker"
+        },
+        {
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-datepicker.js",
+            "line": 616,
+            "description": "显示农历年月日",
+            "itemtype": "method",
+            "name": "solarDay2",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "year",
+                    "description": "年",
+                    "type": "Number"
+                },
+                {
+                    "name": "month",
+                    "description": "月",
+                    "type": "Number"
+                },
+                {
+                    "name": "day",
+                    "description": "日",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "农历年月日信息",
+                "type": "String"
+            },
+            "class": "Datepicker",
+            "module": "Datepicker"
+        },
+        {
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-datepicker.js",
+            "line": 634,
+            "description": "显示节假日和节气信息",
+            "itemtype": "method",
+            "name": "solarDay3",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "year",
+                    "description": "年",
+                    "type": "Number"
+                },
+                {
+                    "name": "month",
+                    "description": "月",
+                    "type": "Number"
+                },
+                {
+                    "name": "day",
+                    "description": "日",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "农历年月日信息",
+                "type": "String"
+            },
+            "class": "Datepicker",
+            "module": "Datepicker"
+        },
+        {
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-datepicker.js",
+            "line": 682,
+            "description": "获取某一天的节气信息",
+            "itemtype": "method",
+            "name": "solarDay4",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "year",
+                    "description": "年",
+                    "type": "Number"
+                },
+                {
+                    "name": "month",
+                    "description": "月",
+                    "type": "Number"
+                },
+                {
+                    "name": "day",
+                    "description": "日",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "节气名称",
+                "type": "String"
+            },
+            "class": "Datepicker",
+            "module": "Datepicker"
+        },
+        {
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-datepicker.js",
+            "line": 710,
+            "description": "获取某年的第n个节气为几号",
+            "params": [
+                {
+                    "name": "y",
+                    "description": "年",
+                    "type": "Number"
+                },
+                {
+                    "name": "n",
+                    "description": "第n个,从0小寒开始算起",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "几号",
+                "type": "Number"
+            },
+            "class": "Datepicker",
+            "module": "Datepicker"
+        },
+        {
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-datepicker.js",
+            "line": 739,
+            "description": "缺省参数",
+            "type": "{Object}",
+            "class": "Datepicker",
+            "module": "Datepicker"
+        },
+        {
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-datepicker.js",
+            "line": 773,
+            "description": "data-api 接口",
+            "itemtype": "event",
+            "name": "click.datepicker.data-api",
+            "params": [
+                {
+                    "name": "e",
+                    "description": "事件对象",
+                    "type": "Object"
+                }
+            ],
+            "class": "Datepicker",
+            "module": "Datepicker"
+        },
+        {
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-modal.js",
             "line": 30,
             "description": "当show方法被调用时，此事件将被立即触发",
             "itemtype": "event",
@@ -216,7 +844,7 @@
             "module": "Modal"
         },
         {
-            "file": "bootstrap-modal.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-modal.js",
             "line": 40,
             "description": "当模态对话框呈现完毕时（会等待过渡效果执行结束）触发",
             "itemtype": "event",
@@ -235,7 +863,7 @@
             "module": "Modal"
         },
         {
-            "file": "bootstrap-modal.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-modal.js",
             "line": 50,
             "description": "当hide方法被调用时，此事件被立即触发。",
             "itemtype": "event",
@@ -254,7 +882,7 @@
             "module": "Modal"
         },
         {
-            "file": "bootstrap-modal.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-modal.js",
             "line": 60,
             "description": "当模态对话框被隐藏（而且过渡效果执行完毕）之后，此事件将被触发",
             "itemtype": "event",
@@ -273,7 +901,7 @@
             "module": "Modal"
         },
         {
-            "file": "bootstrap-modal.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-modal.js",
             "line": 81,
             "description": "Modal 的一个实例",
             "itemtype": "property",
@@ -283,7 +911,7 @@
             "module": "Modal"
         },
         {
-            "file": "bootstrap-modal.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-modal.js",
             "line": 86,
             "description": "手工显示/隐藏一个模块框",
             "itemtype": "method",
@@ -295,7 +923,7 @@
             "module": "Modal"
         },
         {
-            "file": "bootstrap-modal.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-modal.js",
             "line": 97,
             "description": "手工显示模态框",
             "itemtype": "method",
@@ -361,7 +989,7 @@
             "module": "Modal"
         },
         {
-            "file": "bootstrap-modal.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-modal.js",
             "line": 219,
             "description": "隐藏模态框",
             "itemtype": "method",
@@ -380,7 +1008,7 @@
             "module": "Modal"
         },
         {
-            "file": "bootstrap-modal.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-modal.js",
             "line": 253,
             "description": "定位到某一个dom对象上",
             "itemtype": "method",
@@ -391,7 +1019,7 @@
             "module": "Modal"
         },
         {
-            "file": "bootstrap-modal.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-modal.js",
             "line": 266,
             "description": "根据参数设置,绑定Esc按键事件",
             "itemtype": "method",
@@ -402,7 +1030,7 @@
             "module": "Modal"
         },
         {
-            "file": "bootstrap-modal.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-modal.js",
             "line": 281,
             "description": "隐藏时显示过度动画",
             "itemtype": "method",
@@ -413,7 +1041,7 @@
             "module": "Modal"
         },
         {
-            "file": "bootstrap-modal.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-modal.js",
             "line": 298,
             "description": "隐藏模态窗口",
             "itemtype": "method",
@@ -424,7 +1052,7 @@
             "module": "Modal"
         },
         {
-            "file": "bootstrap-modal.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-modal.js",
             "line": 311,
             "description": "移除模态框的背景",
             "itemtype": "method",
@@ -435,7 +1063,7 @@
             "module": "Modal"
         },
         {
-            "file": "bootstrap-modal.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-modal.js",
             "line": 320,
             "description": "生成模态框背景",
             "itemtype": "method",
@@ -453,7 +1081,7 @@
             "module": "Modal"
         },
         {
-            "file": "bootstrap-modal.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-modal.js",
             "line": 403,
             "description": "data-api 实现",
             "itemtype": "event",
@@ -469,7 +1097,7 @@
             "module": "Modal"
         },
         {
-            "file": "bootstrap-navbar.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-navbar.js",
             "line": 38,
             "description": "NavBar 的一个实例",
             "itemtype": "property",
@@ -479,7 +1107,7 @@
             "module": "NavBar"
         },
         {
-            "file": "bootstrap-navbar.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-navbar.js",
             "line": 43,
             "description": "列表项",
             "type": "{Object} NavBarItem",
@@ -493,7 +1121,7 @@
             "module": "NavBar"
         },
         {
-            "file": "bootstrap-navbar.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-navbar.js",
             "line": 59,
             "description": "当navbar dom对象创建完毕时调用",
             "itemtype": "event",
@@ -519,7 +1147,7 @@
             "module": "NavBar"
         },
         {
-            "file": "bootstrap-navbar.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-navbar.js",
             "line": 71,
             "description": "手工显示模态框",
             "itemtype": "method",
@@ -577,7 +1205,7 @@
             "module": "NavBar"
         },
         {
-            "file": "bootstrap-navbar.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-navbar.js",
             "line": 108,
             "description": "创建形成Dom对象的字符串",
             "itemtype": "method",
@@ -602,7 +1230,7 @@
             "module": "NavBar"
         },
         {
-            "file": "bootstrap-navbar.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-navbar.js",
             "line": 156,
             "description": "设置选中项",
             "itemtype": "method",
@@ -614,7 +1242,7 @@
             "module": "NavBar"
         },
         {
-            "file": "bootstrap-navbar.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-navbar.js",
             "line": 188,
             "description": "缺省参数",
             "type": "{Object}",
@@ -622,7 +1250,7 @@
             "module": "NavBar"
         },
         {
-            "file": "bootstrap-navbar.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-navbar.js",
             "line": 213,
             "description": "data-api 接口",
             "itemtype": "event",
@@ -638,7 +1266,7 @@
             "module": "NavBar"
         },
         {
-            "file": "bootstrap-splitter.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-splitter.js",
             "line": 9,
             "description": "分割区域发生改变时触发",
             "itemtype": "event",
@@ -690,7 +1318,7 @@
             "module": "Splitter"
         },
         {
-            "file": "bootstrap-splitter.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-splitter.js",
             "line": 31,
             "description": "splitter 计数器",
             "itemtype": "property",
@@ -700,7 +1328,7 @@
             "module": "Splitter"
         },
         {
-            "file": "bootstrap-splitter.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-splitter.js",
             "line": 39,
             "description": "Splitter的一个实例",
             "itemtype": "property",
@@ -710,7 +1338,7 @@
             "module": "Splitter"
         },
         {
-            "file": "bootstrap-splitter.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-splitter.js",
             "line": 45,
             "description": "Splitter 创建函数",
             "itemtype": "method",
@@ -810,13 +1438,13 @@
                 }
             ],
             "example": [
-                "\n```javascript\n\t//创建一个缺省配置的垂直分割框架 \n\t$(sSign).splitter();\n\t//创建一个水平分割框架\n\t$(sSign).splitter({type: 'h'});\n```"
+                "\n```javascript\n //创建一个缺省配置的垂直分割框架 \n $(sSign).splitter();\n //创建一个水平分割框架\n $(sSign).splitter({type: 'h'});\n```"
             ],
             "class": "Splitter",
             "module": "Splitter"
         },
         {
-            "file": "bootstrap-splitter.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-splitter.js",
             "line": 80,
             "description": "用于判断是否触发resize方法",
             "itemtype": "method",
@@ -831,7 +1459,7 @@
             "module": "Splitter"
         },
         {
-            "file": "bootstrap-splitter.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-splitter.js",
             "line": 91,
             "description": "设置bar状态",
             "itemtype": "method",
@@ -849,7 +1477,7 @@
             "module": "Splitter"
         },
         {
-            "file": "bootstrap-splitter.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-splitter.js",
             "line": 100,
             "description": "按下鼠标开始拖动时触发(mousedown)",
             "itemtype": "method",
@@ -867,7 +1495,7 @@
             "module": "Splitter"
         },
         {
-            "file": "bootstrap-splitter.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-splitter.js",
             "line": 122,
             "description": "鼠标拖动时触发",
             "itemtype": "method",
@@ -885,7 +1513,7 @@
             "module": "Splitter"
         },
         {
-            "file": "bootstrap-splitter.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-splitter.js",
             "line": 146,
             "description": "鼠标按键抬起时触发(mouseup)",
             "itemtype": "method",
@@ -903,7 +1531,7 @@
             "module": "Splitter"
         },
         {
-            "file": "bootstrap-splitter.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-splitter.js",
             "line": 177,
             "description": "重新进行尺寸分割",
             "itemtype": "method",
@@ -926,8 +1554,8 @@
             "module": "Splitter"
         },
         {
-            "file": "bootstrap-splitter.js",
-            "line": 249,
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-splitter.js",
+            "line": 271,
             "description": "重算分割尺寸",
             "itemtype": "method",
             "name": "resize",
@@ -944,8 +1572,8 @@
             "module": "Splitter"
         },
         {
-            "file": "bootstrap-splitter.js",
-            "line": 273,
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-splitter.js",
+            "line": 296,
             "description": "获取panel边框尺寸",
             "itemtype": "method",
             "name": "getPanelBorderSize",
@@ -971,8 +1599,8 @@
             "module": "Splitter"
         },
         {
-            "file": "bootstrap-splitter.js",
-            "line": 560,
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-splitter.js",
+            "line": 588,
             "description": "data-api 接口",
             "itemtype": "event",
             "name": "click.splitter.data-api",
@@ -987,7 +1615,7 @@
             "module": "Splitter"
         },
         {
-            "file": "bootstrap-tab.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-tab.js",
             "line": 44,
             "description": "Tab 实例",
             "itemtype": "property",
@@ -997,7 +1625,7 @@
             "module": "Tab"
         },
         {
-            "file": "bootstrap-tab.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-tab.js",
             "line": 50,
             "description": "Tab 显示函数",
             "itemtype": "method",
@@ -1009,7 +1637,7 @@
             "module": "Tab"
         },
         {
-            "file": "bootstrap-tab.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-tab.js",
             "line": 93,
             "description": "激活标签页",
             "itemtype": "method",
@@ -1035,7 +1663,7 @@
             "module": "Tab"
         },
         {
-            "file": "bootstrap-tab.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-tab.js",
             "line": 134,
             "description": "创建Tab一个标签",
             "itemtype": "method",
@@ -1066,7 +1694,7 @@
             "module": "Tab"
         },
         {
-            "file": "bootstrap-tab.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-tab.js",
             "line": 157,
             "description": "删除一个标签页",
             "itemtype": "method",
@@ -1078,7 +1706,7 @@
             "module": "Tab"
         },
         {
-            "file": "bootstrap-tab.js",
+            "file": "E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-tab.js",
             "line": 206,
             "description": "data-api 接口",
             "itemtype": "event",
@@ -1096,12 +1724,20 @@
     ],
     "warnings": [
         {
-            "message": "Missing item type\n列表项",
-            "line": " bootstrap-navbar.js:43"
+            "message": "Missing item type\n获取某年的第n个节气为几号",
+            "line": " E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-datepicker.js:710"
         },
         {
             "message": "Missing item type\n缺省参数",
-            "line": " bootstrap-navbar.js:188"
+            "line": " E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-datepicker.js:739"
+        },
+        {
+            "message": "Missing item type\n列表项",
+            "line": " E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-navbar.js:43"
+        },
+        {
+            "message": "Missing item type\n缺省参数",
+            "line": " E:\\F\\myWork\\javascript\\bootstrap\\bt-flyskyhome\\js\\bootstrap-navbar.js:188"
         }
     ]
 }

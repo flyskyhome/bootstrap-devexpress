@@ -1,18 +1,25 @@
 YUI.add("yuidoc-meta", function(Y) {
    Y.YUIDoc = { meta: {
     "classes": [
+        "Datepicker",
         "Modal",
         "NavBar",
         "Splitter",
         "Tab"
     ],
     "modules": [
+        "Datepicker",
         "Modal",
         "NavBar",
         "Splitter",
         "Tab"
     ],
     "allModules": [
+        {
+            "displayName": "Datepicker",
+            "name": "Datepicker",
+            "description": "js插件:选择日期"
+        },
         {
             "displayName": "Modal",
             "name": "Modal",
