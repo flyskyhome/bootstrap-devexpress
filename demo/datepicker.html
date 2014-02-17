@@ -3,7 +3,7 @@
   <head>
     <meta charset='utf-8'>
     <title>
-      分割布局 · Bootstrap
+      日期选择控件(Datepicker) · Bootstrap
     </title>
     <meta name='viewport' content='width=device-width,initial-scale=1.0'>
     <!-- Bootstrap Css-->
@@ -81,42 +81,54 @@
             <!-- Only required for left/right tabs -->
             <ul class="nav nav-tabs" id="docTab">
               <li class="active">
-                <a href="#tab1" data-toggle="tab">上下分割(js)</a>
+                <a href="#tab1" data-toggle="tab">默认</a>
               </li>
               <li class="">
-                <a href="#tab2" data-toggle="tab">上下分割(data-api)</a>
+                <a href="#tab2" data-toggle="tab">右侧显示</a>
               </li>
               <li class="">
-                <a href="#tab3" data-toggle="tab">左右分割(js)</a>
+                <a href="#tab3" data-toggle="tab">右侧显示(data-api)</a>
               </li>
               <li class="">
-                <a href="#tab4" data-toggle="tab">左右分割(data-api)</a>
+                <a href="#tab4" data-toggle="tab">显示农历</a>
               </li>
               <li class="">
-                <a href="#tab5" data-toggle="tab">嵌套分割(js)</a>
+                <a href="#tab5" data-toggle="tab">显示农历(data-api)</a>
               </li>
               <li class="">
-                <a href="#tab6" data-toggle="tab">嵌套分割(data-api)</a>
+                <a href="#tab6" data-toggle="tab">显示农历(全月份)</a>
+              </li>
+              <li class="">
+                <a href="#tab7" data-toggle="tab">显示节假日</a>
+              </li>
+              <li class="">
+                <a href="#tab8" data-toggle="tab">定制节假日</a>
               </li>
             </ul>
             <div class="tab-content">
               <div class="tab-pane active" id="tab1">
-                <div class="p5 bd1">  <div id="tbSplitter" class="h200">	  <div id="top"></div>	  <div id="bottom"></div>  </div></div>
+                <input class="input-small" type="text" id="dpDefault" placeholder="输入日期">
               </div>
               <div class="tab-pane " id="tab2">
-                <a class="btn btn-small" data-toggle="splitter" data-target="#tbSplitter_api">创建</a><div id="tbSplitter_api" class="h200" data-type="h" data-dock="top">  <div id="left_api"></div>  <div id="right_api"></div></div>
+                <input class="input-small mt100" type="text" id="dpRight" placeholder="输入日期">
               </div>
               <div class="tab-pane " id="tab3">
-                <div class="p5 bd1">  <div id="lrSplitter" class="h200">	  <div id="left"></div>	  <div id="right"></div>  </div></div>
+                <a class="btn btn-small" data-toggle="datepicker" data-target="#dpRight02">创建</a><input class='input-small mt100' type='text' id='dpRight02' placeholder='输入日期' data-placement='right'>
               </div>
               <div class="tab-pane " id="tab4">
-                <a class="btn btn-small" data-toggle="splitter" data-target="#lrSplitter_api">创建</a><div id="lrSplitter_api" class="h200" data-type="v" data-dock="top">  <div id="left_api"></div>  <div id="right_api"></div></div>
+                <input class="input-small" type="text" id="dpLunar01" placeholder="输入日期">
               </div>
               <div class="tab-pane " id="tab5">
-                <div class="p5 bd1">  <div id="qtSplitter" class="h200">	  <div id="qtleft"></div>	  <div id="qtright" style="border:0">	    <div id="r1"></div>	    <div id="r2"></div>     </div>  </div></div>
+                <a class="btn btn-small" data-toggle="datepicker" data-target="#dpLunar03">创建</a><br/><input class='input-small' type='text' id='dpLunar03' placeholder='输入日期' data-lunar='{"enable":1}'>
               </div>
               <div class="tab-pane " id="tab6">
-                <a class="btn btn-small" data-toggle="splitter" data-target="[qt_api]">创建</a><div id="qtSplitter_api" class="h200" class="h200" qt_api data-type="h" data-dock="top">  <div id="qtleft_api"></div>  <div id="qtright_api" style="border:0" qt_api data-type="v" data-dock="top">    <div id="r1_api"></div>    <div id="r2_api"></div>    </div></div>
+                <input class="input-small" type="text" id="dpLunar02" placeholder="输入日期">
+              </div>
+              <div class="tab-pane " id="tab7">
+                <input class="input-small" type="text" id="dpHoliday01" placeholder="输入日期">
+              </div>
+              <div class="tab-pane " id="tab8">
+                <input class="input-small" type="text" id="dpHoliday02" placeholder="输入日期">
               </div>
             </div>
           </div>
@@ -141,20 +153,12 @@
             <div class="tab-content ">
               <div class="tab-pane active p5 bd1" id="src1" style="border-top:0;min-height:200px">
                 <pre>
-&lt;div id=&quot;tbSplitter&quot; class=&quot;h200&quot;&gt;
-  &lt;div id=&quot;top&quot;&gt;&lt;/div&gt;
-  &lt;div id=&quot;bottom&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
+&lt;input class=&quot;input-small&quot; type=&quot;text&quot; id=&quot;dpDefault&quot; placeholder=&quot;输入日期&quot;&gt;
                 </pre>
               </div>
               <div class="tab-pane p5 bd1" id="html1" style="border-top:0;min-height:200px">
                 <pre>
-&lt;div class=&quot;p5 bd1&quot;&gt;
-  &lt;div id=&quot;tbSplitter&quot; class=&quot;h200&quot;&gt;
-	  &lt;div id=&quot;top&quot;&gt;&lt;/div&gt;
-	  &lt;div id=&quot;bottom&quot;&gt;&lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
+&lt;input class=&quot;input-small&quot; type=&quot;text&quot; id=&quot;dpDefault&quot; placeholder=&quot;输入日期&quot;&gt;
                 </pre>
               </div>
               <div class="tab-pane p5 bd1" id="js1" style="border-top:0;min-height:200px">
@@ -164,10 +168,7 @@
                   </div>
                 </div>
                 <pre>
-$(&quot;#tbSplitter&quot;).splitter(&quot;create&quot;,{
-  type: &quot;h&quot;,
-  dock: &quot;top&quot;
-});
+$(&quot;#dpDefault&quot;).datepicker(&quot;create&quot;)
                 </pre>
               </div>
             </div>
@@ -178,23 +179,29 @@ $(&quot;#tbSplitter&quot;).splitter(&quot;create&quot;,{
               <li>
                 <a href="#html2" data-toggle="tab">Html</a>
               </li>
+              <li>
+                <a href="#js2" data-toggle="tab">js</a>
+              </li>
             </ul>
             <div class="tab-content none">
               <div class="tab-pane active p5 bd1" id="src2" style="border-top:0;min-height:200px">
                 <pre>
-&lt;div id=&quot;tbSplitter_api&quot; class=&quot;h200&quot; data-type=&quot;h&quot; data-dock=&quot;top&quot;&gt;
-  &lt;div id=&quot;left_api&quot;&gt;&lt;/div&gt;
-  &lt;div id=&quot;right_api&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
+&lt;input class=&quot;input-small mt100&quot; type=&quot;text&quot; id=&quot;dpRight&quot; placeholder=&quot;输入日期&quot;&gt;
                 </pre>
               </div>
               <div class="tab-pane p5 bd1" id="html2" style="border-top:0;min-height:200px">
                 <pre>
-&lt;a class=&quot;btn btn-small&quot; data-toggle=&quot;splitter&quot; data-target=&quot;#tbSplitter_api&quot;&gt;创建&lt;/a&gt;
-&lt;div id=&quot;tbSplitter_api&quot; class=&quot;h200&quot; data-type=&quot;h&quot; data-dock=&quot;top&quot;&gt;
-  &lt;div id=&quot;left_api&quot;&gt;&lt;/div&gt;
-  &lt;div id=&quot;right_api&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
+&lt;input class=&quot;input-small mt100&quot; type=&quot;text&quot; id=&quot;dpRight&quot; placeholder=&quot;输入日期&quot;&gt;
+                </pre>
+              </div>
+              <div class="tab-pane p5 bd1" id="js2" style="border-top:0;min-height:200px">
+                <div class="row-fluid">
+                  <div class="span12 tr">
+                    <a href="#" class="btn btn-small execjs">执行</a>
+                  </div>
+                </div>
+                <pre>
+$(&quot;#dpRight&quot;).datepicker(&quot;create&quot;,{placement:&quot;right&quot;})
                 </pre>
               </div>
             </div>
@@ -205,40 +212,18 @@ $(&quot;#tbSplitter&quot;).splitter(&quot;create&quot;,{
               <li>
                 <a href="#html3" data-toggle="tab">Html</a>
               </li>
-              <li>
-                <a href="#js3" data-toggle="tab">js</a>
-              </li>
             </ul>
             <div class="tab-content none">
               <div class="tab-pane active p5 bd1" id="src3" style="border-top:0;min-height:200px">
                 <pre>
-&lt;div id=&quot;lrSplitter&quot; class=&quot;h200&quot;&gt;
-  &lt;div id=&quot;left&quot;&gt;&lt;/div&gt;
-  &lt;div id=&quot;right&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
+&lt;a class=&quot;btn btn-small&quot; data-toggle=&quot;datepicker&quot; data-target=&quot;#dpRight02&quot;&gt;创建&lt;/a&gt;
+&lt;input class=&#39;input-small mt100&#39; type=&#39;text&#39; id=&#39;dpRight02&#39; placeholder=&#39;输入日期&#39; data-placement=&#39;right&#39;&gt;
                 </pre>
               </div>
               <div class="tab-pane p5 bd1" id="html3" style="border-top:0;min-height:200px">
                 <pre>
-&lt;div class=&quot;p5 bd1&quot;&gt;
-  &lt;div id=&quot;lrSplitter&quot; class=&quot;h200&quot;&gt;
-	  &lt;div id=&quot;left&quot;&gt;&lt;/div&gt;
-	  &lt;div id=&quot;right&quot;&gt;&lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-                </pre>
-              </div>
-              <div class="tab-pane p5 bd1" id="js3" style="border-top:0;min-height:200px">
-                <div class="row-fluid">
-                  <div class="span12 tr">
-                    <a href="#" class="btn btn-small execjs">执行</a>
-                  </div>
-                </div>
-                <pre>
-$(&quot;#lrSplitter&quot;).splitter(&quot;create&quot;,{
-  type: &quot;v&quot;,
-  dock: &quot;left&quot;
-});
+&lt;a class=&quot;btn btn-small&quot; data-toggle=&quot;datepicker&quot; data-target=&quot;#dpRight02&quot;&gt;创建&lt;/a&gt;
+&lt;input class=&#39;input-small mt100&#39; type=&#39;text&#39; id=&#39;dpRight02&#39; placeholder=&#39;输入日期&#39; data-placement=&#39;right&#39;&gt;
                 </pre>
               </div>
             </div>
@@ -249,23 +234,29 @@ $(&quot;#lrSplitter&quot;).splitter(&quot;create&quot;,{
               <li>
                 <a href="#html4" data-toggle="tab">Html</a>
               </li>
+              <li>
+                <a href="#js4" data-toggle="tab">js</a>
+              </li>
             </ul>
             <div class="tab-content none">
               <div class="tab-pane active p5 bd1" id="src4" style="border-top:0;min-height:200px">
                 <pre>
-&lt;div id=&quot;lrSplitter_api&quot; class=&quot;h200&quot; data-type=&quot;v&quot; data-dock=&quot;top&quot;&gt;
-  &lt;div id=&quot;left_api&quot;&gt;&lt;/div&gt;
-  &lt;div id=&quot;right_api&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
+&lt;input class=&quot;input-small&quot; type=&quot;text&quot; id=&quot;dpLunar01&quot; placeholder=&quot;输入日期&quot;&gt;
                 </pre>
               </div>
               <div class="tab-pane p5 bd1" id="html4" style="border-top:0;min-height:200px">
                 <pre>
-&lt;a class=&quot;btn btn-small&quot; data-toggle=&quot;splitter&quot; data-target=&quot;#lrSplitter_api&quot;&gt;创建&lt;/a&gt;
-&lt;div id=&quot;lrSplitter_api&quot; class=&quot;h200&quot; data-type=&quot;v&quot; data-dock=&quot;top&quot;&gt;
-  &lt;div id=&quot;left_api&quot;&gt;&lt;/div&gt;
-  &lt;div id=&quot;right_api&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
+&lt;input class=&quot;input-small&quot; type=&quot;text&quot; id=&quot;dpLunar01&quot; placeholder=&quot;输入日期&quot;&gt;
+                </pre>
+              </div>
+              <div class="tab-pane p5 bd1" id="js4" style="border-top:0;min-height:200px">
+                <div class="row-fluid">
+                  <div class="span12 tr">
+                    <a href="#" class="btn btn-small execjs">执行</a>
+                  </div>
+                </div>
+                <pre>
+$(&quot;#dpLunar01&quot;).datepicker(&quot;create&quot;,{lunar:{enable:1}})
                 </pre>
               </div>
             </div>
@@ -277,49 +268,25 @@ $(&quot;#lrSplitter&quot;).splitter(&quot;create&quot;,{
                 <a href="#html5" data-toggle="tab">Html</a>
               </li>
               <li>
-                <a href="#js5" data-toggle="tab">js</a>
+                <a href="#note5" data-toggle="tab">注(提示)</a>
               </li>
             </ul>
             <div class="tab-content none">
               <div class="tab-pane active p5 bd1" id="src5" style="border-top:0;min-height:200px">
                 <pre>
-&lt;div id=&quot;qtSplitter&quot; class=&quot;h200&quot;&gt;
-  &lt;div id=&quot;qtleft&quot;&gt;&lt;/div&gt;
-  &lt;div id=&quot;qtright&quot; style=&quot;border:0&quot;&gt;
-    &lt;div id=&quot;r1&quot;&gt;&lt;/div&gt;
-    &lt;div id=&quot;r2&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
+&lt;a class=&quot;btn btn-small&quot; data-toggle=&quot;datepicker&quot; data-target=&quot;#dpLunar03&quot;&gt;创建&lt;/a&gt;&lt;br/&gt;
+&lt;input class=&#39;input-small&#39; type=&#39;text&#39; id=&#39;dpLunar03&#39; placeholder=&#39;输入日期&#39; data-lunar=&#39;{&quot;enable&quot;:1}&#39;&gt;
                 </pre>
               </div>
               <div class="tab-pane p5 bd1" id="html5" style="border-top:0;min-height:200px">
                 <pre>
-&lt;div class=&quot;p5 bd1&quot;&gt;
-  &lt;div id=&quot;qtSplitter&quot; class=&quot;h200&quot;&gt;
-	  &lt;div id=&quot;qtleft&quot;&gt;&lt;/div&gt;
-	  &lt;div id=&quot;qtright&quot; style=&quot;border:0&quot;&gt;
-	    &lt;div id=&quot;r1&quot;&gt;&lt;/div&gt;
-	    &lt;div id=&quot;r2&quot;&gt;&lt;/div&gt;
-     &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
+&lt;a class=&quot;btn btn-small&quot; data-toggle=&quot;datepicker&quot; data-target=&quot;#dpLunar03&quot;&gt;创建&lt;/a&gt;&lt;br/&gt;
+&lt;input class=&#39;input-small&#39; type=&#39;text&#39; id=&#39;dpLunar03&#39; placeholder=&#39;输入日期&#39; data-lunar=&#39;{&quot;enable&quot;:1}&#39;&gt;
                 </pre>
               </div>
-              <div class="tab-pane p5 bd1" id="js5" style="border-top:0;min-height:200px">
-                <div class="row-fluid">
-                  <div class="span12 tr">
-                    <a href="#" class="btn btn-small execjs">执行</a>
-                  </div>
-                </div>
+              <div class="tab-pane p5 bd1" id="note5" style="border-top:0;min-height:200px">
                 <pre>
-$(&quot;#qtSplitter&quot;).splitter(&quot;create&quot;,{
-  type: &quot;v&quot;,
-  dock: &quot;left&quot;
-});
-$(&quot;#qtright&quot;).css({&quot;overflow&quot;:&quot;hidden&quot;}).splitter(&quot;create&quot;,{
-  type: &quot;h&quot;,
-  dock: &quot;top&quot;
-});
+1、特别注意一下那个data-lunar 的引号顺序 外层单引号,属性双引号
                 </pre>
               </div>
             </div>
@@ -330,29 +297,95 @@ $(&quot;#qtright&quot;).css({&quot;overflow&quot;:&quot;hidden&quot;}).splitter(
               <li>
                 <a href="#html6" data-toggle="tab">Html</a>
               </li>
+              <li>
+                <a href="#js6" data-toggle="tab">js</a>
+              </li>
             </ul>
             <div class="tab-content none">
               <div class="tab-pane active p5 bd1" id="src6" style="border-top:0;min-height:200px">
                 <pre>
-&lt;div id=&quot;qtSplitter_api&quot; class=&quot;h200&quot; class=&quot;h200&quot; data-type=&quot;h&quot; data-dock=&quot;top&quot;&gt;
-  &lt;div id=&quot;qtleft_api&quot;&gt;&lt;/div&gt;
-  &lt;div id=&quot;qtright_api&quot; style=&quot;border:0&quot; data-type=&quot;v&quot; data-dock=&quot;top&quot;&gt;
-    &lt;div id=&quot;r1_api&quot;&gt;&lt;/div&gt;
-    &lt;div id=&quot;r2_api&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
+&lt;input class=&quot;input-small&quot; type=&quot;text&quot; id=&quot;dpLunar02&quot; placeholder=&quot;输入日期&quot;&gt;
                 </pre>
               </div>
               <div class="tab-pane p5 bd1" id="html6" style="border-top:0;min-height:200px">
                 <pre>
-&lt;a class=&quot;btn btn-small&quot; data-toggle=&quot;splitter&quot; data-target=&quot;[qt_api]&quot;&gt;创建&lt;/a&gt;
-&lt;div id=&quot;qtSplitter_api&quot; class=&quot;h200&quot; class=&quot;h200&quot; qt_api data-type=&quot;h&quot; data-dock=&quot;top&quot;&gt;
-  &lt;div id=&quot;qtleft_api&quot;&gt;&lt;/div&gt;
-  &lt;div id=&quot;qtright_api&quot; style=&quot;border:0&quot; qt_api data-type=&quot;v&quot; data-dock=&quot;top&quot;&gt;
-    &lt;div id=&quot;r1_api&quot;&gt;&lt;/div&gt;
-    &lt;div id=&quot;r2_api&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
+&lt;input class=&quot;input-small&quot; type=&quot;text&quot; id=&quot;dpLunar02&quot; placeholder=&quot;输入日期&quot;&gt;
+                </pre>
+              </div>
+              <div class="tab-pane p5 bd1" id="js6" style="border-top:0;min-height:200px">
+                <div class="row-fluid">
+                  <div class="span12 tr">
+                    <a href="#" class="btn btn-small execjs">执行</a>
+                  </div>
+                </div>
+                <pre>
+$(&quot;#dpLunar02&quot;).datepicker(&quot;create&quot;,{lunar:{enable:1,showmon:1}})
+                </pre>
+              </div>
+            </div>
+            <ul class="nav nav-tabs none" id="infoTab7">
+              <li class="active">
+                <a href="#src7" data-toggle="tab">源代码</a>
+              </li>
+              <li>
+                <a href="#html7" data-toggle="tab">Html</a>
+              </li>
+              <li>
+                <a href="#js7" data-toggle="tab">js</a>
+              </li>
+            </ul>
+            <div class="tab-content none">
+              <div class="tab-pane active p5 bd1" id="src7" style="border-top:0;min-height:200px">
+                <pre>
+&lt;input class=&quot;input-small&quot; type=&quot;text&quot; id=&quot;dpHoliday01&quot; placeholder=&quot;输入日期&quot;&gt;
+                </pre>
+              </div>
+              <div class="tab-pane p5 bd1" id="html7" style="border-top:0;min-height:200px">
+                <pre>
+&lt;input class=&quot;input-small&quot; type=&quot;text&quot; id=&quot;dpHoliday01&quot; placeholder=&quot;输入日期&quot;&gt;
+                </pre>
+              </div>
+              <div class="tab-pane p5 bd1" id="js7" style="border-top:0;min-height:200px">
+                <div class="row-fluid">
+                  <div class="span12 tr">
+                    <a href="#" class="btn btn-small execjs">执行</a>
+                  </div>
+                </div>
+                <pre>
+$(&quot;#dpHoliday01&quot;).datepicker(&quot;create&quot;,{holiday:{enable:1}})
+                </pre>
+              </div>
+            </div>
+            <ul class="nav nav-tabs none" id="infoTab8">
+              <li class="active">
+                <a href="#src8" data-toggle="tab">源代码</a>
+              </li>
+              <li>
+                <a href="#html8" data-toggle="tab">Html</a>
+              </li>
+              <li>
+                <a href="#js8" data-toggle="tab">js</a>
+              </li>
+            </ul>
+            <div class="tab-content none">
+              <div class="tab-pane active p5 bd1" id="src8" style="border-top:0;min-height:200px">
+                <pre>
+&lt;input class=&quot;input-small&quot; type=&quot;text&quot; id=&quot;dpHoliday02&quot; placeholder=&quot;输入日期&quot;&gt;
+                </pre>
+              </div>
+              <div class="tab-pane p5 bd1" id="html8" style="border-top:0;min-height:200px">
+                <pre>
+&lt;input class=&quot;input-small&quot; type=&quot;text&quot; id=&quot;dpHoliday02&quot; placeholder=&quot;输入日期&quot;&gt;
+                </pre>
+              </div>
+              <div class="tab-pane p5 bd1" id="js8" style="border-top:0;min-height:200px">
+                <div class="row-fluid">
+                  <div class="span12 tr">
+                    <a href="#" class="btn btn-small execjs">执行</a>
+                  </div>
+                </div>
+                <pre>
+$(&quot;#dpHoliday02&quot;).datepicker(&quot;create&quot;,{holiday:{enable:1,lh:[&quot;0218 农历测试&quot;],gh:[&quot;0218 阳历测试&quot;]}})
                 </pre>
               </div>
             </div>

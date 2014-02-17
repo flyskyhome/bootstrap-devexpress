@@ -65,6 +65,9 @@
                   <li>
                     <a href="./input.html">输入框</a>
                   </li>
+                  <li>
+                    <a href="./datepicker.html">日期选择框</a>
+                  </li>
                 </ul>
               </li>
             </ul>
@@ -115,7 +118,12 @@
               <li>
                 <a href="#todo{{num}}" data-toggle="tab">todo</a>
               </li>
-              {{/todo}}              
+              {{/todo}}
+              {{#note}}
+              <li>
+                <a href="#note{{num}}" data-toggle="tab">注(提示)</a>
+              </li>
+              {{/note}}                
             </ul>
             <div class="tab-content {{hide}}">
               <div class="tab-pane active p5 bd1" id="src{{num}}" style="border-top:0;min-height:200px">
@@ -146,7 +154,14 @@
 {{todo}}
                 </pre>
               </div>
-              {{/todo}}              
+              {{/todo}} 
+              {{#note}}
+              <div class="tab-pane p5 bd1" id="note{{num}}" style="border-top:0;min-height:200px">
+                <pre>
+{{note}}
+                </pre>
+              </div>
+              {{/note}}                         
             </div>
             {{/tab_list}}
           </div>
@@ -156,6 +171,7 @@
     <script src='js_lib/jquery-1.8.3.js'></script>
     <script src='../js/bootstrap.js'></script>
     <script src='../js/bootstrap-navbar.js'></script>
+    <script src='../js/bootstrap-datepicker.js'></script>
     <script>
       $(function() {
         // 控制Tab切换效果
