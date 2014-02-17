@@ -225,13 +225,17 @@
                     // 向前导航
                     navList.first().on("click",function(e){
                         $(e.target).parent().next().find(".span2").each(function (index, domEle){
-                            $(domEle).text($(domEle).text() - 10);
+                            if($(domEle).text()>="1910"){                                
+                                $(domEle).text($(domEle).text() - 10);
+                            }
                         })
                     });
                     // 向后导航
                     navList.last().on("click",function(e){
                         $(e.target).parent().prev().find(".span2").each(function (index, domEle){
-                            $(domEle).text($(domEle).text() - 0 +10);
+                            if($(domEle).text()<"2040"){
+                                $(domEle).text($(domEle).text() - 0 +10);
+                            }
                         })
                     })
                     // 按钮处理部分
@@ -517,12 +521,14 @@
 
         switch(type){
             case "preYear":
-                curYear--;
+                curYear==1901?curYear:curYear--;
                 break;
             case "preMonth":
                 if(curMonth-1==-1){
-                    curMonth=11;
-                    curYear--;
+                    if(curYear>1901){
+                        curMonth=11;
+                        curYear--;
+                    }
                 }
                 else{
                     curMonth--;
@@ -530,15 +536,17 @@
                 break;
             case "nextMonth":
                 if(curMonth+1==12){
-                    curMonth=0;
-                    curYear++;
+                    if(curYear<2050){
+                        curMonth=0;
+                        curYear++;
+                    }
                 }
                 else{
                     curMonth++;
                 }            
                 break;
             case "nextYear":
-                curYear++;
+                curYear==2050?curYear:curYear++;
                 break;
             default:
                 var ymList=type.split(this.options.yearStr);
