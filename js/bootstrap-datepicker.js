@@ -37,106 +37,236 @@
      * @param {String} options.yearStr 显示年的文字
      * @param {String} options.monthStr 显示月的文字
      * @param {String} options.dayStr 显示日的文字
-     * @param {Object} options.lunar 农历显示相关设置
+     * @param {Object} options.lunar 农历显示设置对象
      * @param {Boolean} options.lunar.enable 是否显示
      * @param {Boolean} options.lunar.showmon 是否显示完整月信息
+     * @param {Object} options.holiday 节假日显示设置对象
+     * @param {Boolean} options.holiday.enable 是否显示
+     * @param {Array} options.holiday.lh 农历节假日列表 格式:["0115 元宵节"]
+     * @param {Array} options.holiday.gh 阳历节假日列表 格式:["0214 情人节"]
      * @return {Object}         Datepicker
      * @chainable
      */
     create:function(options){
         this.options=options||{};
 
-        this.element.on("click",pop);
-
-        var that=this;
+        this.element.on("click",{dpObj:this},this.pop);
 
         return this;
-        /**
-         * 弹出日历显示框
-         * @param  {Event} e Event对象
-         * @event click
-         * @private
-         */
-        function pop(e){
-            var target=$(e.target);
-            var sVal=target.val();
+    },
+    /**
+     * 弹出日历显示框
+     * @param  {Event} e Event对象
+     * @event click
+     * @private
+     */    
+    pop:function(e){
+        var that=e.data.dpObj;
+        var target=$(e.target);
+        var sVal=target.val();
             
-            var newDataInfo=that.parse2DateObj(sVal);
-            var curDate=newDataInfo.dateObj;
-            var status=newDataInfo.status;
-            if(!status){
-                target.css("color","#f00");
-            }
-            else{
-                target.css("color","");
-            }
-
-            var sHtml=that.getFullMonth(curDate);
-
-            var popObj=target.data("popover");
-            var isNotExists=popObj===undefined;
-            // 判断是否还未创建过
-            if(!isNotExists){
-                // 已创建过,先销毁,再显示
-                target.popover("destroy");
-                target.popover({
-                    placement:that.options.placement,
-                    html:true,
-                    content:sHtml,
-                    curdate:curDate
-                });
-            }
-            else{
-                // 未创建,先初始化,再显示
-                target.popover({
-                    placement:that.options.placement,
-                    html:true,
-                    content:sHtml,
-                    curdate:curDate
-                });                              
-                target.trigger("click");
-            }
-            // 绑定显示完成之后的事件处理
-            target.off('shown').on('shown', function (e) {
-                var popoverObj=target.next();
-                // pop导航按钮列表
-                var navObjList=popoverObj.find(".table-condensed thead a");
-                // 绑定事件
-                // 上一年                
-                navObjList.eq(0).on("click",function(e){
-                    that.setNewCal("preYear");
-                });
-                // 上一月
-                navObjList.eq(1).on("click",function(e){
-                    that.setNewCal("preMonth");
-                });
-                // 日期信息
-                navObjList.eq(2).on("click",function(e){
-                    $(e.target).popover({
-                        placement:"bottom",
-                        html:true,
-                        content:"O(∩_∩)O哈哈哈~"
-                    });                      
-                });
-                // 下一月
-                navObjList.eq(3).on("click",function(e){
-                    that.setNewCal("nextMonth");
-                });
-                // 下一年
-                navObjList.eq(4).on("click",function(e){
-                    that.setNewCal("nextYear");
-                });
-
-                popoverObj.find(".table-condensed tbody").delegate("td","click",function(e){
-                    var target=$(e.target);
-                    if(!target.hasClass("cd")){
-                    // 考虑到农历显示时问题，所以需要根据childNodes来获取第一个的数据
-                       that.setSelectedVal(target[0].childNodes[0].nodeValue,target.attr("class")).hide();
-                       //that.setSelectedVal(target.text(),target.attr("class")).hide();
-                    }
-                });
-            })
+        var newDataInfo=that.parse2DateObj(sVal);
+        var curDate=newDataInfo.dateObj;
+        var status=newDataInfo.status;
+        if(!status){
+            target.css("color","#f00");
         }
+        else{
+            target.css("color","");
+        }
+
+        var sHtml=that.getFullMonth(curDate);
+
+        var popObj=target.data("popover");
+        var isNotExists=popObj===undefined;
+        // 判断是否还未创建过
+        if(!isNotExists){
+            // 已创建过,先销毁,再显示
+            target.popover("destroy");
+            target.popover({
+                placement:that.options.placement,
+                html:true,
+                content:sHtml,
+                curdate:curDate
+            });
+        }
+        else{
+            // 未创建,先初始化,再显示
+            target.popover({
+                placement:that.options.placement,
+                html:true,
+                content:sHtml,
+                curdate:curDate
+            });                              
+            target.trigger("click");
+        }
+        // 绑定显示完成之后的事件处理        
+        target.off('shown').on('shown', function (e) {
+            var popoverObj=target.next();
+            // pop导航按钮列表
+            var navObjList=popoverObj.find(".table-condensed thead a");
+            // 绑定事件
+            // 上一年                
+            navObjList.eq(0).on("click",function(e){
+                that.setNewCal("preYear");
+            });
+            // 上一月
+            navObjList.eq(1).on("click",function(e){
+                that.setNewCal("preMonth");
+            });
+            // 日期信息
+            navObjList.eq(2).on("click",function(e){
+                var tar=$(e.target);
+                var sYear=that.options.yearStr,
+                    sMonth=that.options.monthStr;
+                /**
+                 * 创建待显示的Html信息
+                 * @method createShowHtml
+                 * @private
+                 * @param  {number} year  年
+                 * @param  {number} month 月
+                 * @return {String}       待显示的html信息
+                */
+                function createShowHtml(year,month){
+                    var StartYear=Math.floor(year/10)*10;
+                    var sHtml="<div class='container-fluid datepicker'>",
+                        sYearHtml="<div class='row-fluid datepicker-row'><div class='span1 datepicker-nav'><i class='icon-chevron-left'></i></div><div class='span10'><div class='row-fluid'><div class='span1'></div>",
+                        sMonHtml="<div class='row-fluid datepicker-row'>",
+                        sBtnHtml="<div class='row-fluid'><div class='span12'><hr><a class='btn btn-small'>确定</a> <a class='btn btn-small'>取消</a></div></div>";
+                        // 生产月信息
+                        for(var i=1;i<13;i++){                  
+                            if(month==i){
+                                sMonHtml+="<div class='span3 datepicker-active'>"+i+sMonth+"</div>";
+                            }
+                            else{                                
+                                sMonHtml+="<div class='span3'>"+i+sMonth+"</div>";
+                            }
+                            if(i%4==0){
+                                if(i!=12){
+                                    sMonHtml+="</div><div class='row-fluid datepicker-row'>";
+                                }
+                                else{
+                                    sMonHtml+="</div>";
+                                }
+                            }
+                        }
+                        // 生产年信息
+                        for(var i=1;i<11;i++){
+                            if(year==StartYear+i-1){
+                                sYearHtml+="<div class='span2 datepicker-active'>"+(StartYear+i-1)+"</div>";
+                            }
+                            else{
+                                sYearHtml+="<div class='span2'>"+(StartYear+i-1)+"</div>";
+                            }
+                            if(i%5==0){
+                                if(i!=10){
+                                    sYearHtml+="<div class='span1'></div></div><div class='row-fluid datepicker-row'><div class='span1'></div>";
+                                }
+                                else{
+                                    sYearHtml+="<div class='span1'></div></div>";
+                                }
+                            }
+                        }
+                        sYearHtml+="</div><div class='span1 datepicker-nav'><i class='icon-chevron-right'></i></div></div>";
+                        sHtml+=sMonHtml+sYearHtml+sBtnHtml+"</div>";
+                        return sHtml;
+                }
+                /**
+                 * 显示日月选择框
+                 * @method showYearAndMon
+                 * @private
+                 * @return {[type]} [description]
+                 */
+                function showYearAndMon(){
+                    // 当前选中的年月信息
+                    var sText=tar.text(),
+                    // 年月的配置信息
+                        ymList=sText.split(sYear);
+                    ymList[1]=ymList[1].replace(sMonth,"");
+                    var sHtml=createShowHtml(ymList[0],ymList[1]);
+                    // 判断是否已有弹出信息
+                    var pop=tar.data("popover");
+                    var isNotExists=pop===undefined;
+                    if(!isNotExists){
+                        tar.popover("destroy");
+                        tar.popover({
+                            placement:"bottom",
+                            html:true,
+                            content:sHtml
+                        });
+                    }
+                    else{
+                        // 未创建,先初始化,再显示
+                        tar.popover({
+                            placement:"bottom",
+                            html:true,
+                            content:sHtml
+                        });                              
+                        tar.trigger("click");
+                    }
+                }
+                showYearAndMon();
+                // 显示完成后的处理动作
+                tar.off('shown').on('shown', function (e){
+                    var tmpPop=tar.next();
+                    // 月份处理部分
+                    var monList=tmpPop.find(".datepicker-row .span3");
+                    monList.on("click",function(e){
+                        monList.removeClass("datepicker-active");
+                        $(e.target).addClass("datepicker-active");
+                    })
+                    // 年份处理部分
+                    var yearList=tmpPop.find(".datepicker-row .span2");
+                    yearList.on("click",function(e){
+                        yearList.removeClass("datepicker-active");
+                        $(e.target).addClass("datepicker-active");
+                    })
+                    var navList=tmpPop.find("i");
+                    // 向前导航
+                    navList.first().on("click",function(e){
+                        $(e.target).parent().next().find(".span2").each(function (index, domEle){
+                            $(domEle).text($(domEle).text() - 10);
+                        })
+                    });
+                    // 向后导航
+                    navList.last().on("click",function(e){
+                        $(e.target).parent().prev().find(".span2").each(function (index, domEle){
+                            $(domEle).text($(domEle).text() - 0 +10);
+                        })
+                    })
+                    // 按钮处理部分
+                    var btnList=tmpPop.find(".btn");
+                    // 确定按钮
+                    btnList.first().on("click",function(e){
+                        var selectedItem=tmpPop.find(".datepicker-active");
+                        var sTmpYear=selectedItem.last().text(),
+                            sTmpMon =selectedItem.first().text();
+                        tar.popover("hide");
+                        that.setNewCal(sTmpYear+sYear+sTmpMon);
+                    })
+                    // 取消按钮
+                    btnList.last().on("click",function(e){
+                        tar.popover("hide");
+                    })
+                });
+            });
+            // 下一月
+            navObjList.eq(3).on("click",function(e){
+                that.setNewCal("nextMonth");
+            });
+            // 下一年
+            navObjList.eq(4).on("click",function(e){
+                that.setNewCal("nextYear");
+            });
+            popoverObj.find(".table-condensed tbody").delegate("td","click",function(e){
+                var target=$(e.target);
+                if(!target.hasClass("cd")){
+                // 考虑到农历显示时问题，所以需要根据childNodes来获取第一个的数据
+                    that.setSelectedVal(target[0].childNodes[0].nodeValue,target.attr("class")).hide();
+                    //that.setSelectedVal(target.text(),target.attr("class")).hide();
+                }
+            });
+        })        
     },
     /**
      * 转换2012-01-01 之类的日期 为日期对象
@@ -411,7 +541,18 @@
                 curYear++;
                 break;
             default:
-                return undefined;
+                var ymList=type.split(this.options.yearStr);
+                // 如果送进来的type格式类似为 yyyy年mm月
+                if(ymList.length>1){
+                    return {
+                        year:ymList[0],
+                        month:ymList[1].replace(this.options.monthStr,"")-1,
+                        day:curDay
+                    }
+                }
+                else{
+                    return undefined;
+                }
         }
 
         return {
@@ -455,7 +596,9 @@
         // 更新月历文字信息
         var sYear=this.options.yearStr;
         var sMonth=this.options.monthStr;
-        navObjList.parent()[0].childNodes[2].nodeValue=curYear+sYear+(curMonth+1)+sMonth;
+
+        navObjList.eq(2).text(curYear+sYear+(curMonth+1)+sMonth);
+        //navObjList.parent()[0].childNodes[2].nodeValue=curYear+sYear+(curMonth+1)+sMonth;
 
         if(this.options.lunar.enable){
             var lunarDom=popoverObj.find(".table-condensed .lunar");
@@ -474,6 +617,7 @@
      * @return {Objcet} 弹出框popOver对象
      */
     setSelectedVal:function(date,classInfo){
+        date=date.replace("*","");
         var target=this.element,
             curDate=target.data("popover").options.curdate,
             newDateObj,
@@ -634,10 +778,7 @@
     solarDay2:function(year, month, day, showmon) {
         var sDObj = new Date(year, month, day);
         var lDObj = this.Lunar(sDObj);
-//        var cl = '<font color="#000066" STYLE="font-size:9pt;">';
-        //农历BB'+(cld[d].isLeap?'闰 ':' ')+cld[d].lMonth+' 月 '+cld[d].lDay+' 日 
         var tt = '农历' + this.cDay(lDObj.month, lDObj.day, showmon,lDObj.isLeap);
-  //      return (cl + tt + '</font>');
         return tt;
     },
     /**
@@ -649,13 +790,14 @@
      * @param  {number} day   日
      * @return {String}       农历年月日信息
      */
-    solarDay3:function(year, month, day) {
-        //var sTermInfo = new Array(0, 21208, 42467, 63836, 85337, 107014, 128867, 150921, 173149,195551, 218072, 240693, 263343, 285989, 308563, 331033, 353350, 375494, 397447, 419210, 440795, 462224, 483532, 504758);        
-        
+    solarDay3:function(year, month, day) {        
         var lFtv = new Array("0101*春节", "0115 元宵节", "0505 端午节", "0707 七夕情人节", "0715 中元节", "0815 中秋节", "0909 重阳节", "1208 腊八节", "1224 小年", "0100*除夕")
 
         var sFtv = new Array("0101*元旦", "0214 情人节", "0308 妇女节", "0312 植树节", "0315 消费者权益日", "0401 愚人节", "0501 劳动节", "0504 青年节", "0512 护士节", "0601 儿童节", "0701 建党节 香港回归纪念", "0801 建军节", "0808 父亲节", "0909 南晟网周年纪念日", "0910 教师节", "0928 孔子诞辰", "1001*国庆节", "1006 老人节", "1024 联合国日", "1112 孙中山诞辰", "1220 澳门回归纪念", "1225 圣诞节", "1226 毛主席诞辰")
         
+        this.options.holiday && this.options.holiday.gh && (sFtv=sFtv.concat(this.options.holiday.gh));
+        this.options.holiday && this.options.holiday.lh && (lFtv=lFtv.concat(this.options.holiday.lh));
+
         var sDObj = new Date(year, month, day);
         var lDObj = this.Lunar(sDObj);
         var lDPOS = new Array(3)
@@ -783,10 +925,23 @@
    * data-api 接口
    * @event click.datepicker.data-api
    * @param {Object} e 事件对象
-   */
+   */  
+  
   $(document).on('click.datepicker.data-api', '[data-toggle="datepicker"]', function (e) {
+
+    var $this = $(this),
+      href = $this.attr('href'),
+      $targetList = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, ''))),
+      option, $target, iCount = $targetList.length; //strip for ie7
+    
     e.preventDefault();
-    $(this).datepicker('create');
+    
+    for (var i = 0; i < iCount; i++) {
+        $target = $($targetList[i]);
+        option = $target.data('datepicker') ? 'create' : $.extend($target.data(), $this.data());
+        $target.datepicker('create', option);
+    }
+
   }); 
 
 }(window.jQuery);
