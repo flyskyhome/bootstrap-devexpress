@@ -12,6 +12,11 @@ $(sSign).tab('create',options)
 ```javasctipt
 $(sSign).tab("remove");
 ```
+###### Bootstrap-Tab:Api
+>[Bootstrap Tab Class](https://github.com/flyskyhome/bootstrap-devexpress/blob/master/apidocs/classes/Tab.html "Bootstrap Tab Class信息")
+
+###### Bootstrap-Tab:Demo 
+>[Bootstrap Tab Demo](https://github.com/flyskyhome/bootstrap-devexpress/blob/master/demo/tab.html "Bootstrap Tab Demo")  
 #### 二、Modal(js插件:模态窗口)
 1.扩展options参数 (*)
 
@@ -19,6 +24,11 @@ $(sSign).tab("remove");
 	frame	string	嵌入模态框内的页面地址
 	height	string	模态框内容显示高度
 	width	string	模态框显示宽度
+###### Bootstrap-Modal:Api
+>[Bootstrap Modal Class](https://github.com/flyskyhome/bootstrap-devexpress/blob/master/apidocs/classes/Modal.html "Bootstrap Modal Class信息")
+
+###### Bootstrap-Modal:Demo 
+>[Bootstrap Modal Demo](https://github.com/flyskyhome/bootstrap-devexpress/blob/master/demo/modal.html "Bootstrap Modal Demo")  
 #### 三、NavBar(js插件:导航条) (+)
 ##### 方法
 1.创建导航条
@@ -48,6 +58,11 @@ $(sSign).navbar("active");
 $(sSign).on('created', function (ev){});
 $(sSign).delegate('>div','created', function (ev){console.log(ev.log)});
 ```
+###### Bootstrap-Navbar:Api
+>[Bootstrap Navbar Class](https://github.com/flyskyhome/bootstrap-devexpress/blob/master/apidocs/classes/NavBar.html "Bootstrap Navbar Class信息")
+
+###### Bootstrap-Navbar:Demo 
+>[Bootstrap Navbar Demo](https://github.com/flyskyhome/bootstrap-devexpress/blob/master/demo/navbar.html "Bootstrap Navbar Demo")
 #### 四、Splitter(js插件:区域分割) (+)
 ###### 方法(Methods)
 1.创建 (create)
@@ -63,7 +78,11 @@ $('#MySplitter').splitter({type: 'h'});
 ```javascript
 $(sSign).on('onresize', function (ev){});
 ```
+###### Bootstrap-Splitter:Api
+>[Bootstrap Splitter Class](https://github.com/flyskyhome/bootstrap-devexpress/blob/master/apidocs/classes/Splitter.html "Bootstrap Splitter Class信息")
 
+###### Bootstrap-Splitter:Demo 
+>[Bootstrap Splitter Demo](https://github.com/flyskyhome/bootstrap-devexpress/blob/master/demo/splitter_frame.html "Bootstrap Splitter Demo")
 #### 五、Datepicker(js插件:日期选择) (+)
 ###### 方法(Methods)
 1.创建 (create)
@@ -73,3 +92,9 @@ $('#MyDatepicker').datepicker("create");
 //创建一个水平分割框架
 $('#MyDatepicker').datepicker("create",{lunar:{create:1}});
 ```
+
+######  Bootstrap-Datepicker:Api
+>[Bootstrap Datepicker Class](https://github.com/flyskyhome/bootstrap-devexpress/blob/master/apidocs/classes/Datepicker.html "Bootstrap Datepicker Class信息")
+
+######  Bootstrap-Datepicker:Demo 
+>[Bootstrap Datepicker Demo](https://github.com/flyskyhome/bootstrap-devexpress/blob/master/demo/datepicker.html "Bootstrap Datepicker Demo")
