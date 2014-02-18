@@ -63,3 +63,13 @@ $('#MySplitter').splitter({type: 'h'});
 ```javascript
 $(sSign).on('onresize', function (ev){});
 ```
+
+#### 五、Datepicker(js插件:日期选择) (+)
+###### 方法(Methods)
+1.创建 (create)
+```javascript
+//创建一个缺省配置的垂直分割框架 
+$('#MyDatepicker').datepicker("create");
+//创建一个水平分割框架
+$('#MyDatepicker').datepicker("create",{lunar:{create:1}});
+```
