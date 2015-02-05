@@ -16,5 +16,5 @@ bootstrap-devexpress
 	win7 32位
 ####浏览器
 	1、chrome 31.0.1650.57
-	2、ie10
+	2、ie10p
 	3、ie10 下的 ie7\ie8\ie9\ 兼容模式
